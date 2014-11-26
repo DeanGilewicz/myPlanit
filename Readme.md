@@ -1,3 +1,19 @@
-## Yo, I'm a Readme
+## myPlanit
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+A trip planning app that allows users to efficiently plan their travel activities
+
+How to use it
+* Clone my repo
+* Run npm install
+* Run bower install
+
+Libraries
+
+* Angular
+* jQuery
+* Underscore
+* SASS
+
+Author
+
+* Dean Gilewicz
