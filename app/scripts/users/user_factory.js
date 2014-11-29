@@ -6,7 +6,7 @@
         var register = function (user) {
           $http.post(PARSE_URI + 'users', user, PARSE_HEADERS).success( function (data) {
             console.log(data);
-            $location.path('/');
+            return login(user);
           });
         };
 
@@ -28,9 +28,9 @@
           var user = $cookieStore.get('currentUser');
           console.log(user);
           if(user) {
-            $('#user').html('Welcome back ' + user.username);
+            $('#user').html('Hello ' + user.username);
             $('#logoutBtn').show();
-            // $location.path('/profile');
+            $location.path('/profile');
           } else {
             $('#user').html('Please Log In');
             $('#logoutBtn').hide();
