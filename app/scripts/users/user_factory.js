@@ -29,9 +29,11 @@
           console.log(user);
           if(user) {
             $('#user').html('Welcome back ' + user.username);
+            $('#logoutBtn').show();
             // $location.path('/profile');
           } else {
             $('#user').html('Please Log In');
+            $('#logoutBtn').hide();
             // $location.path('/');
           }
         };

@@ -35,7 +35,10 @@
           <a href="#/single" class="single">singlePlan</a> <!-- when plan selected from home view show specific plan events, show/add comment/rating -->
           <a href="#/author" class="author">author</a> <!-- when author selected from home view show all posted itineries from author -->
         </nav>
-        <span id="user"></span>
+        <div ng-controller="UserCtrl">
+          <span id="user"></span>
+          <button id="logoutBtn" ng-click="logout()">Logout</button>
+        </div>        
       </div>
       <h1>myPlanit</h1>
       <div ng-view></div>
