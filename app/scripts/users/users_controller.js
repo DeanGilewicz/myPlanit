@@ -1,5 +1,4 @@
 (function () {
-
   angular.module('myPlanit')
     .controller('UserCtrl', ['UserFactory', '$scope',
       function (UserFactory, $scope) {

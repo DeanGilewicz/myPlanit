@@ -1,5 +1,4 @@
 (function () {
-
   angular.module('myPlanit')
     .factory('UserFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$cookieStore', '$location',
       function (PARSE_HEADERS, PARSE_URI, $http, $cookieStore, $location) {
