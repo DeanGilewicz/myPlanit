@@ -11,13 +11,19 @@
     .constant('PARSE_URI', 'https://api.parse.com/1/classes/myPlanit/')
     .config( function ($routeProvider) {
 
-      $routeProvider.when('/signIn', {
-        templateUrl: 'templates/users/signIn.html',
-        controller: 'SignInCtrl'
-      }).otherwise({
-        templateUrl: 'templates/users/signUp.html',
-        controller: 'SignUpCtrl'
-      })
+      $routeProvider.when('/', {
+        templateUrl: 'scripts/main/main.html',
+        controller: 'MainCtrl'
+      });
+
+      $routeProvider.when('/user', {
+        templateUrl: 'scripts/users/user.html',
+        controller: 'UserCtrl'
+      });
+
+      $routeProvider.otherwise({
+        redirectTo: '/'
+      });
 
     });
 
