@@ -4,12 +4,6 @@
       function (PlanFactory, $scope) {
 
 
-
-
-        return {
-
-        }
-
       }
 
     ]);

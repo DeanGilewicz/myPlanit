@@ -4,12 +4,6 @@
       function (NewPlanitFactory, $scope) {
 
 
-
-
-        return {
-
-        }
-
       }
 
     ]);

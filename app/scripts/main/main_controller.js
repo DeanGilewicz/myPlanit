@@ -1,7 +1,7 @@
 (function () {
   angular.module('myPlanit')
-    .controller('MainCtrl', ['$scope', 'MainFactory', '$rootScope',
-      function ($scope, MainFactory, $rootScope) {
+    .controller('MainCtrl', ['MainFactory', '$rootScope', '$scope',
+      function (MainFactory, $rootScope, $scope) {
 
         MainFactory.getPlans().success( function (data) {
           $scope.plans = data;

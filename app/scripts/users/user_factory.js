@@ -27,10 +27,10 @@
           var user = $cookieStore.get('currentUser');
           if(user) {
             $('#user').html('Welcome back ' + user.username);
-            $location.path('/main');
+            // $location.path('/main');
           } else {
             $('#user').html('Please Log In');
-            $location.path('/');
+            // $location.path('/');
           }
         };
 
