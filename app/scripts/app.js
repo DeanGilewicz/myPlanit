@@ -8,7 +8,7 @@
         'Content-Type': 'application/json'
       }
     })
-    .constant('PARSE_URI', 'https://api.parse.com/1/classes/myPlanit/')
+    .constant('PARSE_URI', 'https://api.parse.com/1/')
     .config( function ($routeProvider) {
 
       $routeProvider.when('/', {
@@ -25,6 +25,21 @@
         redirectTo: '/'
       });
 
+    })
+    .run(['$rootScope', '$location', 'UserFactory', function ($rootScope, $location, UserFactory) {
+      $rootScope.$on('$routeChangeStart', function (event) {
+        UserFactory.checkUser();
+        $(document).foundation();
+      });
+    }])
+    .directive('logOut', function (UserFactory) {
+      return {
+        link: function ($scope, element, attrs) {
+          element.bind('click', function () {
+            UserFactory.logout();
+          });
+        }
+      }
     });
 
 }());
