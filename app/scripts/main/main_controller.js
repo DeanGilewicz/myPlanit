@@ -1,13 +1,14 @@
 (function () {
   angular.module('myPlanit')
-    .factory('MainFactory', ['$scope',
-      function ($scope) {
-        
-        return {
+    .controller('MainCtrl', ['$scope', 'MainFactory', '$rootScope',
+      function ($scope, UserFactory, $rootScope) {
 
-        }
+        MainFactory.getPlans().success( function (data) {
+          $scope.plans = data;
+        });
 
       }
-    ]);
 
+    ]);
+    
 }());
