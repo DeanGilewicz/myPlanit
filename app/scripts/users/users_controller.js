@@ -15,9 +15,6 @@
           UserFactory.logout();
         };
 
-        // Check User on App Load
-        UserFactory.checkUser();
-
       }
     ]);
 
