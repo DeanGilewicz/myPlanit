@@ -50,7 +50,6 @@
       function ($rootScope, $location, UserFactory) {
         $rootScope.$on('$routeChangeStart', function (event) {
           UserFactory.checkUser();
-          $(document).foundation();
         });
     }])
     .directive('logOut', function (UserFactory) {
