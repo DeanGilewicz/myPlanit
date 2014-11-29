@@ -1,13 +1,13 @@
 (function () {
   angular.module('myPlanit')
-    .factory('profileFactory', ['$scope',
+    .factory('ProfileFactory', ['$scope',
       function ($scope) {
 
 
 
 
         return {
-          
+
         }
 
       }

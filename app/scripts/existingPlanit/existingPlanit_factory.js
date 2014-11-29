@@ -1,6 +1,6 @@
 (function () {
   angular.module('myPlanit')
-    .factory('existingPlanitFactory', ['$scope',
+    .factory('ExistingPlanitFactory', ['$scope',
       function ($scope) {
 
 

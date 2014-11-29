@@ -1,9 +1,9 @@
 (function () {
   angular.module('myPlanit')
-    .controller('existingPlanitCtrl', ['existingPlanitFactory', '$scope',
-      function (existingPlanitFactory, $scope) {
+    .controller('ExistingPlanitCtrl', ['ExistingPlanitFactory', '$scope',
+      function (ExistingPlanitFactory, $scope) {
 
-        
+
 
 
         return {

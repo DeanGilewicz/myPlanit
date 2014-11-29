@@ -21,6 +21,26 @@
         controller: 'UserCtrl'
       });
 
+      $routeProvider.when('/profile', {
+        templateUrl: 'scripts/profile/profile.html',
+        controller: 'ProfileCtrl'
+      });
+
+      $routeProvider.when('/plan', {
+        templateUrl: 'scripts/plan/plan.html',
+        controller: 'PlanCtrl'
+      });
+
+      $routeProvider.when('/existing', {
+        templateUrl: 'scripts/newPlanit/newPlanit.html',
+        controller: 'NewPlanitCtrl'
+      });
+
+      $routeProvider.when('/new', {
+        templateUrl: 'scripts/existingPlanit/existingPlanit.html',
+        controller: 'ExistingPlanitCtrl'
+      });
+
       $routeProvider.otherwise({
         redirectTo: '/'
       });

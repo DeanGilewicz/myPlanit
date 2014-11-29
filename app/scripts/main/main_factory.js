@@ -4,7 +4,7 @@
       function (PARSE_URI, PARSE_HEADERS, $http, $rootScope) {
 
         var getPlans = function () {
-          return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
+          return $http.get(PARSE_URI + 'classes/myPlanit', PARSE_HEADERS);
         };
 
         return {

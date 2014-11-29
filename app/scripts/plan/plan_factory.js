@@ -1,6 +1,6 @@
 (function () {
   angular.module('myPlanit')
-    .factory('planFactory', ['$scope',
+    .factory('PlanFactory', ['$scope',
       function ($scope) {
 
 
