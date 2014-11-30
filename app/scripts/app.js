@@ -26,19 +26,24 @@
         controller: 'ProfileCtrl'
       });
 
+      $routeProvider.when('/create', {
+        templateUrl: 'scripts/create/create.html',
+        controller: 'CreateCtrl'
+      });
+
       $routeProvider.when('/plan', {
         templateUrl: 'scripts/plan/plan.html',
         controller: 'PlanCtrl'
       });
 
       $routeProvider.when('/existing', {
-        templateUrl: 'scripts/newPlanit/newPlanit.html',
-        controller: 'NewPlanitCtrl'
+        templateUrl: 'scripts/existingPlanit/existingPlanit.html',
+        controller: 'ExistingPlanitCtrl'
       });
 
       $routeProvider.when('/new', {
-        templateUrl: 'scripts/existingPlanit/existingPlanit.html',
-        controller: 'ExistingPlanitCtrl'
+        templateUrl: 'scripts/newPlanit/newPlanit.html',
+        controller: 'NewPlanitCtrl'
       });
 
       $routeProvider.otherwise({
