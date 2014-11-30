@@ -17,8 +17,8 @@
 
 
 <ul>
-  <li ng-repeat="poi in poiList">
+  <li ng-repeat="poi in poiList" id="{{ poi.objectId }}">
     <p>I want to see {{ poi.name }} </p>
-    <button class="removeBtn">Remove</button>
+    <button ng-click="deletePoi(poi.objectId, $index)">X</button>
   </li>
 </ul>
