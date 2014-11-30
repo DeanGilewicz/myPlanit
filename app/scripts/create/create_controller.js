@@ -1,9 +1,9 @@
 (function () {
   angular.module('myPlanit')
-    .controller('createCtrl', ['CreateFactory', '$scope',
+    .controller('CreateCtrl', ['CreateFactory', '$scope',
       function (CreateFactory, $scope) {
 
-        
+
 
 
       }
