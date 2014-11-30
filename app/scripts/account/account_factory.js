@@ -1,6 +1,6 @@
 (function () {
   angular.module('myPlanit')
-    .factory('UserFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$cookieStore', '$location',
+    .factory('AccountFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$cookieStore', '$location',
       function (PARSE_HEADERS, PARSE_URI, $http, $cookieStore, $location) {
 
         var register = function (user) {
