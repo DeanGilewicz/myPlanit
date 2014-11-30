@@ -24,7 +24,7 @@
         $scope.doSearch = function () {
           PlanFactory.doSearch().success( function (data) {
             console.log(data);
-            // $scope.fourSquare = data.results;
+            $scope.searchResults = data.results;
           });
         }
 
