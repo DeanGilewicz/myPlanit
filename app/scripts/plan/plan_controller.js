@@ -10,6 +10,17 @@
           // });
         }
 
+
+        PlanFactory.getPois().then( function (results) {
+          console.log(results);
+          $scope.poiList = results.data.results;
+        });
+
+
+
+
+
+
       }
 
     ]);

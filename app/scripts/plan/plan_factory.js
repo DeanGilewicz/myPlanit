@@ -14,13 +14,13 @@
           // });
         }
 
-        var listPoi = function (poi) {
-          $http.get
-
+        var getPois = function (poi) {
+          return $http.get(PARSE_URI + 'classes/PoiList', PARSE_HEADERS);
         }
 
         return {
-          addPoi: addPoi
+          addPoi: addPoi,
+          getPois: getPois
         }
 
       }
