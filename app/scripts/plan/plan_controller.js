@@ -3,9 +3,9 @@
     .controller('PlanCtrl', ['PlanFactory', '$scope', '$rootScope', '$location',
       function (PlanFactory, $scope, $rootScope, $location) {
 
-        PlanFactory.getPois().success( function (results) {
-          console.log(results);
-          $scope.poiList = results.results;
+        PlanFactory.getPois().success( function (data) {
+          console.log(data);
+          $scope.poiList = data.results;
         });
 
         $scope.addPoi = function (poi) {
@@ -20,6 +20,13 @@
             $scope.poiList.splice(index, 1);
           });
         };
+
+        $scope.doSearch = function () {
+          PlanFactory.doSearch().success( function (data) {
+            console.log(data);
+            // $scope.fourSquare = data.results;
+          });
+        }
 
 
       }

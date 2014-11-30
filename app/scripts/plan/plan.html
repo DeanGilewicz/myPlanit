@@ -1,19 +1,14 @@
-<!-- <form ng-submit="addPoi(poi)"><br/>
+<form>
 
-  <input type="text" ng-model="poi.name" placeholder="What to see or do?" /><br/><br/>
+  <input type="text" name="query" id="query" value="" placeholder="Search?">
+  <input type="text" ng-model="poi.name" placeholder="What do you want to see?" />
 
-  <button>Add</button>
-
-</form> -->
-
-
-<form ng-submit="addPoi(poi)"><br/>
-
-  <input type="text" ng-model="poi.name" placeholder="What to see or do?" /><br/><br/>
-
-  <button>Add</button>
+  <button ng-click="doSearch()">Find</button>
+  <button ng-click="addPoi(poi)">Add</button>
 
 </form>
+
+<div></div>
 
 
 <ul>
