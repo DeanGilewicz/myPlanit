@@ -22,7 +22,17 @@
 </section>
 
 <h3>Poi Details</h3>
-<p>show the details of search result that is clicked on - name, address, contact, hours of op etc</p>
+<h5>Description</h5>
+<p>{{ allDetails.description }}</p>
+<h5>Rating</h5>
+<p>{{ allDetails.rating }}</p>
+<h5>Website</h5>
+<p>{{ allDetails.url }}</p>
+<h5>Hours</h5>
+<li ng-repeat="hours in schedule">
+  <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
+</li>
+
 
 
 <h2>Plan</h2>

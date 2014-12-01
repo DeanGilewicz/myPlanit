@@ -31,7 +31,12 @@
         // objId is related to what is passed in poiDetail() that we can have access too
         // result.id gives me access to the id
         $scope.poiDetails = function (objId) {
-          PlanFactory.poiDetails(objId);
+          PlanFactory.poiDetails(objId).success( function (data) {
+            console.log(data);
+            $scope.allDetails = data.response.venue;
+            $scope.schedule = data.response.venue.popular.timeframes;
+            console.log($scope.schedule);
+          });
         }
 
         $scope.doExplore = function () {

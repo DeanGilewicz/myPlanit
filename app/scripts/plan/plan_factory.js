@@ -54,7 +54,6 @@
         }
 
         var poiDetails = function (objId) {
-          console.log('yippee kay ay')
             return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806').success(function (data) {
               console.log(data);
             }).error(function(data) {
