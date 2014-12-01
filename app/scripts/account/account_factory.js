@@ -11,6 +11,7 @@
           return $http.post(usersUrl, user, PARSE_HEADERS).success( function (data) {
             console.log(data);
             return login(user); // run login function once signed up
+            // create a my plans object to store arrays of plans??
           });
         };
 
@@ -27,7 +28,6 @@
         var logout = function () {
           $cookieStore.remove('currentUser');
           $location.path('/');
-          return checkUser();
         };
 
         var checkUser = function () {
