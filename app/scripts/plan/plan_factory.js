@@ -11,6 +11,8 @@
         function getLocation(location) {
           lat = location.coords.latitude;
           lng = location.coords.longitude;
+          console.log(lat);
+          console.log(lng);
         }
 
 
@@ -34,15 +36,14 @@
         }
 
 
-
         var doExplore = function () {
 
-          if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'&section=topPicks').success(function (data) {
+          if($('#near').val() == "" && $('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&ll='+lat+','+lng+'&section=topPicks').success(function (data) {
               console.log(data);
             })
-          } else if($('#near').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&ll='+lat+','+lng+'&section=topPicks').success(function (data) {
+          } else if($('#near').val() !== "" && $('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'&section=topPicks').success(function (data) {
               console.log(data);
             })
           } else {
