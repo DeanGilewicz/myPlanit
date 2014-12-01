@@ -10,7 +10,7 @@
         // }
 
         var doSearch = function () {
-          return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&near=Atlanta&query='+$('#query').val()+'').success(function (data) {
+          return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&near='+$('#near').val()+'&query='+$('#query').val()+'').success(function (data) {
             console.log(data);
           }).error(function(data) {
             console.log('error');
