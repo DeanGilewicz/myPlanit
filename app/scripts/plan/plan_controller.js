@@ -30,6 +30,15 @@
           });
         }
 
+        $scope.doExplore = function () {
+          PlanFactory.doExplore().success( function (data) {
+            console.log(data);
+            $scope.searchResults = data.response.groups[0].items;
+            console.log($scope.searchResults);
+
+          });
+        }
+
 
       }
 

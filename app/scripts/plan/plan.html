@@ -1,17 +1,17 @@
-<form>
-
+<form id="search">
   <input type="text" name="near" id="near" value="" placeholder="Destination?">
   <input type="text" name="query" id="query" value="" placeholder="Search?">
-  <input type="text" ng-model="poi.name" placeholder="What do you want to see?" />
-  <button ng-click="addPoi(poi)">Add</button>
+  <!-- <input type="text" ng-model="poi.name" placeholder="What do you want to see?" /> -->
   <button ng-click="doSearch()">Find</button>
-
+  <button ng-click="doExplore()">Top Picks</button>
 </form>
+
 
 <h3>Search Results</h3>
 <ul>
   <li ng-repeat="result in searchResults" id="resultDetails">
-    <p>{{ result.name }}</p>
+    <p>{{ result.name }} {{ result.venue.name }}</p>
+    <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
     <button ng-click="addPoi(poi)">Add</button>
   </li>
 </ul>
