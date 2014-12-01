@@ -59,7 +59,7 @@
             });
         }
 
-
+        // get all points of interests from poiList on Parse
         var getPois = function () {
           return $http.get(PARSE_URI + 'classes/PoiList', PARSE_HEADERS);
         }
@@ -75,8 +75,8 @@
           // });
         }
 
-        var deletePoi = function (poiID) {
-          return $http.delete(PARSE_URI + 'classes/PoiList/' + poiID, PARSE_HEADERS);
+        var deletePoi = function (objId) {
+          return $http.delete(PARSE_URI + 'classes/PoiList/' + objId, PARSE_HEADERS);
         };
 
         return {
