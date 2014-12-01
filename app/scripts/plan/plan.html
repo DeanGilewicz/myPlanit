@@ -16,7 +16,7 @@
       <a href="" ng-click="poiDetails(result.id)">Details</a>
       <p>{{ result.name }} {{ result.venue.name }}</p>
       <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
-      <button ng-click="addPoi(poi)">Add</button>
+      <button ng-click="addPoi(result)">Add</button>
     </li>
   </ul>
 </section>
@@ -36,7 +36,6 @@
     <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
   </li>
 </section>
-
 
 
 <h2>Plan</h2>
