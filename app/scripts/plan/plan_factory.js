@@ -51,20 +51,21 @@
           }
         }
 
-        var poiDetails = function () {
-
-
-          // var objId = {{ result.id }};
-          //
-          // var poiDetails = function () {
-          //   return $http('https://api.foursquare.com/v2/venues/'+objId+'?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806')
-          //   .success(function (data) {
-          //     console.log(data);
-          //   }).error(function(data) {
-          //     console.log('error');
-          //   });
-          // }
-        }
+        // $('#poiDetails').on('click', function (e) {
+        //   e.preventDefault();
+        //   console.log('clicking cool');
+        //   // var objId = this.val();
+        //
+        //   // var poiDetails = function () {
+        //   //   return $http('https://api.foursquare.com/v2/venues/'+objId+'?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806')
+        //   //   .success(function (data) {
+        //   //     console.log(data);
+        //   //   }).error(function(data) {
+        //   //     console  .log('error');
+        //   //   });
+        //   // }
+        //
+        // })
 
 
         var getPois = function () {
@@ -91,8 +92,7 @@
           addPoi:     addPoi,
           deletePoi:  deletePoi,
           doSearch:   doSearch,
-          doExplore:  doExplore,
-          poiDetails: poiDetails
+          doExplore:  doExplore
         }
 
       }

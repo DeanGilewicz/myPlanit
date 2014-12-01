@@ -26,8 +26,11 @@
             console.log(data);
             $scope.searchResults = data.response.venues;
             console.log($scope.searchResults);
-
           });
+        }
+
+        $scope.single = function (a) {
+          console.log(a);
         }
 
         $scope.doExplore = function () {

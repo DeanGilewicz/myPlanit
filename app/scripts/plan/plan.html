@@ -1,3 +1,5 @@
+<h2>plan name to go here</h2>
+
 <form id="search">
   <input type="text" name="near" id="near" value="" placeholder="Destination?">
   <input type="text" name="query" id="query" value="" placeholder="Search?">
@@ -8,13 +10,16 @@
 
 
 <h3>Search Results</h3>
-<ul>
-  <li ng-repeat="result in searchResults" id="{{ result.id }}">
-    <p>{{ result.name }} {{ result.venue.name }}</p>
-    <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
-    <button ng-click="addPoi(poi)">Add</button>
-  </li>
-</ul>
+<section id="content">
+  <ul>
+    <li ng-repeat="result in searchResults" id="{{ result.id }}">
+      <a href="" ng-click="single(result.id)">Single Query</a>
+      <p>{{ result.name }} {{ result.venue.name }}</p>
+      <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
+      <button ng-click="addPoi(poi)">Add</button>
+    </li>
+  </ul>
+</section>
 
 <h3>Poi Details</h3>
 <p>show the details of search result that is clicked on - name, address, contact, hours of op etc</p>
