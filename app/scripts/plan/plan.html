@@ -10,7 +10,7 @@
 
 
 <h3>Search Results</h3>
-<section id="content">
+<section id="placesOfInterest">
   <ul>
     <li ng-repeat="result in searchResults" id="{{ result.id }}">
       <a href="" ng-click="poiDetails(result.id)">Details</a>
@@ -21,17 +21,21 @@
   </ul>
 </section>
 
-<h3>Poi Details</h3>
-<h5>Description</h5>
-<p>{{ allDetails.description }}</p>
-<h5>Rating</h5>
-<p>{{ allDetails.rating }}</p>
-<h5>Website</h5>
-<p>{{ allDetails.url }}</p>
-<h5>Hours</h5>
-<li ng-repeat="hours in schedule">
-  <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
-</li>
+<section id="details">
+  <h3>Poi Details</h3>
+  <h5>Description</h5>
+  <p>{{ allDetails.description }}</p>
+  <h5>Rating</h5>
+  <p>{{ allDetails.rating }}</p>
+  <h5>Website</h5>
+  <p>{{ allDetails.url }}</p>
+  <h5>Telephone</h5>
+  <p>{{ allDetails.contact.formattedPhone }}</p>
+  <h5>Hours</h5>
+  <li ng-repeat="hours in schedule">
+    <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
+  </li>
+</section>
 
 
 
