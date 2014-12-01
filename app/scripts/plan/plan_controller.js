@@ -42,8 +42,8 @@
           // });
         }
 
-        $scope.deletePoi = function (objId, index) {
-          PlanFactory.deletePoi(objId).success( function () {
+        $scope.deletePoi = function (poiID, index) {
+          PlanFactory.deletePoi(poiID).success( function () {
             $scope.poiList.splice(index, 1);
           });
         }

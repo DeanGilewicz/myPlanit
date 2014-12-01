@@ -18,7 +18,7 @@
 
         var doSearch = function () {
           if($('#query').val() == "" && $('#near').val() == "") {
-            alert('Please enter a destination or search term or click "Top Picks"')
+            alert('Please enter a destination or search term or click "Explore"')
           } else if($('#query').val() == "") {
             return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'').success(function (data) {
               console.log(data);
