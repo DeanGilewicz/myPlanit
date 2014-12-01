@@ -28,9 +28,10 @@
             console.log($scope.searchResults);
           });
         }
-
-        $scope.single = function (a) {
-          console.log(a);
+        // objId is related to what is passed in poiDetail() that we can have access too
+        // result.id gives me access to the id
+        $scope.poiDetails = function (objId) {
+          PlanFactory.poiDetails(objId);
         }
 
         $scope.doExplore = function () {

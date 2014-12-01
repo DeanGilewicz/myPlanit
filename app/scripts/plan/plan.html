@@ -13,7 +13,7 @@
 <section id="content">
   <ul>
     <li ng-repeat="result in searchResults" id="{{ result.id }}">
-      <a href="" ng-click="single(result.id)">Single Query</a>
+      <a href="" ng-click="poiDetails(result.id)">Details</a>
       <p>{{ result.name }} {{ result.venue.name }}</p>
       <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
       <button ng-click="addPoi(poi)">Add</button>
