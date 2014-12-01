@@ -9,7 +9,7 @@
 
 <h3>Search Results</h3>
 <ul>
-  <li ng-repeat="result in searchResults" id="resultDetails">
+  <li ng-repeat="result in searchResults" id="{{ result.id }}">
     <p>{{ result.name }} {{ result.venue.name }}</p>
     <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
     <button ng-click="addPoi(poi)">Add</button>
