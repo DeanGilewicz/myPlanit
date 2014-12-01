@@ -3,17 +3,17 @@
     .controller('AccountCtrl', ['AccountFactory', '$scope',
       function (AccountFactory, $scope) {
 
-        $scope.addUser = function (user) {
-          AccountFactory.register(user);
+        $scope.signUp = function (user) {
+          AccountFactory.signUp(user);
         };
 
         $scope.login = function (user) {
           AccountFactory.login(user);
         };
 
-        $scope.logout = function () {
-          AccountFactory.logout();
-        };
+        // $scope.logout = function () {
+        //   AccountFactory.logout();
+        // };
 
       }
     ]);

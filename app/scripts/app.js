@@ -18,12 +18,12 @@
 
       $routeProvider.when('/login', {
         templateUrl: 'scripts/account/login.html',
-        controller: 'AccountFactory'
+        controller: 'AccountCtrl'
       });
 
       $routeProvider.when('/signUp', {
         templateUrl: 'scripts/account/signUp.html',
-        controller: 'AccountFactory'
+        controller: 'AccountCtrl'
       });
 
       $routeProvider.when('/profile', {
@@ -56,13 +56,13 @@
       });
 
     })
-    .run(['$rootScope', '$location', 'UserFactory',
-      function ($rootScope, $location, UserFactory) {
-        $rootScope.$on('$routeChangeStart', function (event) {
+    .run(['$rootScope', '$location', 'AccountFactory',
+      function ($rootScope, $location, AccountFactory) {
+        $rootScope.$on('$routeChangeStart', function () {
           AccountFactory.checkUser();
         });
     }])
-    .directive('logOut', function (UserFactory) {
+    .directive('logOut', function (AccountFactory) {
       return {
         link: function ($scope, element, attrs) {
           element.bind('click', function () {

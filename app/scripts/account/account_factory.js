@@ -3,17 +3,22 @@
     .factory('AccountFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$cookieStore', '$location',
       function (PARSE_HEADERS, PARSE_URI, $http, $cookieStore, $location) {
 
-        var register = function (user) {
-          $http.post(PARSE_URI + 'users', user, PARSE_HEADERS).success( function (data) {
+        var userInfo;
+        var usersUrl = PARSE_URI + 'users/';
+        var loginUrl = PARSE_URI + 'login/?';
+
+        var signUp = function (user) {
+          return $http.post(usersUrl, user, PARSE_HEADERS).success( function (data) {
             console.log(data);
-            return login(user);
+            return login(user); // run login function once signed up
           });
         };
 
         var login = function (user) {
           var params = 'username='+user.username+'&password='+user.password;
-          $http.get(PARSE_URI + 'login/?'+params, PARSE_HEADERS)
-            .success( function (data) {
+          return $http.get(loginUrl + params, PARSE_HEADERS).success( function (data) {
+              $('#loginForm')[0].reset();
+              $cookieStore.remove('currentUser');
               $cookieStore.put('currentUser', data);
               return checkUser();
             });
@@ -22,26 +27,25 @@
         var logout = function () {
           $cookieStore.remove('currentUser');
           $location.path('/');
+          return checkUser();
         };
 
-        var checkUser = function (user) {
+        var checkUser = function () {
           var user = $cookieStore.get('currentUser');
           console.log(user);
-          if(user) {
+          if(user !== undefined) {
             $('#user').html('Hello ' + user.username);
             $('#logoutBtn').show();
-            $location.path('/profile');
           } else {
-            $('#user').html('Please Log In');
+            $('#user').html('Log in or sign up');
             $('#logoutBtn').hide();
-            // $location.path('/');
           }
         };
 
         return {
+          signUp:    signUp,
           login:     login,
           logout:    logout,
-          register:  register,
           checkUser: checkUser
         }
 
