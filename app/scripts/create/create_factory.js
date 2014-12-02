@@ -1,7 +1,7 @@
 (function () {
   angular.module('myPlanit')
-    .factory('CreateFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http',
-      function (PARSE_HEADERS, PARSE_URI, $http) {
+    .factory('CreateFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$location',
+      function (PARSE_HEADERS, PARSE_URI, $http, $location) {
 
 
         // add a new Plan Object as an array
@@ -20,6 +20,9 @@
           $http.post(PARSE_URI + 'classes/Plans', dbObject, PARSE_HEADERS).success( function (data) {
             console.log(data);
           });
+
+          // take user to the plan view
+          $location.path('/plan');
         }
 
 

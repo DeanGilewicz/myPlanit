@@ -1,10 +1,10 @@
 (function () {
   angular.module('myPlanit')
-    .controller('ProfileCtrl', ['ProfileFactory',
-      function (ProfileFactory) {
+    .controller('ProfileCtrl', ['ProfileFactory', 'AccountFactory', '$scope',
+      function (ProfileFactory, AccountFactory, $scope) {
 
 
-
+        $scope.user.username = AccountFactory.user.username
 
 
       }
