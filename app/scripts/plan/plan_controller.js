@@ -19,8 +19,8 @@
         $scope.doExplore = function () {
           PlanFactory.doExplore().success( function (data) {
             console.log(data);
-            $scope.searchResults = data.response.groups[0].items;
-            console.log($scope.searchResults);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
           });
         }
 
@@ -30,6 +30,16 @@
           PlanFactory.poiDetails(objId).success( function (data) {
             console.log(data);
             $scope.allDetails = data.response.venue;
+            $scope.schedule = data.response.venue.popular.timeframes;
+            console.log($scope.schedule);
+          });
+        }
+
+        $scope.poiExDetails = function (objId) {
+          PlanFactory.poiDetails(objId).success( function (data) {
+            console.log(data);
+            $scope.allDetails = data.response.venue;
+            console.log($scope.allDetails);
             $scope.schedule = data.response.venue.popular.timeframes;
             console.log($scope.schedule);
           });

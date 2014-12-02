@@ -14,8 +14,19 @@
   <ul>
     <li ng-repeat="result in searchResults" id="{{ result.id }}">
       <a href="" ng-click="poiDetails(result.id)">Details</a>
-      <p>{{ result.name }} {{ result.venue.name }}</p>
+      <p>{{ result.name }}</p>
       <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
+      <button ng-click="addPoi(result)">Add</button>
+    </li>
+  </ul>
+</section>
+
+<section id="placesOfInterest">
+  <ul>
+    <li ng-repeat="result in exploreResults" id="{{ result.venue.id }}">
+      <a href="" ng-click="poiExDetails(result.venue.id)">Details</a>
+      <p>{{ result.venue.name }}</p>
+      <p>{{ result.venue.location.address }} {{ result.venue.location.city }} {{ result.venue.location.postalCode }}</p>
       <button ng-click="addPoi(result)">Add</button>
     </li>
   </ul>
