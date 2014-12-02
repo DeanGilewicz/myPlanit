@@ -1,3 +1,16 @@
-This is the new planit page
+  This is the new planit page
+
+
+
+<h3>My Timeline</h3>
+<section id="timeline">
+  <ul>
+    <li ng-repeat="poi in plan">
+      <p>{{ currentPlan }}</p>
+    </li>
+  </ul>
+</section>
 
 <div id="map-canvas"></div>
+<button id="refresh">Refresh</button>
+<button id="toggle_traffic">Traffic</button>
