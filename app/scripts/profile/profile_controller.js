@@ -1,7 +1,7 @@
 (function () {
   angular.module('myPlanit')
-    .controller('ProfileCtrl', ['ProfileFactory', '$scope',
-      function (ProfileFactory, $scope) {
+    .controller('ProfileCtrl', ['ProfileFactory',
+      function (ProfileFactory) {
 
 
 

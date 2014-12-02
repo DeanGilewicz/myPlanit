@@ -13,22 +13,22 @@
             return login(user); // run login function once signed up
             // create a my plans object to store arrays of plans??
           });
-        };
+        }
 
         var login = function (user) {
           var params = 'username='+user.username+'&password='+user.password;
           return $http.get(loginUrl + params, PARSE_HEADERS).success( function (data) {
-              $('#loginForm')[0].reset();
               $cookieStore.remove('currentUser');
               $cookieStore.put('currentUser', data);
+              $location.path('/profile')
               return checkUser();
             });
-        };
+        }
 
         var logout = function () {
           $cookieStore.remove('currentUser');
           $location.path('/');
-        };
+        }
 
         var checkUser = function () {
           var user = $cookieStore.get('currentUser');
@@ -40,7 +40,7 @@
             $('#user').html('Log in or sign up');
             $('#logoutBtn').hide();
           }
-        };
+        }
 
         return {
           signUp:    signUp,

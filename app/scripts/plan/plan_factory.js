@@ -74,13 +74,14 @@
 
         // add a poi to "plan" list
         var addPoi = function (result) {
+
           $http.post(PARSE_URI + 'classes/PoiList', result, PARSE_HEADERS).success( function (data) {
             console.log(data);
+          })
+          .then( function () {
+            // broadcast to the parent controller that the poi has been added
+            $rootScope.$broadcast('poi:added');
           });
-          // .then( function () {
-          //   // broadcast to the parent controller that the poi has been added
-          //   $rootScope.$broadcast('poi:added');
-          // });
         }
 
         var deletePoi = function (objId) {
