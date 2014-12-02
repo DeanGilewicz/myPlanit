@@ -1,9 +1,10 @@
 (function () {
   angular.module('myPlanit')
-    .factory('CreateFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$location',
-      function (PARSE_HEADERS, PARSE_URI, $http, $location) {
+    .factory('CreateFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$location', '$cookieStore',
+      function (PARSE_HEADERS, PARSE_URI, $http, $location, $cookieStore) {
 
-
+        var currentUser = $cookieStore.get('currentUser');
+        var planUrl = PARSE_URI + 'classes/Plans';
         // add a new Plan Object as an array
         function createPlan (plan) {
           // create array
@@ -14,12 +15,18 @@
           // create a Parse Object that will be table header
           var dbObject = {
             // create property: value to be able to store it in this way on Parse
-            plans: planArray
+            plans: planArray,
+            "user": {
+              "__type": "Pointer",
+              "className": "_User",
+              "objectId": currentUser.objectId
+            }
           }
           // save new array to Parse
-          $http.post(PARSE_URI + 'classes/Plans', dbObject, PARSE_HEADERS).success( function (data) {
+          $http.post(planUrl, dbObject, PARSE_HEADERS).success( function (data) {
             console.log(data);
           });
+
 
           // take user to the plan view
           $location.path('/plan');

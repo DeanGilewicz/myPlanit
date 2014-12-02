@@ -60,6 +60,7 @@
             // traffic
             var trafficLayer = new google.maps.TrafficLayer();
 
+            // allows toggle to show traffic when button clicked
             $('#toggle_traffic').click( function () {
 
               if(trafficLayer.getMap()) {
@@ -71,41 +72,40 @@
             });
 
 
-        function handleSearchResults(results, status) {
-          console.log(results);
+            function handleSearchResults(results, status) {
+              console.log(results);
 
-          for(var i = 0; i < results.length; i++) {
+              for(var i = 0; i < results.length; i++) {
 
-            var marker = new google.maps.Marker({
-              position: results[i].geometry.location,
-              map: map,
-              icon: results[i].icon
-            });
+                var marker = new google.maps.Marker({
+                  position: results[i].geometry.location,
+                  map: map,
+                  icon: results[i].icon
+                });
 
-          }
+              }
 
+            }
+
+            function performSearch() {
+
+              var request = {
+                bounds: map.getBounds(),
+                types:['establishment']
+              }
+              service.nearbySearch(request, handleSearchResults);
+            }
+
+          }); // end of navigator function
+
+        }; // end of genMap function
+
+        return {
+          getPois: getPois,
+          genMap: genMap
         }
 
-        function performSearch() {
-
-          var request = {
-            bounds: map.getBounds(),
-            types:['establishment']
-          }
-          service.nearbySearch(request, handleSearchResults);
-        }
-
-      });
-
-    };
-
-    return {
-      getPois: getPois,
-      genMap: genMap
-    }
-
-  }
-
+      }
 
 
   ]);

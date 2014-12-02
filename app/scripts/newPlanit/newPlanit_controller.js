@@ -3,9 +3,7 @@
     .controller('NewPlanitCtrl', ['NewPlanitFactory',
       function (NewPlanitFactory) {
 
-
         NewPlanitFactory.getPois();
-
         NewPlanitFactory.genMap();
 
       }
