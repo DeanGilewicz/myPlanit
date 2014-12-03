@@ -1,6 +1,6 @@
 (function () {
   angular.module('myPlanit')
-    .factory('NewPlanitFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
+    .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
 
         // get all points of interests from poiList on Parse

@@ -41,9 +41,9 @@
         controller: 'SinglePlanitCtrl'
       });
 
-      $routeProvider.when('/new', {
-        templateUrl: 'scripts/newPlanit/newPlanit.html',
-        controller: 'NewPlanitCtrl'
+      $routeProvider.when('/singleTimeline/:id', {
+        templateUrl: 'scripts/singleTimeline/singleTimeline.html',
+        controller: 'SingleTimelineCtrl'
       });
 
       $routeProvider.otherwise({
