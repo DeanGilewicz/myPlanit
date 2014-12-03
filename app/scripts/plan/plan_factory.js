@@ -86,7 +86,14 @@
         // add a poi to "plan" list
         var addPoi = function (result) {
           // add poi name and poi id to pois array on Plans object
-          poiArray.push(result.name, result.id);
+          // poiArray.push(result.name);
+          // add(String key, Object value) use this to add to array?
+          $http.put(PARSE_URI + 'classes/Plans', {
+                  "poiName": result.name,
+                  "poiId": result.id
+            }, PARSE_HEADERS).success( function (data) {
+                console.log(data);
+            });
 
           // $http.post(PARSE_URI + 'classes/PoiList', poiName, poiID, PARSE_HEADERS).success( function (data) {
           //   console.log(data);
