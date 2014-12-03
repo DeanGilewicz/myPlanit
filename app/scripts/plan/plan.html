@@ -21,13 +21,14 @@
   </ul>
 </section>
 
+<h3>Explore Results</h3>
 <section id="placesOfInterest">
   <ul>
     <li ng-repeat="result in exploreResults" id="{{ result.venue.id }}">
       <a href="" ng-click="poiExDetails(result.venue.id)">Details</a>
       <p>{{ result.venue.name }}</p>
       <p>{{ result.venue.location.address }} {{ result.venue.location.city }} {{ result.venue.location.postalCode }}</p>
-      <button ng-click="addPoi(result)">Add</button>
+      <button ng-click="addPoi(result.venue.name, result.venue.id)">Add</button>
     </li>
   </ul>
 </section>

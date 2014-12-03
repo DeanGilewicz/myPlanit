@@ -85,12 +85,12 @@
 
         // add a poi to "plan" list
         var addPoi = function (result) {
-          // add name from form into array
-          // poiArray.push(plan.name);
+          // add poi name and poi id to pois array on Plans object
+          poiArray.push(result.name, result.id);
 
-          $http.post(PARSE_URI + 'classes/PoiList', result, PARSE_HEADERS).success( function (data) {
-            console.log(data);
-          });
+          // $http.post(PARSE_URI + 'classes/PoiList', poiName, poiID, PARSE_HEADERS).success( function (data) {
+          //   console.log(data);
+          // });
           // .then( function () {
           //   // broadcast to the parent controller that the poi has been added
           //   $rootScope.$broadcast('poi:added');
