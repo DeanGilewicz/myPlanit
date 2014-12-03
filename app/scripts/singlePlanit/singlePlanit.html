@@ -46,16 +46,16 @@
   <h5>Hours</h5>
   <li ng-repeat="hours in schedule">
     <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
-  </li>
-</section>
+    </li>
+  </section>
 
 
-<h2>Plan</h2>
-<ul>
-  <li ng-repeat="poi in poiList" id="{{ poi.objectId }}">
-    <p>I want to see {{ poi.name }} {{ poi.venue.name }}</p>
-    <button ng-click="deletePoi(poi.objectId, $index)">X</button>
-  </li>
-</ul>
+  <h2>Plan</h2>
+  <ul>
+    <li ng-repeat="poi in poiList" id="{{ poi.objectId }}">
+      <p>I want to see {{ poi.name }} {{ poi.venue.name }}</p>
+      <button ng-click="deletePoi(poi.objectId, $index)">X</button>
+    </li>
+  </ul>
 
-<button>Plan It</button>
+  <button>Plan It</button>

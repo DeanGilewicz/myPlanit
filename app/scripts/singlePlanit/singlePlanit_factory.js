@@ -1,7 +1,13 @@
 (function () {
   angular.module('myPlanit')
-    .factory('PlanFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$rootScope', '$location',
-      function (PARSE_HEADERS, PARSE_URI, $http, $rootScope, $location) {
+    .factory('SinglePlanitFactory', ['PARSE_URI', 'PARSE_HEADERS', '$http',
+      function (PARSE_URI, PARSE_HEADERS, $http) {
+
+        // retrieves a single appt from the server based on id
+        var getOnePlan = function (id) {
+          return $http.get(PARSE_URI + 'classes/Plans/' + id, PARSE_HEADERS);
+        }
+
 
         // could add function and call it for specific http requests that need coords
         // var myGeo = function () {
@@ -31,18 +37,18 @@
           if($('#query').val() == "" && $('#near').val() == "") {
             alert('Please enter a destination or search term or click "Explore"')
           } else if($('#query').val() == "") {
-              return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'').success(function (data) {
-                console.log(data);
+            return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'').success(function (data) {
+              console.log(data);
             })
           } else if($('#near').val() == "") {
-              return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&ll='+lat+','+lng+'&query='+$('#query').val()+'').success(function (data) {
-                console.log(data);
-              })
+            return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&ll='+lat+','+lng+'&query='+$('#query').val()+'').success(function (data) {
+              console.log(data);
+            })
           } else {
-              return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'&query='+$('#query').val()+'').success(function (data) {
-                console.log(data);
+            return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+$('#near').val()+'&query='+$('#query').val()+'').success(function (data) {
+              console.log(data);
             }).error(function(data) {
-                console.log('error');
+              console.log('error');
             });
           }
         }
@@ -52,29 +58,29 @@
           if($('#near').val() == "" && $('#query').val() == "") {
             return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&ll='+lat+','+lng+'&section=topPicks').success(function (data) {
               console.log(data);
-              })
+            })
           } else if($('#near').val() !== "" && $('#query').val() == "") {
-              return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10time=any&day=any&near='+$('#near').val()+'&section=topPicks').success(function (data) {
-                console.log(data);
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10time=any&day=any&near='+$('#near').val()+'&section=topPicks').success(function (data) {
+              console.log(data);
             })
           } else {
-              alert('please remove search term and try again');
+            alert('please remove search term and try again');
           }
         }
         // function to get details for each poi returned from search results
         var poiDetails = function (objId) {
           return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806').success(function (data) {
             console.log(data);
-            }).error(function(data) {
-                console.log('error');
-            });
+          }).error(function(data) {
+            console.log('error');
+          });
         }
         // function to get details for each poi returned from explore results
         var poiExDetails = function (objId) {
           return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806').success(function (data) {
             console.log(data);
           }).error(function(data) {
-              console.log('error');
+            console.log('error');
           });
         }
 
@@ -104,12 +110,11 @@
           //   $rootScope.$broadcast('poi:added');
           // });
 
-            var dbObject = {
-                "__type": "Pointer",
-                "className": "_pois",
-                "objectId": currentUser.objectId
-              }
-
+          var dbObject = {
+            "__type": "Pointer",
+            "className": "_pois",
+            "objectId": currentUser.objectId
+          }
 
 
         }
@@ -119,6 +124,7 @@
         }
 
         return {
+          getOnePlan:   getOnePlan,
           doSearch:     doSearch,
           doExplore:    doExplore,
           poiDetails:   poiDetails,

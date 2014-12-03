@@ -36,14 +36,9 @@
         controller: 'CreateCtrl'
       });
 
-      $routeProvider.when('/plan', {
-        templateUrl: 'scripts/plan/plan.html',
-        controller: 'PlanCtrl'
-      });
-
-      $routeProvider.when('/existing/:id', {
-        templateUrl: 'scripts/existingPlanit/existingPlanit.html',
-        controller: 'ExistingPlanitCtrl'
+      $routeProvider.when('/singlePlanit/:id', {
+        templateUrl: 'scripts/singlePlanit/singlePlanit.html',
+        controller: 'SinglePlanitCtrl'
       });
 
       $routeProvider.when('/new', {

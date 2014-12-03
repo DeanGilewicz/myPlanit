@@ -31,9 +31,8 @@
           <a href="#/login" class="login">Login</a> <!-- modal to allow users to login -->
           <a href="#/profile" class="profile">Profile</a> <!-- view all "plans". Edit, delete, share buttons on each plan. Edit - goes to existingPlanIt View with plan info.  Add New Plan button - goes to Add Plan view. -->
           <a href="#/create" class="create">Create New Plan</a> <!-- model that allows user to create a new "plan" - name of plan, destination, day, time (start and end time) Create button goes to plan template -->
-          <a href="#/plan" class="plan">Plan</a> <!-- allow user to search for specific events and see details. Add button next to each result to add event to "plan". Remove button next to each "plan" event to remove from "plan" (list). Once all events added click PlanIt button - saves "plan" and goes to newPlanIt view -->
+          <a href="#/singlePlanit" class="plan">Single Planit</a> <!-- allow user to search for specific events and see details. Add button next to each result to add event to "plan". Remove button next to each "plan" event to remove from "plan" (list). Once all events added click PlanIt button - saves "plan" and goes to newPlanIt view -->
           <a href="#/new" class="newPlanIt">newPlanIt</a> <!-- shows "plan", map with events mapped out, user timeline - suggested order in which to do things..allow user to alter order. Save button - add to profile. -->
-          <a href="#/existing" class="existingPlanIt">existingPlanIt</a> <!-- shows that specific plan (similar to newPlanIt View) but includes update or cancel button. update button - save any changes. cancel button - goes back to Profile view. -->
           <a href="#/single" class="single">singlePlan</a> <!-- when plan selected from home view show specific plan events, show/add comment/rating -->
           <a href="#/author" class="author">author</a> <!-- when author selected from home view show all posted itineries from author -->
         </nav>
@@ -55,7 +54,7 @@
     <!-- endbuild -->
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrNC4AETKT_7FVqnWvNuUy-fLn9zYTUHc&libraries=places"></script>
-    
+
         <!-- build:js scripts/main.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/main/main_controller.js"></script>
@@ -66,10 +65,8 @@
         <script src="scripts/profile/profile_factory.js"></script>
         <script src="scripts/create/create_controller.js"></script>
         <script src="scripts/create/create_factory.js"></script>
-        <script src="scripts/plan/plan_controller.js"></script>
-        <script src="scripts/plan/plan_factory.js"></script>
-        <script src="scripts/existingPlanit/existingPlanit_controller.js"></script>
-        <script src="scripts/existingPlanit/existingPlanit_factory.js"></script>
+        <script src="scripts/singlePlanit/singlePlanit_controller.js"></script>
+        <script src="scripts/singlePlanit/singlePlanit_factory.js"></script>
         <script src="scripts/newPlanit/newPlanit_controller.js"></script>
         <script src="scripts/newPlanit/newPlanit_factory.js"></script>
         <!-- endbuild -->
