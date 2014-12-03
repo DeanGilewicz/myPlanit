@@ -16,6 +16,7 @@
           var dbObject = {
             // create property: value pairs to be able to store it in this way on Parse
             "planName": plan.name,
+            "totalPlanMins": 0,
             "planDate": {
               "__type": "Date",
               "iso": plan.date
