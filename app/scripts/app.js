@@ -41,7 +41,7 @@
         controller: 'PlanCtrl'
       });
 
-      $routeProvider.when('/existing', {
+      $routeProvider.when('/existing/:id', {
         templateUrl: 'scripts/existingPlanit/existingPlanit.html',
         controller: 'ExistingPlanitCtrl'
       });

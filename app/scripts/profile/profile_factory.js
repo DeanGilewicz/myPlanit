@@ -6,10 +6,10 @@
         // get all plans for specific user
         var plansByUser = function () {
           // queries the plan id and compares to user
-          // var query = '?'+'where={"student":"'+user+'"}';
+          // var query = '?'+'where={"User": {"$select": {"query": {"className": "Plans", "where": {"pois": {"user"}';
           // return $http.get(PARSE_URI + 'classes/Plans' + query, PARSE_HEADERS);
 
-          return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
+            return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
         }
 
 
