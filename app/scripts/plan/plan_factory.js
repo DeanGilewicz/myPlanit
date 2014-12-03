@@ -3,6 +3,9 @@
     .factory('PlanFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$rootScope', '$location',
       function (PARSE_HEADERS, PARSE_URI, $http, $rootScope, $location) {
 
+        // add name from form into array
+        // poiArray.push(plan.name);
+        
         var lat;
         var lng;
 
