@@ -20,13 +20,15 @@
             "planDate": {
               "__type": "Date",
               "iso": plan.date
-            }, // create array column in db inside of Plans object for pois
+            },
+            // create array column in db inside of Plans object for pois
             pois: poiArray,
+            // create relationship between user and Plan Object
             "user": {
               "__type": "Pointer",
               "className": "_User",
               "objectId": currentUser.objectId
-            }// create relationship between user and Plan Object
+            }
           }
           // save Plan object to Parse
           $http.post(planUrl, dbObject, PARSE_HEADERS).success( function (data) {
