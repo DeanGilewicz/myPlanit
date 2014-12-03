@@ -11,9 +11,7 @@
         $scope.currentUsername = $cookieStore.get('currentUser').username;
         console.log($scope.currentUsername);
 
-        // ExistingPlanitFactory.getOnePlan($routeParams.id).success( function (data) {
-        //   $scope.plan = data;
-        // });
+
 
 
       }

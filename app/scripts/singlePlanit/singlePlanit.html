@@ -1,9 +1,8 @@
-<h2>Current Plan: {{ plan.name }}</h2>
+<h2>Current Plan: {{ singlePlan.planName }}</h2>
 
 <form id="search">
   <input type="text" name="near" id="near" value="" placeholder="Destination?">
   <input type="text" name="query" id="query" value="" placeholder="Search?">
-  <!-- <input type="text" ng-model="poi.name" placeholder="What do you want to see?" /> -->
   <button ng-click="doSearch()">Search</button>
   <button ng-click="doExplore()">Explore</button>
 </form>
@@ -28,7 +27,7 @@
       <a href="" ng-click="poiExDetails(result.venue.id)">Details</a>
       <p>{{ result.venue.name }}</p>
       <p>{{ result.venue.location.address }} {{ result.venue.location.city }} {{ result.venue.location.postalCode }}</p>
-      <button ng-click="addPoi(result.venue.name, result.venue.id)">Add</button>
+      <button ng-click="addPoi(result)">Add</button>
     </li>
   </ul>
 </section>

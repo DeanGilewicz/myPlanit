@@ -84,38 +84,20 @@
           });
         }
 
+        // TO DO
         // get all points of interests from poiList on Parse
         var getPois = function () {
-          return $http.get(PARSE_URI + 'classes/PoiList', PARSE_HEADERS);
+          return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
         }
 
         // add a poi to "plan" list
-        var addPoi = function (result) {
-          // add poi name and poi id to pois array on Plans object
-          // poiArray.push(result.name);
-          // add(String key, Object value) use this to add to array?
-          console.log(result);
-          // $http.put(PARSE_URI + 'classes/Plans/' + objectId {
-          //         "poiName": result.name,
-          //         "poiId": result.id
-          //   }, PARSE_HEADERS).success( function (data) {
-          //       console.log(data);
-          //   });
+        var addPoi = function (result, single) {
 
-          // $http.post(PARSE_URI + 'classes/PoiList', poiName, poiID, PARSE_HEADERS).success( function (data) {
-          //   console.log(data);
-          // });
-          // .then( function () {
-          //   // broadcast to the parent controller that the poi has been added
-          //   $rootScope.$broadcast('poi:added');
-          // });
+          single.pois.push({ name: result.name, id: result.id })
 
-          var dbObject = {
-            "__type": "Pointer",
-            "className": "_pois",
-            "objectId": currentUser.objectId
-          }
-
+          $http.put(PARSE_URI + 'classes/Plans/' + single.objectId, single, PARSE_HEADERS).success( function (data) {
+                console.log(data);
+            });
 
         }
 

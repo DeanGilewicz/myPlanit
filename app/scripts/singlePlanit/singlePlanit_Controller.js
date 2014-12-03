@@ -3,16 +3,19 @@
     .controller('SinglePlanitCtrl', ['SinglePlanitFactory', '$routeParams', '$scope',
       function (SinglePlanitFactory, $routeParams, $scope) {
 
+        // set url for single plan
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
           console.log(data);
           $scope.singlePlan = data;
         });
 
+        // get all pois objects associated in current Plan
         SinglePlanitFactory.getPois().success( function (data) {
           console.log(data);
           $scope.poiList = data.results;
         });
 
+        // call function and store payload returned in searchResults
         $scope.doSearch = function () {
           SinglePlanitFactory.doSearch().success( function (data) {
             console.log(data);
@@ -21,6 +24,7 @@
           });
         }
 
+        // call function and store payload returned in exploreResults
         $scope.doExplore = function () {
           SinglePlanitFactory.doExplore().success( function (data) {
             console.log(data);
@@ -29,7 +33,7 @@
           });
         }
 
-        // objId is related to what is passed in poiDetail() that we can have access too
+        // objId is related to what is passed in poiDetails() that we can have access too
         // result.id gives me access to the id
         $scope.poiDetails = function (objId) {
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
@@ -40,6 +44,8 @@
           });
         }
 
+        // objId is related to what is passed in poiDetails() that we can have access too
+        // result.venue.id gives me access to the id
         $scope.poiExDetails = function (objId) {
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
             console.log(data);
@@ -51,11 +57,11 @@
         }
 
         $scope.addPoi = function (result) {
-          SinglePlanitFactory.addPoi(result);
-          // $rootScope.$on('poi:added', function () {
-          //   $location.path('/plan');
-          // });
+          // poi object (result) is passed in to the function
+          // with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
+          SinglePlanitFactory.addPoi(result, $scope.singlePlan);
         }
+
 
         $scope.deletePoi = function (poiID, index) {
           SinglePlanitFactory.deletePoi(poiID).success( function () {
