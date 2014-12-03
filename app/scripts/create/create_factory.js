@@ -34,7 +34,7 @@
           $http.post(planUrl, dbObject, PARSE_HEADERS).success( function (data) {
             console.log(data);
             // take user to the plan view
-            $location.path('/plan');
+            $location.path('/profile');
           });
         }
 
