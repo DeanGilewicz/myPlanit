@@ -7,15 +7,15 @@
         var planUrl = PARSE_URI + 'classes/Plans';
         // add a new Plan Object as an array
         function createPlan (plan) {
-          // create array
-          var planArray = [];
+          // create array column in db inside of Plans object
+          var poiArray = [];
           // add name from form into array
-          planArray.push(plan.name);
+          // poiArray.push(plan.name);
 
           // create a Parse Object that will be table header
           var dbObject = {
             // create property: value to be able to store it in this way on Parse
-            plans: planArray,
+            pois: poiArray,
             "user": {
               "__type": "Pointer",
               "className": "_User",
