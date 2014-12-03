@@ -85,24 +85,24 @@
         }
 
         // TO DO
-        // get all points of interests from poiList on Parse
-        var getPois = function () {
-          return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
-        }
+        // get all points of interests from Plans table and pois on Parse
+        // var getPois = function (singlePlan) {
+        //   return $http.get(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, PARSE_HEADERS);
+        // }
 
-        // add a poi to "plan" list
-        var addPoi = function (result, single) {
-
-          single.pois.push({ name: result.name, id: result.id })
-
-          $http.put(PARSE_URI + 'classes/Plans/' + single.objectId, single, PARSE_HEADERS).success( function (data) {
+        // add a poi to "plan" list - result is the poi object, singlePlan is the current Plan object
+        var addPoi = function (result, singlePlan) {
+          // push the object into the pois table in the current Plan object
+          singlePlan.pois.push({ name: result.name, id: result.id })
+          // update the array with the new object singlePlan
+          $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
                 console.log(data);
             });
 
         }
 
         var deletePoi = function (objId) {
-          return $http.delete(PARSE_URI + 'classes/PoiList/' + objId, PARSE_HEADERS);
+          return $http.delete(PARSE_URI + 'classes/Poi/' + objId, PARSE_HEADERS);
         }
 
         return {
@@ -111,7 +111,7 @@
           doExplore:    doExplore,
           poiDetails:   poiDetails,
           poiExDetails: poiExDetails,
-          getPois:      getPois,
+          // getPois:      getPois,
           addPoi:       addPoi,
           deletePoi:    deletePoi
         }

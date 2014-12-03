@@ -3,16 +3,13 @@
     .controller('SinglePlanitCtrl', ['SinglePlanitFactory', '$routeParams', '$scope',
       function (SinglePlanitFactory, $routeParams, $scope) {
 
-        // set url for single plan
+        // call function that uses plan id for route and store the payload in singlePlan (current plan object)
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
           console.log(data);
+          // set scope so have access to Plan object in other functions in this scope
           $scope.singlePlan = data;
-        });
-
-        // get all pois objects associated in current Plan
-        SinglePlanitFactory.getPois().success( function (data) {
-          console.log(data);
-          $scope.poiList = data.results;
+          // set scope for pois contained in Plan object
+          $scope.pois = data.pois;
         });
 
         // call function and store payload returned in searchResults
