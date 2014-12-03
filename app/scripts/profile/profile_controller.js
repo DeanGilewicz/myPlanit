@@ -1,10 +1,17 @@
 (function () {
   angular.module('myPlanit')
-    .controller('ProfileCtrl', ['$scope', '$cookieStore',
-      function ($scope, $cookieStore) {
+    .controller('ProfileCtrl', ['ProfileFactory', '$scope', '$cookieStore',
+      function (ProfileFactory, $scope, $cookieStore) {
+
+        ProfileFactory.plansByUser().success( function (data) {
+          console.log(data);
+          $scope.userPlans = data.results;
+        });
 
         $scope.currentUsername = $cookieStore.get('currentUser').username;
         console.log($scope.currentUsername);
+
+
 
       }
 

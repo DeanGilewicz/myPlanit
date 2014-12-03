@@ -1,18 +1,21 @@
 (function () {
   angular.module('myPlanit')
-    .factory('ProfileFactory', ['$scope',
-      function ($scope) {
+    .factory('ProfileFactory', ['PARSE_URI', 'PARSE_HEADERS', '$http',
+      function (PARSE_URI, PARSE_HEADERS, $http) {
 
-        // queries the student and compares to user
-        // var planByUser = function (user) {
-        //   var query = '?'+'where={"student":"'+user+'"}';
-        //   return $http.get(PARSE_URI + 'classes/PoiList' + query, PARSE_HEADERS);
-        // }
-        //
-        //
-        // return {
-        //   planByUser: planByUser
-        // }
+        // get all plans for specific user
+        var plansByUser = function () {
+          // queries the plan id and compares to user
+          // var query = '?'+'where={"student":"'+user+'"}';
+          // return $http.get(PARSE_URI + 'classes/Plans' + query, PARSE_HEADERS);
+
+          return $http.get(PARSE_URI + 'classes/Plans', PARSE_HEADERS);
+        }
+
+
+        return {
+          plansByUser: plansByUser
+        }
 
       }
 

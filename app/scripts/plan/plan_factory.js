@@ -88,12 +88,13 @@
           // add poi name and poi id to pois array on Plans object
           // poiArray.push(result.name);
           // add(String key, Object value) use this to add to array?
-          $http.put(PARSE_URI + 'classes/Plans', {
-                  "poiName": result.name,
-                  "poiId": result.id
-            }, PARSE_HEADERS).success( function (data) {
-                console.log(data);
-            });
+          console.log(result);
+          // $http.put(PARSE_URI + 'classes/Plans/' + objectId {
+          //         "poiName": result.name,
+          //         "poiId": result.id
+          //   }, PARSE_HEADERS).success( function (data) {
+          //       console.log(data);
+          //   });
 
           // $http.post(PARSE_URI + 'classes/PoiList', poiName, poiID, PARSE_HEADERS).success( function (data) {
           //   console.log(data);
@@ -102,6 +103,15 @@
           //   // broadcast to the parent controller that the poi has been added
           //   $rootScope.$broadcast('poi:added');
           // });
+
+            var dbObject = {
+                "__type": "Pointer",
+                "className": "_pois",
+                "objectId": currentUser.objectId
+              }
+
+
+
         }
 
         var deletePoi = function (objId) {

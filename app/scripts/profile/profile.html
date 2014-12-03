@@ -1,9 +1,11 @@
 <h2>{{ currentUsername }} Profile </h2>
 <a href="#/create"><button>Add Plan</button></a>
 
+<h2>My Plans</h2>
 <ul>
-  <li>
-    Plan object containing all data
+  <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
+    <p>{{ plan.planName }}</p>
+    <p>{{ plan.objectId }}</p>
     <a href="#/existing"><button>edit</button></a>
     <button>delete</button>
     <button>Post to home page</button>
