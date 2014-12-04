@@ -86,17 +86,22 @@
         // add a poi to "plan" list - result is the poi object, singlePlan is the current Plan object
         var addPoi = function (result, singlePlan) {
           // push the object into the pois table in the current Plan object
-          singlePlan.pois.push({ name: result.name, id: result.id })
+          singlePlan.pois.push({ name: result.name, id: result.id });
           // update the array with the new object singlePlan
           $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
                 console.log(data);
             });
 
         }
-        // NEED TO CHANGE AS IT IS DELETING THE ENTIRE ROW AND NOT THE OBJ WITHIN POIS FIELD
-        var deletePoi = function (poi, singlePlan) {
-          return $http.delete(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, PARSE_HEADERS);
+
+        // delete single poi
+        var deletePoi = function (result, index, singlePlan) {
+          // splice the object from the array inside of pois inside of singlePlan Object
+          singlePlan.pois.splice(index, 1);
+          // update the singlePlan object in Parse with new singlePlan object
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS);
         }
+
 
         return {
           getOnePlan:   getOnePlan,

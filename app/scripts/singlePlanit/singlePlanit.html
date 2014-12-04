@@ -53,8 +53,8 @@
   <ul>
     <li ng-repeat="poi in pois" id="{{ poi.id }}">
       <p>{{ poi.name }}</p>
-      <button ng-click="deletePoi(poi, $index)">X</button>
+      <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
     </li>
   </ul>
 
-  <button>Plan It</button>
+  <a href="#/singleTimeline/{{ poi.id }}"><button>Plan It</button></a>
