@@ -3,12 +3,6 @@
     .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
 
-        // get all points of interests from poiList on Parse
-        var getPois = function () {
-          return $http.get(PARSE_URI + 'classes/PoiList', PARSE_HEADERS);
-        }
-
-
         // function to begin the code to generate the map
         var genMap = function () {
 
@@ -100,8 +94,8 @@
 
         }; // end of genMap function
 
+
         return {
-          getPois: getPois,
           genMap: genMap
         }
 
