@@ -59,10 +59,12 @@
           SinglePlanitFactory.addPoi(result, $scope.singlePlan);
         }
 
-
-        $scope.deletePoi = function (poiID, index) {
-          SinglePlanitFactory.deletePoi(poiID).success( function () {
-            $scope.poiList.splice(index, 1);
+        // NEED TO CHANGE - ERROR WITH SPLICE
+        $scope.deletePoi = function (poi, index) {
+          // console.log(poi);
+          // console.log(index);
+          SinglePlanitFactory.deletePoi(poi, $scope.singlePlan).success( function () {
+            $scope.Plans.splice(index, 1);
           });
         }
 

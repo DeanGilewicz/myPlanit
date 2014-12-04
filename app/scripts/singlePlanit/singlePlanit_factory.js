@@ -3,11 +3,10 @@
     .factory('SinglePlanitFactory', ['PARSE_URI', 'PARSE_HEADERS', '$http',
       function (PARSE_URI, PARSE_HEADERS, $http) {
 
-        // retrieves a single appt from the server based on id
+        // retrieves a single Plan from the server based on id
         var getOnePlan = function (id) {
           return $http.get(PARSE_URI + 'classes/Plans/' + id, PARSE_HEADERS);
         }
-
 
         // could add function and call it for specific http requests that need coords
         // var myGeo = function () {
@@ -84,12 +83,6 @@
           });
         }
 
-        // TO DO
-        // get all points of interests from Plans table and pois on Parse
-        // var getPois = function (singlePlan) {
-        //   return $http.get(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, PARSE_HEADERS);
-        // }
-
         // add a poi to "plan" list - result is the poi object, singlePlan is the current Plan object
         var addPoi = function (result, singlePlan) {
           // push the object into the pois table in the current Plan object
@@ -100,9 +93,9 @@
             });
 
         }
-
-        var deletePoi = function (objId) {
-          return $http.delete(PARSE_URI + 'classes/Poi/' + objId, PARSE_HEADERS);
+        // NEED TO CHANGE AS IT IS DELETING THE ENTIRE ROW AND NOT THE OBJ WITHIN POIS FIELD
+        var deletePoi = function (poi, singlePlan) {
+          return $http.delete(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, PARSE_HEADERS);
         }
 
         return {
@@ -111,7 +104,6 @@
           doExplore:    doExplore,
           poiDetails:   poiDetails,
           poiExDetails: poiExDetails,
-          // getPois:      getPois,
           addPoi:       addPoi,
           deletePoi:    deletePoi
         }

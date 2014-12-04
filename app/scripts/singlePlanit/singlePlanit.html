@@ -51,9 +51,9 @@
 
   <h2>Plan</h2>
   <ul>
-    <li ng-repeat="poi in pois" id="{{ poi.objectId }}">
+    <li ng-repeat="poi in pois" id="{{ poi.id }}">
       <p>{{ poi.name }}</p>
-      <button ng-click="deletePoi(poi.objectId, $index)">X</button>
+      <button ng-click="deletePoi(poi, $index)">X</button>
     </li>
   </ul>
 
