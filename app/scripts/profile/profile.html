@@ -4,7 +4,7 @@
 <h2>My Plans</h2>
 <ul>
   <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
-    <p>{{ plan.planName }}</p>
+    <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
     <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
     <button ng-click="deleteUserPlan(plan)">delete</button>
     <button>Post to home page</button>

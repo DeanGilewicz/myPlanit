@@ -86,7 +86,7 @@
         // add a poi to "plan" list - result is the poi object, singlePlan is the current Plan object
         var addPoi = function (result, singlePlan) {
           // push the object into the pois table in the current Plan object
-          singlePlan.pois.push({ name: result.name, id: result.id });
+          singlePlan.pois.push({ name: result.name, id: result.id, allotedTime: 0 });
           // update the array with the new object singlePlan
           $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
                 console.log(data);
