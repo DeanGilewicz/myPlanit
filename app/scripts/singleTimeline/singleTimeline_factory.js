@@ -7,7 +7,7 @@
         var genMap = function () {
 
           var map;
-          var service;
+          // var service;
 
           navigator.geolocation.getCurrentPosition(function (location) {
 
@@ -26,14 +26,14 @@
               map: map
             });
 
-            // initialize the service object
-            service = new google.maps.places.PlacesService(map);
+            // // initialize the service object
+            // service = new google.maps.places.PlacesService(map);
 
-            // This ensures we wait until the map bounds are initialized before we perform the search
-            google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+              // // This ensures we wait until the map bounds are initialized before we perform the search
+              // google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
 
             // redo search when the refresh button is clicked
-            $('#refresh').click(performSearch);
+            // $('#refresh').click(performSearch);
 
             // draw circle on map
             var circleOptions = {
@@ -65,34 +65,38 @@
 
             });
 
+          });
 
-            function handleSearchResults(results, status) {
-              console.log(results);
+        }
 
-              for(var i = 0; i < results.length; i++) {
 
-                var marker = new google.maps.Marker({
-                  position: results[i].geometry.location,
-                  map: map,
-                  icon: results[i].icon
-                });
-
-              }
-
-            }
-
-            function performSearch() {
-
-              var request = {
-                bounds: map.getBounds(),
-                types:['establishment']
-              }
-              service.nearbySearch(request, handleSearchResults);
-            }
-
-          }); // end of navigator function
-
-        }; // end of genMap function
+        //     function handleSearchResults(results, status) {
+        //       console.log(results);
+        //
+        //       for(var i = 0; i < results.length; i++) {
+        //
+        //         var marker = new google.maps.Marker({
+        //           position: results[i].geometry.location,
+        //           map: map,
+        //           icon: results[i].icon
+        //         });
+        //
+        //       }
+        //
+        //     }
+        //
+        //     function performSearch() {
+        //
+        //       var request = {
+        //         bounds: map.getBounds(),
+        //         types:['establishment']
+        //       }
+        //       service.nearbySearch(request, handleSearchResults);
+        //     }
+        //
+        //   }); // end of navigator function
+        //
+        // }; // end of genMap function
 
 
         return {
