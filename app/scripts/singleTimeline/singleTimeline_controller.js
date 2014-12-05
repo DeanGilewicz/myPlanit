@@ -5,7 +5,7 @@
 
         $scope.updateAllottedTime = function (poi, updateTime) {
 
-          SingleTimelineFactory.updateAllottedTime(poi, updateTime);
+          SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
 
         }
 

@@ -3,11 +3,11 @@
     .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
 
-        var updateAllottedTime = function (poi, updateTime) {
+        var updateAllottedTime = function (poi, updateTime, singlePlan) {
 
           singlePlan.pois.push({ allottedTime: updateTime });
 
-          return $http.put(PARSE_URI + 'classes/Plans/' + updateTime, poi, PARSE_HEADERS).success( function (data) {
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
             console.log(data);
           });
 
