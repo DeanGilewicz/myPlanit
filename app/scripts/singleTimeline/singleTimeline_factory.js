@@ -2,100 +2,64 @@
   angular.module('myPlanit')
     .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
-
-        // function to begin the code to generate the map
-        // var genMap = function () {
-        //
-        //   var map;
-        //   // var service;
-        //
-        //   navigator.geolocation.getCurrentPosition(function (location) {
-        //
-        //     var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-        //
-        //     var mapOptions = {
-        //       center: currentLocation,
-        //       zoom: 12,
-        //       mapTypeId: google.maps.MapTypeId.ROADMAP
-        //     };
-        //
-        //     map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-        //
-        //     var marker = new google.maps.Marker({
-        //       position: currentLocation,
-        //       map: map
-        //     });
-        //
-        //     // draw circle on map
-        //     var circleOptions = {
-        //       strokeColor: '#FF0000',
-        //       strokeOpacity: 0.8,
-        //       strokeWeight: 1.5,
-        //       fillColor: '#FF0000',
-        //       fillOpacity: 0.35,
-        //       map: map,
-        //       center: currentLocation,
-        //       radius: 2000
-        //     };
-        //
-        //     // Add the circle for this city to the map.
-        //     var circle = new google.maps.Circle(circleOptions);
-        //
-        //     // traffic
-        //     var trafficLayer = new google.maps.TrafficLayer();
-        //
-        //     // allows toggle to show traffic when button clicked
-        //     $('#toggle_traffic').click( function () {
-        //
-        //       if(trafficLayer.getMap()) {
-        //         trafficLayer.setMap(null);
-        //       } else {
-        //         trafficLayer.setMap(map);
-        //       }
-        //
-        //     });
-        //
-        //   });
-        //
-        // }
-
-        //
-        //   }); // end of navigator function
-        //
-        // }; // end of genMap function
+        // set variable to be used in mapPois
         var poiLat;
         var poiLng;
         var poiLatLng;
 
         var mapPois = function (pois) {
-          console.log(pois);
+          // create a new google maps latlng object with first poi's lat and lng
           var firstPoi = new google.maps.LatLng(pois[0].lat, pois[0].lng);
 
           var mapOptions = {
+            // center map based on first poi coords
             center: firstPoi,
             zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-
+          // create map using mapOptions and show in elemennt with id
           var poiMap = new google.maps.Map(document.getElementById('map-pois'), mapOptions);
-
+            // _.each to loop through all of the poi ojects
             _.each(pois, function (poi) {
-              console.log(poi);
-              console.log(poi.name);
-
+              // set value of poiLat and poiLng
               poiLat = poi.lat;
-              console.log(poiLat);
               poiLng = poi.lng;
-              console.log(poiLng);
-              // console.log(poiLat);
-              // console.log(poiLng);
+              // create a new google maps latlng object with all poi lat and lng
               poiLatLng = new google.maps.LatLng(poiLat, poiLng);
-              // console.log(poiLatLng);
-              //
+              // generate markers for each poi using their coords and placing on poiMap
               new google.maps.Marker({
                 position: poiLatLng,
                 map: poiMap
               });
+
+              // // draw circle on map
+              //   var circleOptions = {
+              //     strokeColor: '#FF0000',
+              //     strokeOpacity: 0.8,
+              //     strokeWeight: 1.5,
+              //     fillColor: '#FF0000',
+              //     fillOpacity: 0.35,
+              //     map: poiMap,
+              //     center: poiLatLng,
+              //     radius: 2000
+              //   };
+              //
+              // // Add the circle for this city to the map.
+              // var circle = new google.maps.Circle(circleOptions);
+
+                // create a new google maps traffic layout object
+                var trafficLayer = new google.maps.TrafficLayer();
+
+                  // allows toggle to show traffic when button clicked
+                  $('#toggle_traffic').click( function () {
+
+                    if(trafficLayer.getMap()) {
+                      trafficLayer.setMap(null);
+                    } else {
+                      trafficLayer.setMap(poiMap);
+                    }
+
+                  });
 
             });
 
