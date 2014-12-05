@@ -13,9 +13,12 @@
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
           $scope.pois = data.pois;
+
+          SingleTimelineFactory.mapPois(data.pois);
         });
 
         SingleTimelineFactory.genMap();
+
 
       }
 

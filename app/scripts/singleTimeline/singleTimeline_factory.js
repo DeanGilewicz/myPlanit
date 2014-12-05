@@ -99,8 +99,28 @@
         // }; // end of genMap function
 
 
+        var mapPois = function (pois) {
+          _.each(pois, function (coords) {
+            console.log(coords);
+            // var lat = coords.('lat');
+            // var lng = coords.get('lng');
+
+          //   var poiMap = new google.maps.LatLng(lat, lng);
+          //
+          //   new google.maps.Marker({
+          //     position: latLng,
+          //     map: poiMap
+          //   });
+          //
+          //
+          // });
+          });
+        }
+
+
         return {
-          genMap: genMap
+          genMap:  genMap,
+          mapPois: mapPois
         }
 
       }
