@@ -3,6 +3,12 @@
     .controller('SingleTimelineCtrl', ['SinglePlanitFactory', 'SingleTimelineFactory', '$routeParams', '$scope',
       function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope) {
 
+        $scope.updateAllottedTime = function (poi, updateTime) {
+
+          SingleTimelineFactory.updateAllottedTime(poi, updateTime);
+
+        }
+
 
         // DO I NEED TO MAKE A CALL OR CAN I HAVE ACCESS TO THE SINGLE PLANIT FACTORY "singlePlan" scope by calling it in the dependency
 

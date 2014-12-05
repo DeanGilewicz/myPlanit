@@ -2,6 +2,17 @@
   angular.module('myPlanit')
     .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
+
+        var updateAllottedTime = function (poi, updateTime) {
+
+          singlePlan.pois.push({ allottedTime: updateTime });
+
+          return $http.put(PARSE_URI + 'classes/Plans/' + updateTime, poi, PARSE_HEADERS).success( function (data) {
+            console.log(data);
+          });
+
+        }
+
         // set variable to be used in mapPois
         var poiLat;
         var poiLng;
@@ -67,7 +78,8 @@
 
 
         return {
-          mapPois: mapPois
+          mapPois:            mapPois,
+          updateAllottedTime: updateAllottedTime
         }
 
       }
