@@ -13,12 +13,9 @@
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
           $scope.pois = data.pois;
-
+          // call map function once the single plan object has been returned so can pass this to factory
           SingleTimelineFactory.mapPois(data.pois);
         });
-
-        SingleTimelineFactory.genMap();
-
 
       }
 

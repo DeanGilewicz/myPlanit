@@ -18,7 +18,8 @@
         //   // code to be executed after 1 seconds
         // },delay);
 
-        // get current coords for location
+
+        // get current coords for user's location
         navigator.geolocation.getCurrentPosition(getLocation);
         // create var so can be used in functions in http requests
         var lat;
