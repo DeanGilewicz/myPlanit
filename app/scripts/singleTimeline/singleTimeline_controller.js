@@ -4,7 +4,7 @@
       function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope) {
 
         $scope.updateAllottedTime = function (poi, updateTime) {
-
+          // call function passing in poi, the value of the input form and the whole plan object
           SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
 
         }
