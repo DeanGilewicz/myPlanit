@@ -4,12 +4,9 @@
       function (PARSE_URI, $http, PARSE_HEADERS) {
 
         var updateAllottedTime = function (poi, updateTime, singlePlan) {
-          console.log(poi);
-          console.log(updateTime);
-          console.log(singlePlan);
 
-          // update parse
-          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
+          // update on Parse the specifiic poi object's allotted time
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
           });
 
