@@ -12,6 +12,7 @@
 
         }
 
+
         // set variable to be used in mapPois
         var poiLat;
         var poiLng;
@@ -21,9 +22,11 @@
 
 
         var mapPois = function (pois) {
+
+          directionsDisplay = new google.maps.DirectionsRenderer();
+
           // create a new google maps latlng object with first poi's lat and lng
           var firstPoi = new google.maps.LatLng(pois[0].lat, pois[0].lng);
-          directionsDisplay = new google.maps.DirectionsRenderer();
 
           var mapOptions = {
             // center map based on first poi coords
@@ -57,20 +60,26 @@
           function calcRoute() {
             var travelMode = $('input[name="travelMode"]:checked').val();
             var start = $("#routeStart").val();
+            var end = $("#routeEnd").val();; // endpoint
+
             var via = $("#routeVia").val();
 
             if (travelMode == 'TRANSIT') {
               via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
             }
 
-            var end = "51.764696,5.526042"; // endpoint is a geolocation
             var waypoints = []; // init an empty waypoints array
             if (via != '') {
               // if waypoints (via) are set, add them to the waypoints array
-              waypoints.push({
-                location: via,
-                stopover: true
-              });
+              var checkboxArray = document.getElementById('waypoints');
+              for (var i = 0; i < checkboxArray.length; i++) {
+                if (checkboxArray.options[i].selected == true) {
+                  waypts.push({
+                    location: checkboxArray[i].value,
+                    stopover: true
+                  });
+                }
+              }
             }
 
             var request = {
@@ -86,6 +95,18 @@
               if (status == google.maps.DirectionsStatus.OK) {
                 $('#directionsPanel').empty(); // clear the directions panel before adding new directions
                 directionsDisplay.setDirections(response);
+                var route = response.routes[0];
+                var summaryPanel = document.getElementById('directions_panel');
+                summaryPanel.innerHTML = '';
+
+                for (var i = 0; i < route.legs.length; i++) {
+                  var routeSegment = i + 1;
+                  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+                  summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                  summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                  summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                }
+
               } else {
                 // alert an error message when the route could nog be calculated.
                 if (status == 'ZERO_RESULTS') {

@@ -15,6 +15,43 @@
 <section id="map">
   <h3>Map</h3>
   <div id="map-pois"></div>
+  
+    <div style="margin:20px;border-width:2px;">
+      <b>Start:</b>
+      <select id="start">
+        <option value="Halifax, NS">Halifax, NS</option>
+        <option value="Boston, MA">Boston, MA</option>
+        <option value="New York, NY">New York, NY</option>
+        <option value="Miami, FL">Miami, FL</option>
+      </select>
+      <br>
+      <b>Waypoints:</b> <br>
+      <i>(Ctrl-Click for multiple selection)</i> <br>
+      <select multiple id="waypoints">
+        <option value="montreal, quebec">Montreal, QBC</option>
+        <option value="toronto, ont">Toronto, ONT</option>
+        <option value="chicago, il">Chicago</option>
+        <option value="winnipeg, mb">Winnipeg</option>
+        <option value="fargo, nd">Fargo</option>
+        <option value="calgary, ab">Calgary</option>
+        <option value="spokane, wa">Spokane</option>
+      </select>
+      <br>
+      <b>End:</b>
+      <select id="end">
+        <option value="Vancouver, BC">Vancouver, BC</option>
+        <option value="Seattle, WA">Seattle, WA</option>
+        <option value="San Francisco, CA">San Francisco, CA</option>
+        <option value="Los Angeles, CA">Los Angeles, CA</option>
+      </select>
+      <br>
+      <input type="submit" onclick="calcRoute();">
+    </div>
+
+    <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
+
+
+
   <form action="/routebeschrijving" onSubmit="calcRoute();return false;" id="routeForm">
     <div style="overflow: hidden; width: 500px; margin: 0 auto;">
       <div style="width: 350px; float: left; text-align: left;">
@@ -26,6 +63,10 @@
           Via: (optional)<br />
           <input type="text" id="routeVia" value="bessenlaan, oss">
         </label>
+        <!-- <label>
+          To: <br />
+          <input type="text" id="routeEnd" value="amsteleindstraat, oss">
+        </label> -->
       </div>
       <div style="width: 150px; float: left; text-align: left;">
         <label>Travel mode:</label>

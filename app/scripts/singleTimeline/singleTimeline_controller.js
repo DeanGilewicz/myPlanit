@@ -23,6 +23,8 @@
           SingleTimelineFactory.mapPois(data.pois);
         });
 
+
+
       }
 
     ]);
