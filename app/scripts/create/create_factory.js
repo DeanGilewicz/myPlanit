@@ -19,8 +19,9 @@
             "totalPlanMins": 0,
             "planDate": {
               "__type": "Date",
-              "iso": plan.date
+              "iso": plan.date,
             },
+            "status": "draft",
             // create array column in db inside of Plans object for pois
             pois: poiArray,
             // create relationship between user and Plan Object
