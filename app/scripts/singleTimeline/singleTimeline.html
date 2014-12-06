@@ -15,5 +15,30 @@
 <section id="map">
   <h3>Map</h3>
   <div id="map-pois"></div>
-  <button id="toggle_traffic">Traffic</button>
+  <form action="/routebeschrijving" onSubmit="calcRoute();return false;" id="routeForm">
+    <div style="overflow: hidden; width: 500px; margin: 0 auto;">
+      <div style="width: 350px; float: left; text-align: left;">
+        <label>
+          From: <br />
+          <input type="text" id="routeStart" value="amsteleindstraat, oss">
+        </label>
+        <label>
+          Via: (optional)<br />
+          <input type="text" id="routeVia" value="bessenlaan, oss">
+        </label>
+      </div>
+      <div style="width: 150px; float: left; text-align: left;">
+        <label>Travel mode:</label>
+        <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
+        <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
+        <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
+        <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
+      </div>
+    </div>
+    <input type="submit" value="Calculate route">
+  </form>
+  <div id="directionsPanel">
+    Enter a destination and click "Calculate route".
+  </div>
+  <!-- <button id="toggle_traffic">Traffic</button> -->
 </section>
