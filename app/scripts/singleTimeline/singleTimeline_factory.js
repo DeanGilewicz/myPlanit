@@ -87,7 +87,7 @@
             console.log(noFirstnoLastPoi);
 
             // if user doesn't enter a starting point then set to first poi, user enters ending point
-            if ($("#routeStart").val() == "") {
+            if ($("#routeStart").val() == "" && $("#routeEnd").val() !== "") {
               console.log('if user do not enter a starting point then set to first poi, user enters ending point');
               // set origin to be the first point of interest
               var start = firstPoiLatLng;
@@ -121,7 +121,7 @@
               };
 
               // if user doesn't enter a ending point then set to last poi, user enters starting point
-            } else if ($("#routeEnd").val() == "") {
+            } else if ($("#routeEnd").val() == "" && $("#routeStart").val() !== "") {
               console.log('if user do not enter a ending point then set to last poi, user enters starting point');
 
               // set origin to the value of input for routeStart
