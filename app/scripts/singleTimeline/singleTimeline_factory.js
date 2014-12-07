@@ -58,9 +58,19 @@
 
 
           function calcRoute() {
+            console.log('testing factory');
             var travelMode = $('input[name="travelMode"]:checked').val();
             var start = $("#routeStart").val();
             var end = $("#routeEnd").val(); // endpoint
+
+
+            // IF INPUT ROUTESTART HAS A VALUE IN THEN ADD THIS TO THE BEGINNING OF THE WAYPOINT ARRAY
+            // IF INPUT ROUTEEND HAS A VALUE IN THEN ADD THIS TO THE END OF THE WAYPOINT ARRAY
+            // IF NEITHER HAVE INPUT THEN JUST CALCULATE WAYPOINTS - POIS
+
+            // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
+
+
 
             // var via = $("#routeVia").val();
 

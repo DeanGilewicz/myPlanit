@@ -20,7 +20,7 @@
       <p>Start:</p>
       <label>
         From: <br />
-        <input type="text" id="routeStart" value="sussex, england">
+        <input type="text" id="routeStart" value="sussex, england" />
       </label>
       <br />
       <p>Waypoints:</p> <br />
@@ -37,10 +37,10 @@
       <br />
       <label>
         To: <br />
-        <input type="text" id="routeEnd" value="london, england">
+        <input type="text" id="routeEnd" value="london, england" />
       </label>
       <br />
-      <div style="width: 150px; float: left; text-align: left;">
+      <div>
         <label>
           Travel mode: <br />
         </label>
@@ -49,10 +49,10 @@
         <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
         <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
       </div>
-      <!-- <input type="submit" ng-click=""> -->
+      <input type="submit" onClick="calcRoute();" />
     </div>
 
-    <button ng-click="calcRoute();">Calculate</button>
+    <!-- <button ng-click="calcRoute();">Calculate</button> -->
 
 
     <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
