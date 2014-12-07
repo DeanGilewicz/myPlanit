@@ -44,10 +44,10 @@
             // create a new google maps latlng object with all poi lat and lng
             poiLatLng = new google.maps.LatLng(poiLat, poiLng);
             // generate markers for each poi using their coords and placing on poiMap
-            new google.maps.Marker({
-              position: poiLatLng,
-              map: poiMap
-            });
+            // new google.maps.Marker({
+            //   position: poiLatLng,
+            //   map: poiMap
+            // });
           }); // end of _.each func
           // create a new google maps traffic layout object
           var trafficLayer = new google.maps.TrafficLayer();
@@ -61,6 +61,8 @@
           });// end of traffic func
           // display step by step directions
           directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+          // call func to automatically generate directions between all pois
+          getDirections(pois);
 
         }// end of mapPois func
 
