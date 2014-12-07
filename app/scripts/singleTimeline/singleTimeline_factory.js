@@ -97,7 +97,7 @@
                 // set value of poiLat and poiLng
                 allButFirstPoiLat = poi.lat;
                 allButFirstPoiLng = poi.lng;
-                // // create a new google maps latlng object with all but first poi lat and lng
+                // create a new google maps latlng object with all but first poi lat and lng
                 allButFirstPoiLatLng = new google.maps.LatLng(allButFirstPoiLat, allButFirstPoiLng);
                 // add all but first poi obj coords into waypoint array
                 waypoints.push({
@@ -125,7 +125,7 @@
                 // set value of poiLat and poiLng
                 allButLastPoiLat = poi.lat;
                 allButLastPoiLng = poi.lng;
-                // // create a new google maps latlng object with all but last poi lat and lng
+                // create a new google maps latlng object with all but last poi lat and lng
                 allButLastPoiLatLng = new google.maps.LatLng(allButLastPoiLat, allButLastPoiLng);
                 // add all but last poi obj coords into waypoint array
                 waypoints.push({
@@ -144,11 +144,35 @@
               };
 
               // if user doesn't enter a starting point and an ending point set as first and last pois
-            } else if () {
-
-
-
-
+            } else if ($("#routeStart").val() == "" && $("#routeEnd").val() == "") {
+              // set origin to be the first point of interest
+              var start = firstPoiLatLng;
+              // set destination to be the last point of interest
+              var end = lastPoiLatLng;
+              // init an empty waypoints array
+              var waypoints = [];
+              // iterate through all but first and last point of interest
+              _.each(noFirstnoLastPoi, function (poi) {
+                // set value of poiLat and poiLng
+                noFirstnoLastPoiLat = poi.lat;
+                noFirstnoLastPoiLng = poi.lng;
+                // create a new google maps latlng object with all but first and last poi lat and lng
+                noFirstnoLastPoiLatLng = new google.maps.LatLng(noFirstnoLastPoiLat, noFirstnoLastPoiLng);
+                // add all but first and last poi obj coords into waypoint array
+                waypoints.push({
+                  location: noFirstnoLastPoiLatLng,
+                  stopover: true
+                });
+              });
+              // set up request
+              var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypoints,
+                // optimizeWaypoints: true, // will create the most efficient route
+                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                travelMode: google.maps.DirectionsTravelMode[travelMode]
+              };
 
               // if user enters a starting point and ending point then get them values and include all pois in waypoints
             } else {
