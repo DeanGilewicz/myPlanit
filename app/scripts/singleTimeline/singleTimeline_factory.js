@@ -86,10 +86,12 @@
             var noFirstnoLastPoi = _.initial(allButFirstPoi);
             console.log(noFirstnoLastPoi);
 
-            // if user doesn't enter a starting point then set to first poi
+            // if user doesn't enter a starting point then set to first poi, user enters ending point
             if ($("#routeStart").val() == "") {
               // set origin to be the first point of interest
               var start = firstPoiLatLng;
+              // set destination to the value of input for routeEnd
+              var end = $("#routeEnd").val();
               // init an empty waypoints array
               var waypoints = [];
               // iterate through all but first point of interest
@@ -117,12 +119,15 @@
                 travelMode: google.maps.DirectionsTravelMode[travelMode]
               };
 
-              // if user doesn't enter a ending point then set to last poi
+              // if user doesn't enter a ending point then set to last poi, user enters starting point
             } else if ($("#routeEnd").val() == "") {
+              // set origin to the value of input for routeStart
+              var start = $("#routeStart").val();
               // set destination to be the last point of interest
               var end = lastPoiLatLng;
               // init an empty waypoints array
               var waypoints = [];
+              // iterate through all but last point of interest
               _.each(allButLastPoi, function (poi) {
                 // set value of poiLat and poiLng
                 allButLastPoiLat = poi.lat;
