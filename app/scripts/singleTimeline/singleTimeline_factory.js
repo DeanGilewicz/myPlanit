@@ -105,7 +105,7 @@
                   stopover: true
                 });
               });
-
+              // set up request
               var request = {
                 origin: start,
                 destination: end,
@@ -118,10 +118,43 @@
               // if user doesn't enter a ending point then set to last poi
             } else if ($("#routeEnd").val() == "") {
               // set destination to be the last point of interest
-
               var end = lastPoiLatLng;
               // init an empty waypoints array
               var waypoints = [];
+              _.each(allButLastPoi, function (poi) {
+                // set value of poiLat and poiLng
+                allButLastPoiLat = poi.lat;
+                allButLastPoiLng = poi.lng;
+                // // create a new google maps latlng object with all but last poi lat and lng
+                allButLastPoiLatLng = new google.maps.LatLng(allButLastPoiLat, allButLastPoiLng);
+                // add all but last poi obj coords into waypoint array
+                waypoints.push({
+                  location: allButLastPoiLatLng,
+                  stopover: true
+                });
+              });
+              // set up request
+              var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypoints,
+                // optimizeWaypoints: true, // will create the most efficient route
+                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                travelMode: google.maps.DirectionsTravelMode[travelMode]
+              };
+
+              // if user doesn't enter a starting point and an ending point set as first and last pois
+            } else if () {
+
+
+
+
+
+              // if user enters a starting point and ending point then get them values and include all pois in waypoints
+            } else {
+
+
+
             }
 
 
