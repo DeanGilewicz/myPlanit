@@ -25,7 +25,7 @@
 
 
         });
-
+        // set scope so function can be called in html with ng-click
         $scope.getDirections = function () {
           SingleTimelineFactory.getDirections();
         }

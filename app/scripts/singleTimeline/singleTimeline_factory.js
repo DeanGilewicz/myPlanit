@@ -12,18 +12,12 @@
 
         }
 
-
         // set variable to be used in mapPois
         var poiLat;
         var poiLng;
         var poiLatLng;
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
-        // var getDirections = function (mapPois) {
-        //   console.log('test');
-        //   /// NEED TO CALL CALC ROUTE
-        //
-        // }
 
         var mapPois = function (pois) {
 
@@ -41,9 +35,9 @@
 
           // create map using mapOptions and show in elemennt with id
           var poiMap = new google.maps.Map(document.getElementById('map-pois'), mapOptions);
-
+          // bind directions service to poiMap
           directionsDisplay.setMap(poiMap);
-
+          // _.each to loop through all of the poi ojects
           _.each(pois, function (poi) {
             // set value of poiLat and poiLng
             poiLat = poi.lat;
@@ -57,48 +51,36 @@
             });
 
           });
-
+          // display step by step directions
           directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
         }
 
-            // _.each to loop through all of the poi ojects
-
+        // IF INPUT ROUTESTART HAS A VALUE IN THEN ADD THIS TO THE BEGINNING OF THE WAYPOINT ARRAY
+        // IF INPUT ROUTEEND HAS A VALUE IN THEN ADD THIS TO THE END OF THE WAYPOINT ARRAY
+        // IF NEITHER HAVE INPUT THEN JUST CALCULATE WAYPOINTS - POIS
+        // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
 
         var getDirections = function () {
             console.log('clicked');
+            // allow user to select mode of transport
             var travelMode = $('input[name="travelMode"]:checked').val();
+            // startpoint
             var start = $("#routeStart").val();
-            var end = $("#routeEnd").val(); // endpoint
-
-
-            // IF INPUT ROUTESTART HAS A VALUE IN THEN ADD THIS TO THE BEGINNING OF THE WAYPOINT ARRAY
-            // IF INPUT ROUTEEND HAS A VALUE IN THEN ADD THIS TO THE END OF THE WAYPOINT ARRAY
-            // IF NEITHER HAVE INPUT THEN JUST CALCULATE WAYPOINTS - POIS
-
-            // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
-
-
-
-            // var via = $("#routeVia").val();
-
-            // if (travelMode == 'TRANSIT') {
-            //   via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
-            // }
-
-            var waypoints = []; // init an empty waypoints array
-            // if (via != '') {
-              // if waypoints (via) are set, add them to the waypoints array
-              var checkboxArray = document.getElementById('waypoints');
-              for (var i = 0; i < checkboxArray.length; i++) {
-                if (checkboxArray.options[i].selected == true) {
-                  waypoints.push({
-                    location: checkboxArray[i].value,
-                    stopover: true
-                  });
-                }
+            // endpoint
+            var end = $("#routeEnd").val();
+            // init an empty waypoints array
+            var waypoints = [];
+            
+            var checkboxArray = document.getElementById('waypoints');
+            for (var i = 0; i < checkboxArray.length; i++) {
+              if (checkboxArray.options[i].selected == true) {
+                waypoints.push({
+                  location: checkboxArray[i].value,
+                  stopover: true
+                });
               }
-            // }
+            }
 
             var request = {
               origin: start,
@@ -108,15 +90,21 @@
               unitSystem: google.maps.UnitSystem.IMPERIAL,
               travelMode: google.maps.DirectionsTravelMode[travelMode]
             };
-
+            // send the request to google api
             directionsService.route(request, function(response, status) {
+              console.log(response);
+              // check to make sure reuest was successful
               if (status == google.maps.DirectionsStatus.OK) {
-                $('#directionsPanel').empty(); // clear the directions panel before adding new directions
+                // clear the directions panel before adding new directions
+                $('#directionsPanel').empty();
+                // generate directions
                 directionsDisplay.setDirections(response);
+                // set var to payload returned from google api
                 var route = response.routes[0];
                 var summaryPanel = document.getElementById('directions_panel');
+                // input html into id directions_panel as route information is created
                 summaryPanel.innerHTML = '';
-
+                // run through each of the legs in var route and display info
                 for (var i = 0; i < route.legs.length; i++) {
                   var routeSegment = i + 1;
                   summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
@@ -126,7 +114,7 @@
                 }
 
               } else {
-                // alert an error message when the route could nog be calculated.
+                // alert an error message when the route could not be calculated.
                 if (status == 'ZERO_RESULTS') {
                   alert('No route could be found between the origin and destination.');
                 } else if (status == 'UNKNOWN_ERROR') {
