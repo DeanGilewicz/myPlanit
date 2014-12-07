@@ -66,6 +66,7 @@
 
 
         var getDirections = function () {
+            console.log('clicked');
             var travelMode = $('input[name="travelMode"]:checked').val();
             var start = $("#routeStart").val();
             var end = $("#routeEnd").val(); // endpoint
