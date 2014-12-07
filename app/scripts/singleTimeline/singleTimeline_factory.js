@@ -12,13 +12,14 @@
 
         }
 
-        // set variable to be used in mapPois
+        // set variables to accessible
         var poiLat;
         var poiLng;
         var poiLatLng;
         var directionsDisplay;
-        // Instantiate a directions service.
+        // Instantiate a directions service
         var directionsService = new google.maps.DirectionsService();
+
 
         var mapPois = function (pois) {
 
@@ -57,26 +58,28 @@
 
         }
 
-        // IF INPUT ROUTESTART HAS A VALUE IN THEN ADD THIS TO THE BEGINNING OF THE WAYPOINT ARRAY
-        // IF INPUT ROUTEEND HAS A VALUE IN THEN ADD THIS TO THE END OF THE WAYPOINT ARRAY
-        // IF NEITHER HAVE INPUT THEN JUST CALCULATE WAYPOINTS - POIS
-        // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
 
         var getDirections = function (pois) {
-
+            // get the first obj in pois array
             var firstPoi = _.first(pois);
+            // set the lat for first obj
             var firstPoiLat = firstPoi.lat;
+            // set the lng for first obj
             var firstPoiLng = firstPoi.lng;
+            // create a new google maps latlng object with first obj's lat lng coords
             var firstPoiLatLng = new google.maps.LatLng(firstPoiLat, firstPoiLng);
-
+            // get the last obj in pois array
             var lastPoi = _.last(pois);
+            // set the lat for last obj
             var lastPoiLat = lastPoi.lat;
+            // set the lng for last obj
             var lastPoiLng = lastPoi.lng;
+            // create a new google maps latlng object with last obj's lat lng coords
             var lastPoiLatLng = new google.maps.LatLng(lastPoiLat, lastPoiLng);
-
+            // get all obj's but the first one in pois array
             var allButFirstPoi = _.rest(pois, 1);
             console.log(allButFirstPoi);
-
+            // pass the new array (pois array but without first obj) into func to get all but last obj
             var noFirstnoLastPoi = _.initial(allButFirstPoi);
             console.log(noFirstnoLastPoi);
 
@@ -96,6 +99,9 @@
             } else {
               var end = $("#routeEnd").val();
             }
+
+            // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
+
 
             // init an empty waypoints array
             var waypoints = [];
