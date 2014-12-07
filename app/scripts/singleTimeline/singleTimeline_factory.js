@@ -10,31 +10,28 @@
             console.log(data);
           });
 
-        }
+        }// end of updateAllottedTime func
 
         // set variables to accessible
         var poiLat;
         var poiLng;
         var poiLatLng;
         var directionsDisplay;
-        // Instantiate a directions service
-        var directionsService = new google.maps.DirectionsService();
+        var directionsService = new google.maps.DirectionsService(); // instantiate a directions service
 
 
         var mapPois = function (pois) {
-
+          // instantiate a directions renderer
           directionsDisplay = new google.maps.DirectionsRenderer();
-
           // create a new google maps latlng object with first poi's lat and lng
           var firstPoi = new google.maps.LatLng(pois[0].lat, pois[0].lng);
-
+          // set mapOptions
           var mapOptions = {
             // center map based on first poi coords
             center: firstPoi,
             zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-
           // create map using mapOptions and show in elemennt with id
           var poiMap = new google.maps.Map(document.getElementById('map-pois'), mapOptions);
           // bind directions service to poiMap
@@ -51,12 +48,21 @@
               position: poiLatLng,
               map: poiMap
             });
-
-          });
+          }); // end of _.each func
+          // create a new google maps traffic layout object
+          var trafficLayer = new google.maps.TrafficLayer();
+          // allows toggle to show traffic when button clicked
+          $('#toggle_traffic').click( function () {
+            if(trafficLayer.getMap()) {
+              trafficLayer.setMap(null);
+            } else {
+              trafficLayer.setMap(poiMap);
+            }
+          });// end of traffic func
           // display step by step directions
           directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
-        }
+        }// end of mapPois func
 
 
         var getDirections = function (pois) {
@@ -78,17 +84,13 @@
             var lastPoiLatLng = new google.maps.LatLng(lastPoiLat, lastPoiLng);
             // get all obj's but the first one in pois array
             var allButFirstPoi = _.rest(pois, 1);
-            console.log(allButFirstPoi);
             // get all obj's but the last one in pois array
             var allButLastPoi = _.initial(pois);
-            console.log(allButLastPoi);
             // pass the new array (pois array but without first obj) into func to get all but last obj
             var noFirstnoLastPoi = _.initial(allButFirstPoi);
-            console.log(noFirstnoLastPoi);
 
             // if user doesn't enter a starting point then set to first poi, user enters ending point
             if ($("#routeStart").val() == "" && $("#routeEnd").val() !== "") {
-              console.log('if user do not enter a starting point then set to first poi, user enters ending point');
               // set origin to be the first point of interest
               var start = firstPoiLatLng;
               // set destination to the value of input for routeEnd
@@ -107,7 +109,7 @@
                   location: allButFirstPoiLatLng,
                   stopover: true
                 });
-              });
+              });// end of _.each func
               // grab the value selected by the user for mode of transport
               var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
@@ -122,8 +124,6 @@
 
               // if user doesn't enter a ending point then set to last poi, user enters starting point
             } else if ($("#routeEnd").val() == "" && $("#routeStart").val() !== "") {
-              console.log('if user do not enter a ending point then set to last poi, user enters starting point');
-
               // set origin to the value of input for routeStart
               var start = $("#routeStart").val();
               // set destination to be the last point of interest
@@ -142,7 +142,7 @@
                   location: allButLastPoiLatLng,
                   stopover: true
                 });
-              });
+              });// end of _.each func
               // grab the value selected by the user for mode of transport
               var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
@@ -157,8 +157,6 @@
 
               // if user doesn't enter a starting point and an ending point set as first and last pois
             } else if ($("#routeStart").val() == "" && $("#routeEnd").val() == "") {
-              console.log('if user do not enter a starting point and ending point set as first and last pois');
-
               // set origin to be the first point of interest
               var start = firstPoiLatLng;
               // set destination to be the last point of interest
@@ -177,7 +175,7 @@
                   location: noFirstnoLastPoiLatLng,
                   stopover: true
                 });
-              });
+              });// end of _.each func
               // grab the value selected by the user for mode of transport
               var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
@@ -192,8 +190,6 @@
 
               // if user enters both a starting point and ending point use these values and include all pois in waypoints
             } else {
-              console.log('if user enters both a starting point and ending point use these values and include all pois in waypoints');
-
               // set origin to the value of input for routeStart
               var start = $("#routeStart").val();
               // set destination to the value of input for routeEnd
@@ -212,7 +208,7 @@
                   location: poiLatLng,
                   stopover: true
                 });
-              });
+              });// end of _.each func
               // grab the value selected by the user for mode of transport
               var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
@@ -224,22 +220,7 @@
                 unitSystem: google.maps.UnitSystem.IMPERIAL,
                 travelMode: google.maps.DirectionsTravelMode[travelMode]
               };
-            }
-
-
-            // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
-
-
-            // var checkboxArray = document.getElementById('waypoints');
-            // for (var i = 0; i < checkboxArray.length; i++) {
-            //   if (checkboxArray.options[i].selected == true) {
-            //     waypoints.push({
-            //       location: checkboxArray[i].value,
-            //       stopover: true
-            //     });
-            //   }
-            // }
-
+            }// end of conditional func
 
             // send the request to google api
             directionsService.route(request, function(response, status) {
@@ -251,18 +232,18 @@
                 // generate directions
                 directionsDisplay.setDirections(response);
                 // set var to payload returned from google api
-                var route = response.routes[0];
-                var summaryPanel = document.getElementById('directions_panel');
-                // input html into id directions_panel as route information is created
-                summaryPanel.innerHTML = '';
-                // run through each of the legs in var route and display info
-                for (var i = 0; i < route.legs.length; i++) {
-                  var routeSegment = i + 1;
-                  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-                  summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                  summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                  summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-                }
+                // var route = response.routes[0];
+                // var summaryPanel = document.getElementById('directions_panel');
+                // // input html into id directions_panel as route information is created
+                // summaryPanel.innerHTML = '';
+                // // run through each of the legs in var route and display info
+                // for (var i = 0; i < route.legs.length; i++) {
+                //   var routeSegment = i + 1;
+                //   summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+                //   summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                //   summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                //   summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                // }
 
               } else {
                 // alert an error message when the route could not be calculated.
@@ -284,51 +265,19 @@
               }
             });
 
-          }
-
-              // // draw circle on map
-              //   var circleOptions = {
-              //     strokeColor: '#FF0000',
-              //     strokeOpacity: 0.8,
-              //     strokeWeight: 1.5,
-              //     fillColor: '#FF0000',
-              //     fillOpacity: 0.35,
-              //     map: poiMap,
-              //     center: poiLatLng,
-              //     radius: 2000
-              //   };
-              //
-              // // Add the circle for this city to the map.
-              // var circle = new google.maps.Circle(circleOptions);
-
-                // create a new google maps traffic layout object
-                // var trafficLayer = new google.maps.TrafficLayer();
-
-                  // allows toggle to show traffic when button clicked
-                  // $('#toggle_traffic').click( function () {
-                  //
-                  //   if(trafficLayer.getMap()) {
-                  //     trafficLayer.setMap(null);
-                  //   } else {
-                  //     trafficLayer.setMap(poiMap);
-                  //   }
-                  //
-                  // });
-
-            // });
-
-          // }
+        }// end of getDirections func
 
 
         return {
+          updateAllottedTime: updateAllottedTime,
           mapPois:            mapPois,
-          getDirections:      getDirections,
-          updateAllottedTime: updateAllottedTime
+          getDirections:      getDirections
+
         }
 
-      }
+      }// end of factory func
 
 
-  ]);
+  ]);// end of factory dependencies
 
-}());
+}());// end of IIFE

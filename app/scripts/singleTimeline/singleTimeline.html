@@ -15,7 +15,8 @@
 <section id="map">
   <h3>Map</h3>
   <div id="map-pois"></div>
-
+  <button id="toggle_traffic">Traffic</button>
+  
     <div style="margin:20px;border-width:2px;">
       <b>Start:</b>
       <label>
@@ -23,15 +24,6 @@
         <input type="text" id="routeStart" value="" />
       </label>
       <br />
-      <!-- <b>Waypoints:</b> <br>
-      <i>(Ctrl-Click for multiple selection)</i> <br>
-      <select multiple id="waypoints">
-        <option value="atlanta, ga">Atlanta</option>
-        <option value="chicago, il">Chicago</option>
-        <option value="new york, ny">New York</option>
-        <option value="watford, england">Watford</option>
-      </select>
-      <br /> -->
       <label>
         To: <br />
         <input type="text" id="routeEnd" value="" />
@@ -46,21 +38,9 @@
         <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
         <br />
       <button ng-click="getDirections(pois)">GO</button>
-
     </div>
 
-    <!-- <button ng-click="calcRoute();">Calculate</button> -->
-
-
     <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
-    <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
+    <!-- <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div> -->
 
-
-
-  <!-- <form action="/routebeschrijving" onSubmit="calcRoute();return false;" id="routeForm"> -->
-<!--
-    <input type="submit" value="Calculate route">
-  </form> -->
-
-  <!-- <button id="toggle_traffic">Traffic</button> -->
 </section>
