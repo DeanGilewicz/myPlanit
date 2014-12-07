@@ -174,21 +174,40 @@
                 travelMode: google.maps.DirectionsTravelMode[travelMode]
               };
 
-              // if user enters a starting point and ending point then get them values and include all pois in waypoints
+              // if user enters both a starting point and ending point use these values and include all pois in waypoints
             } else {
-
-
-
+              // set origin to the value of input for routeStart
+              var start = $("#routeStart").val();
+              // set destination to the value of input for routeEnd
+              var end = $("#routeEnd").val();
+              // init an empty waypoints array
+              var waypoints = [];
+              // iterate through all point of interest
+              _.each(pois, function (poi) {
+                // set value of poiLat and poiLng
+                poiLat = poi.lat;
+                poiLng = poi.lng;
+                // create a new google maps latlng object with all poi lat and lng
+                poiLatLng = new google.maps.LatLng(poiLat, poiLng);
+                // add all poi obj coords into waypoint array
+                waypoints.push({
+                  location: poiLatLng,
+                  stopover: true
+                });
+              });
+              // set up request
+              var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypoints,
+                // optimizeWaypoints: true, // will create the most efficient route
+                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                travelMode: google.maps.DirectionsTravelMode[travelMode]
+              };
             }
 
 
-
             // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
-
-
-            // init an empty waypoints array
-            var waypoints = [];
-
 
 
             // var checkboxArray = document.getElementById('waypoints');
@@ -201,32 +220,10 @@
             //   }
             // }
 
-            _.each(pois, function (poi) {
-
-              // set value of poiLat and poiLng
-              poiLat = poi.lat;
-              poiLng = poi.lng;
-              // // create a new google maps latlng object with all poi lat and lng
-              poiLatLng = new google.maps.LatLng(poiLat, poiLng);
-
-              waypoints.push({
-                location: poiLatLng,
-                stopover: true
-              });
-
-            });
-
-            // user to select mode of transport
+            // grab the value selected by the user for mode of transport
             var travelMode = $('input[name="travelMode"]:checked').val();
 
-            var request = {
-              origin: start,
-              destination: end,
-              waypoints: waypoints,
-              // optimizeWaypoints: true, // will create the most efficient route
-              unitSystem: google.maps.UnitSystem.IMPERIAL,
-              travelMode: google.maps.DirectionsTravelMode[travelMode]
-            };
+
             // send the request to google api
             directionsService.route(request, function(response, status) {
               console.log(response);
