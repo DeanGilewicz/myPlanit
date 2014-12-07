@@ -17,6 +17,7 @@
         var poiLng;
         var poiLatLng;
         var directionsDisplay;
+        // Instantiate a directions service.
         var directionsService = new google.maps.DirectionsService();
 
         var mapPois = function (pois) {
@@ -61,7 +62,7 @@
         // IF NEITHER HAVE INPUT THEN JUST CALCULATE WAYPOINTS - POIS
         // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
 
-        var getDirections = function () {
+        var getDirections = function (pois) {
             console.log('clicked');
             // allow user to select mode of transport
             var travelMode = $('input[name="travelMode"]:checked').val();
@@ -71,16 +72,47 @@
             var end = $("#routeEnd").val();
             // init an empty waypoints array
             var waypoints = [];
-            
-            var checkboxArray = document.getElementById('waypoints');
-            for (var i = 0; i < checkboxArray.length; i++) {
-              if (checkboxArray.options[i].selected == true) {
-                waypoints.push({
-                  location: checkboxArray[i].value,
-                  stopover: true
-                });
+
+
+
+            // var checkboxArray = document.getElementById('waypoints');
+            // for (var i = 0; i < checkboxArray.length; i++) {
+            //   if (checkboxArray.options[i].selected == true) {
+            //     waypoints.push({
+            //       location: checkboxArray[i].value,
+            //       stopover: true
+            //     });
+            //   }
+            // }
+
+            console.log(pois);
+
+            // _.each(pois, function (poi) {
+
+              // set value of poiLat and poiLng
+              // poiLat = poi.lat;
+              // poiLng = poi.lng;
+              // create a new google maps latlng object with all poi lat and lng
+              // poiLatLng = new google.maps.LatLng(poiLat, poiLng);
+
+              waypoints.push(
+                {
+                location: '51.502238035316594, -0.11941194534301758',
+                stopover: true
               }
-            }
+              );
+
+
+            // });
+
+
+
+
+
+
+
+
+
 
             var request = {
               origin: start,
