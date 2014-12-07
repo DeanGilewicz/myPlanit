@@ -74,8 +74,11 @@
             var lastPoiLng = lastPoi.lng;
             var lastPoiLatLng = new google.maps.LatLng(lastPoiLat, lastPoiLng);
 
-            var remaningPois = _.rest(pois, 1, lastPoi -1);
-            console.log(remaningPois);
+            var allButFirstPoi = _.rest(pois, 1);
+            console.log(allButFirstPoi);
+
+            var noFirstnoLastPoi = _.initial(allButFirstPoi);
+            console.log(noFirstnoLastPoi);
 
             // allow user to select mode of transport
             var travelMode = $('input[name="travelMode"]:checked').val();
@@ -126,13 +129,6 @@
 
 
             });
-
-
-
-
-
-
-
 
 
 
