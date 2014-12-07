@@ -60,16 +60,16 @@
           function calcRoute() {
             var travelMode = $('input[name="travelMode"]:checked').val();
             var start = $("#routeStart").val();
-            var end = $("#routeEnd").val();; // endpoint
+            var end = $("#routeEnd").val(); // endpoint
 
-            var via = $("#routeVia").val();
+            // var via = $("#routeVia").val();
 
-            if (travelMode == 'TRANSIT') {
-              via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
-            }
+            // if (travelMode == 'TRANSIT') {
+            //   via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
+            // }
 
             var waypoints = []; // init an empty waypoints array
-            if (via != '') {
+            // if (via != '') {
               // if waypoints (via) are set, add them to the waypoints array
               var checkboxArray = document.getElementById('waypoints');
               for (var i = 0; i < checkboxArray.length; i++) {
@@ -80,7 +80,7 @@
                   });
                 }
               }
-            }
+            // }
 
             var request = {
               origin: start,
