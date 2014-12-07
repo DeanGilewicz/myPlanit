@@ -17,9 +17,13 @@
         var poiLat;
         var poiLng;
         var poiLatLng;
-        var directionDisplay;
+        var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
-
+        // var getDirections = function (mapPois) {
+        //   console.log('test');
+        //   /// NEED TO CALL CALC ROUTE
+        //
+        // }
 
         var mapPois = function (pois) {
 
@@ -39,26 +43,29 @@
           var poiMap = new google.maps.Map(document.getElementById('map-pois'), mapOptions);
 
           directionsDisplay.setMap(poiMap);
-          directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
-            // _.each to loop through all of the poi ojects
-            _.each(pois, function (poi) {
-              // set value of poiLat and poiLng
-              poiLat = poi.lat;
-              poiLng = poi.lng;
-              // create a new google maps latlng object with all poi lat and lng
-              poiLatLng = new google.maps.LatLng(poiLat, poiLng);
-              // generate markers for each poi using their coords and placing on poiMap
-              new google.maps.Marker({
-                position: poiLatLng,
-                map: poiMap
-              });
-
+          _.each(pois, function (poi) {
+            // set value of poiLat and poiLng
+            poiLat = poi.lat;
+            poiLng = poi.lng;
+            // create a new google maps latlng object with all poi lat and lng
+            poiLatLng = new google.maps.LatLng(poiLat, poiLng);
+            // generate markers for each poi using their coords and placing on poiMap
+            new google.maps.Marker({
+              position: poiLatLng,
+              map: poiMap
             });
 
+          });
 
-          function calcRoute() {
-            console.log('testing factory');
+          directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+
+        }
+
+            // _.each to loop through all of the poi ojects
+
+
+        var getDirections = function () {
             var travelMode = $('input[name="travelMode"]:checked').val();
             var start = $("#routeStart").val();
             var end = $("#routeEnd").val(); // endpoint
@@ -170,11 +177,12 @@
 
             // });
 
-          }
+          // }
 
 
         return {
           mapPois:            mapPois,
+          getDirections:      getDirections,
           updateAllottedTime: updateAllottedTime
         }
 

@@ -17,22 +17,18 @@
   <div id="map-pois"></div>
 
     <div style="margin:20px;border-width:2px;">
-      <p>Start:</p>
+      <b>Start:</b>
       <label>
         From: <br />
-        <input type="text" id="routeStart" value="sussex, england" />
+        <input type="text" id="routeStart" value="reading, england" />
       </label>
       <br />
-      <p>Waypoints:</p> <br />
-      <p>(Ctrl-Click for multiple selection)</p> <br />
+      <b>Waypoints:</b> <br>
+      <i>(Ctrl-Click for multiple selection)</i> <br>
       <select multiple id="waypoints">
-        <option value="montreal, quebec">Montreal, QBC</option>
-        <option value="toronto, ont">Toronto, ONT</option>
+        <option value="atlanta, ga">Atlanta</option>
         <option value="chicago, il">Chicago</option>
-        <option value="winnipeg, mb">Winnipeg</option>
-        <option value="fargo, nd">Fargo</option>
-        <option value="calgary, ab">Calgary</option>
-        <option value="spokane, wa">Spokane</option>
+        <option value="new york, ny">New York</option>
       </select>
       <br />
       <label>
@@ -40,7 +36,6 @@
         <input type="text" id="routeEnd" value="london, england" />
       </label>
       <br />
-      <div>
         <label>
           Travel mode: <br />
         </label>
@@ -48,14 +43,16 @@
         <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
         <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
         <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
-      </div>
-      <input type="submit" onClick="calcRoute();" />
+      <button ng-click="getDirections()">GO</button>
+      <!-- <input type="submit" onclick="calcRoute();"> -->
+
     </div>
 
     <!-- <button ng-click="calcRoute();">Calculate</button> -->
 
 
     <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
+    <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
 
 
 
