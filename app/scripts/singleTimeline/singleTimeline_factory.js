@@ -223,7 +223,6 @@
                 travelMode: google.maps.DirectionsTravelMode[travelMode]
               };
             }// end of conditional func
-
             // send the request to google api
             directionsService.route(request, function(response, status) {
               console.log(response);
@@ -231,21 +230,30 @@
               if (status == google.maps.DirectionsStatus.OK) {
                 // clear the directions panel before adding new directions
                 $('#directionsPanel').empty();
+                // clear the totals panel before adding new totals
+                $('#totals').empty();
                 // generate directions
                 directionsDisplay.setDirections(response);
+                // set initial value for vars
+                var totalDistance = 0;
+                var totalDuration = 0;
                 // set var to payload returned from google api
-                // var route = response.routes[0];
-                // var summaryPanel = document.getElementById('directions_panel');
-                // // input html into id directions_panel as route information is created
-                // summaryPanel.innerHTML = '';
-                // // run through each of the legs in var route and display info
-                // for (var i = 0; i < route.legs.length; i++) {
-                //   var routeSegment = i + 1;
-                //   summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-                //   summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                //   summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                //   summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-                // }
+                var legs = response.routes[0].legs;
+                // iterate through legs in payload
+                for (var i = 0; i < legs.length; i++) {
+                  // add up each distance value
+                  totalDistance = totalDistance + legs[i].distance.value;
+                  console.log(totalDistance);
+                  // add up each duration value
+                  totalDuration = totalDuration + legs[i].duration.value;
+                  console.log(totalDuration);
+                }
+                // value to convert meters to miles
+                var meters_to_miles = 0.000621371192;
+                // display output with text miles
+                $('#distance').text((Math.round( totalDistance * meters_to_miles * 10 ) / 10)+' miles');
+                // display output with text minutes
+                $('#duration').text(Math.round( totalDuration / 60 )+' minutes');
 
               } else {
                 // alert an error message when the route could not be calculated.
