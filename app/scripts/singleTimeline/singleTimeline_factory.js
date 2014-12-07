@@ -63,11 +63,42 @@
         // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
 
         var getDirections = function (pois) {
-            console.log('clicked');
+            console.log(pois);
+            var firstPoi = _.first(pois);
+            var firstPoiLat = firstPoi.lat;
+            var firstPoiLng = firstPoi.lng;
+            console.log(firstPoiLat);
+            console.log(firstPoiLng);
+
+            var firstPoiLatLng = new google.maps.LatLng(firstPoiLat, firstPoiLng);
+            console.log(firstPoiLatLng);
+
+            // console.log(firstPoiCoords);
+            // console.log(firstCoords);
+            // var last = _.last(pois);
+            // var lastCoords = last.lat, last.lng;
+            // console.log(lastCoords);
+
+
+
+
             // allow user to select mode of transport
             var travelMode = $('input[name="travelMode"]:checked').val();
+
+
             // startpoint
-            var start = $("#routeStart").val();
+            if ($("#routeStart").val() == "") {
+
+              var start = firstPoiLatLng;
+
+            } else {
+
+              var start = $("#routeStart").val();
+
+            }
+
+
+
             // endpoint
             var end = $("#routeEnd").val();
             // init an empty waypoints array
