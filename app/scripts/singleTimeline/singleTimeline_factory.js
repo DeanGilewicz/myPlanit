@@ -79,26 +79,52 @@
             // get all obj's but the first one in pois array
             var allButFirstPoi = _.rest(pois, 1);
             console.log(allButFirstPoi);
+            // get all obj's but the last one in pois array
+            var allButLastPoi = _.initial(pois);
+            console.log(allButLastPoi);
             // pass the new array (pois array but without first obj) into func to get all but last obj
             var noFirstnoLastPoi = _.initial(allButFirstPoi);
             console.log(noFirstnoLastPoi);
 
-            // allow user to select mode of transport
-            var travelMode = $('input[name="travelMode"]:checked').val();
-
-            // startpoint
+            // if user doesn't enter a starting point then set to first poi
             if ($("#routeStart").val() == "") {
+              // set origin to be the first point of interest
               var start = firstPoiLatLng;
-            } else {
-              var start = $("#routeStart").val();
+              // init an empty waypoints array
+              var waypoints = [];
+              // iterate through all but first point of interest
+              _.each(allButFirstPoi, function (poi) {
+                // set value of poiLat and poiLng
+                allButFirstPoiLat = poi.lat;
+                allButFirstPoiLng = poi.lng;
+                // // create a new google maps latlng object with all but first poi lat and lng
+                allButFirstPoiLatLng = new google.maps.LatLng(allButFirstPoiLat, allButFirstPoiLng);
+                // add all but first poi obj coords into waypoint array
+                waypoints.push({
+                  location: allButFirstPoiLatLng,
+                  stopover: true
+                });
+              });
+
+              var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypoints,
+                // optimizeWaypoints: true, // will create the most efficient route
+                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                travelMode: google.maps.DirectionsTravelMode[travelMode]
+              };
+
+              // if user doesn't enter a ending point then set to last poi
+            } else if ($("#routeEnd").val() == "") {
+              // set destination to be the last point of interest
+
+              var end = lastPoiLatLng;
+              // init an empty waypoints array
+              var waypoints = [];
             }
 
-            // endpoint
-            if ($("#routeEnd").val() == "") {
-              var end = lastPoiLatLng;
-            } else {
-              var end = $("#routeEnd").val();
-            }
+
 
             // NEST IF ELSE FOR OPTIMIZE BUTTON - IF VALUE IN ROUTESTART, ROUTEEND, NEITHER
 
@@ -126,17 +152,15 @@
               // // create a new google maps latlng object with all poi lat and lng
               poiLatLng = new google.maps.LatLng(poiLat, poiLng);
 
-              waypoints.push(
-                {
+              waypoints.push({
                 location: poiLatLng,
                 stopover: true
-              }
-              );
-
+              });
 
             });
 
-
+            // user to select mode of transport
+            var travelMode = $('input[name="travelMode"]:checked').val();
 
             var request = {
               origin: start,
