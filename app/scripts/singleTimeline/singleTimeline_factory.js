@@ -85,25 +85,23 @@
             //   }
             // }
 
-            console.log(pois);
-
-            // _.each(pois, function (poi) {
+            _.each(pois, function (poi) {
 
               // set value of poiLat and poiLng
-              // poiLat = poi.lat;
-              // poiLng = poi.lng;
-              // create a new google maps latlng object with all poi lat and lng
-              // poiLatLng = new google.maps.LatLng(poiLat, poiLng);
+              poiLat = poi.lat;
+              poiLng = poi.lng;
+              // // create a new google maps latlng object with all poi lat and lng
+              poiLatLng = new google.maps.LatLng(poiLat, poiLng);
 
               waypoints.push(
                 {
-                location: '51.502238035316594, -0.11941194534301758',
+                location: poiLatLng,
                 stopover: true
               }
               );
 
 
-            // });
+            });
 
 
 
