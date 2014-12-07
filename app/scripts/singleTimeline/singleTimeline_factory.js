@@ -105,6 +105,8 @@
                   stopover: true
                 });
               });
+              // grab the value selected by the user for mode of transport
+              var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
               var request = {
                 origin: start,
@@ -133,6 +135,8 @@
                   stopover: true
                 });
               });
+              // grab the value selected by the user for mode of transport
+              var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
               var request = {
                 origin: start,
@@ -164,6 +168,8 @@
                   stopover: true
                 });
               });
+              // grab the value selected by the user for mode of transport
+              var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
               var request = {
                 origin: start,
@@ -195,6 +201,8 @@
                   stopover: true
                 });
               });
+              // grab the value selected by the user for mode of transport
+              var travelMode = $('input[name="travelMode"]:checked').val();
               // set up request
               var request = {
                 origin: start,
@@ -219,9 +227,6 @@
             //     });
             //   }
             // }
-
-            // grab the value selected by the user for mode of transport
-            var travelMode = $('input[name="travelMode"]:checked').val();
 
 
             // send the request to google api
