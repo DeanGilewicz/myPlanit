@@ -92,7 +92,7 @@
               var checkboxArray = document.getElementById('waypoints');
               for (var i = 0; i < checkboxArray.length; i++) {
                 if (checkboxArray.options[i].selected == true) {
-                  waypts.push({
+                  waypoints.push({
                     location: checkboxArray[i].value,
                     stopover: true
                   });
