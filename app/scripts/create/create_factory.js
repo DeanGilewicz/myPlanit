@@ -22,7 +22,7 @@
               "__type": "Date",
               "iso": plan.date,
             },
-            "status": "draft",
+            "status": "private",
             "author": currentUser.username,
             // create array column in db inside of Plans object for pois
             pois: poiArray,

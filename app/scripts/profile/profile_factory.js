@@ -18,12 +18,12 @@
         // function to update status of plan to either draft (personal) or publish (public)
         var updatePlanStatus = function (plan, userPlans) {
           // update status of plan
-          if(plan.status === 'draft') {
-            plan.status = 'publish';
-            $('#statusText').text('publish');
-          } else if (plan.status === 'publish') {
-            plan.status = 'draft';
-            $('#statusText').text('draft');
+          if(plan.status === 'private') {
+            plan.status = 'published';
+            $('#statusText').text('published');
+          } else if (plan.status === 'published') {
+            plan.status = 'private';
+            $('#statusText').text('private');
           }
 
           // update parse to reflect updated status

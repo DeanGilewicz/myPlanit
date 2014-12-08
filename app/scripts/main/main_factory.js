@@ -6,7 +6,7 @@
         // get all published plans from all users
         var allPublishedPlans = function () {
           // query Parse to retrieve all plans that have the status published
-          var params = '?where={"status": "draft"}';
+          var params = '?where={"status": "published"}';
           // return Plans for current user
           return $http.get(PARSE_URI + 'classes/Plans/' + params, PARSE_HEADERS);
 
