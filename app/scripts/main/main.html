@@ -10,10 +10,25 @@
 
 <ul>
   <li ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
-    <p>Destination: {{ plan.destination }}</p>
-    <p>Plan Name: {{ plan.planName }}</p>
-    <p>myPlanit User: {{ plan.author }}</p>
-    <p>Planned For: {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
-    <p>Plan Time: {{ plan.totalPlanMins }} minutes</p>
+    <div class="destinations">
+      <h5>Destination</h5>
+      <p>{{ plan.destination }}</p>
+    </div>
+    <div class="planName">
+      <h5>Plan Name</h5>
+      <p>{{ plan.planName }}</p>
+    </div>
+    <div class="author">
+      <h5>myPlanit User</h5>
+      <p>{{ plan.author }}</p>
+    </div>
+    <div class="planDate">
+      <h5>Plan Date</h5>
+      <p>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
+    </div>
+    <div class="planTime">
+      <h5>Plan Time</h5>
+      <p>{{ plan.totalPlanMins }} minutes</p>
+    </div>
   </li>
 </ul>
