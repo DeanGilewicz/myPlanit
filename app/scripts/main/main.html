@@ -1,8 +1,8 @@
-<p class="search"><span>Search:</span><input ng-model="query" placeholder="author or plan name"></p>
+<p class="search"><span>Search:</span><input ng-model="query" placeholder="destination, user, etc"></p>
 <div class="filter">
   <select ng-model="orderProp">
     <option value="">Sort By</option>
-    <option value="planName">Plan Name</option> <!-- if add DESTINATION property then have this instead -->
+    <option value="destination">Destination</option>
     <option value="planDate">Planned For</option>
     <option value="totalPlanMins">Plan Time</option>
   </select>
@@ -10,6 +10,7 @@
 
 <ul>
   <li ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
+    <p>Destination: {{ plan.destination }}</p>
     <p>Plan Name: {{ plan.planName }}</p>
     <p>myPlanit User: {{ plan.author }}</p>
     <p>Planned For: {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
