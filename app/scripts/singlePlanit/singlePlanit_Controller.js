@@ -22,13 +22,27 @@
         }
 
         // call function and store payload returned in exploreResults
-        $scope.doExplore = function (singlePlan) {
-          SinglePlanitFactory.doExplore(singlePlan).success( function (data) {
+        $scope.doTopPicks = function (singlePlan) {
+          SinglePlanitFactory.doTopPicks(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
             console.log($scope.exploreResults);
           });
         }
+
+        // call function and store payload returned in exploreResults
+        $scope.doFood = function (singlePlan) {
+          SinglePlanitFactory.doFood(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
+
+
+
+
+
 
         // objId is related to what is passed in poiDetails() that we can have access too
         // result.id gives me access to the id
@@ -54,15 +68,13 @@
         }
 
         $scope.addPoi = function (result) {
-          // poi object (result) is passed in to the function
-          // with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
+          // poi object (result) is passed in to the func with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
           SinglePlanitFactory.addPoi(result, $scope.singlePlan);
         }
 
         // passing in the plan object, index position, entire plan object
-        // call function to delete poi
         $scope.deletePoi = function (result, index, singlePlan) {
-
+          // call function to delete poi
           SinglePlanitFactory.deletePoi(result, index, singlePlan).success( function (data) {
             console.log(data);
           });

@@ -15,7 +15,7 @@
         var doSearch = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            alert('Please enter something to search')
+            alert('please enter something to search for')
           } else {
             return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+dest+'&query='+$('#query').val()+'').success(function (data) {
             console.log(data);
@@ -24,11 +24,23 @@
         }
 
 
-        // function for explore tied to explore button
-        var doExplore = function (singlePlan) {
+        // function for explore tied to Top Picks button
+        var doTopPicks = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
             return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=topPicks').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
+
+        // function for explore tied to Food button
+        var doFood = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=food').success(function (data) {
               console.log(data);
             });
           } else {
@@ -78,7 +90,8 @@
         return {
           getOnePlan:   getOnePlan,
           doSearch:     doSearch,
-          doExplore:    doExplore,
+          doTopPicks:   doTopPicks,
+          doFood:       doFood,
           poiDetails:   poiDetails,
           poiExDetails: poiExDetails,
           addPoi:       addPoi,
