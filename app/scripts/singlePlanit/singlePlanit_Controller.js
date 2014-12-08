@@ -13,8 +13,8 @@
         });
 
         // call function and store payload returned in searchResults
-        $scope.doSearch = function () {
-          SinglePlanitFactory.doSearch().success( function (data) {
+        $scope.doSearch = function (singlePlan) {
+          SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
             console.log(data);
             $scope.searchResults = data.response.venues;
             console.log($scope.searchResults);
