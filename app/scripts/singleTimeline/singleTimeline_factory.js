@@ -17,6 +17,18 @@
           });
         }// end of updateAllottedTime func
 
+        var updateTimeRemaining = function (pois) {
+          var sum = 0;
+          _.each(pois, function (pois) {
+            var aT = pois.allottedTime;
+            console.log(aT);
+            sum = sum + aT;
+            console.log(sum);
+          });
+          // update on Parse the specifiic poi object's allotted time
+
+        }// end of updateAllottedTime func
+
         // set variables to accessible
         var poiLat;
         var poiLng;
@@ -284,10 +296,11 @@
 
 
         return {
-          updateMaxPlanTime:  updateMaxPlanTime,
-          updateAllottedTime: updateAllottedTime,
-          mapPois:            mapPois,
-          getDirections:      getDirections
+          updateMaxPlanTime:   updateMaxPlanTime,
+          updateAllottedTime:  updateAllottedTime,
+          updateTimeRemaining: updateTimeRemaining,
+          mapPois:             mapPois,
+          getDirections:       getDirections
 
         }
 

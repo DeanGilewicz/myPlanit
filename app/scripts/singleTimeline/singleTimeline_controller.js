@@ -13,6 +13,10 @@
           SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
         }
 
+        $scope.updateTimeRemaining = function (pois) {
+          // call function passing in user set time for each location
+          SingleTimelineFactory.updateTimeRemaining(pois);
+        }
 
         // DO I NEED TO MAKE A CALL OR CAN I HAVE ACCESS TO THE SINGLE PLANIT FACTORY "singlePlan" scope by calling it in the dependency
 
