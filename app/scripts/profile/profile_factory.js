@@ -15,6 +15,25 @@
 
         }
 
+        // function to update status of plan to either draft (personal) or publish (public)
+        var updatePlanStatus = function (plan, userPlans) {
+          // update status of plan
+          if(plan.status === 'draft') {
+            plan.status = 'publish';
+            $('#statusText').text('publish');
+          } else if (plan.status === 'publish') {
+            plan.status = 'draft';
+            $('#statusText').text('draft');
+          }
+
+          // update parse to reflect updated status
+          return $http.put(PARSE_URI + 'classes/Plans/' + plan.objectId, plan, PARSE_HEADERS).success( function(data) {
+            console.log(data);
+          });
+
+        }
+
+
         // function to delete a plan from user plans
         var deleteUserPlan = function (plan) {
           // delete plan from Parse
@@ -24,8 +43,9 @@
 
 
         return {
-          plansByUser:    plansByUser,
-          deleteUserPlan: deleteUserPlan
+          plansByUser:      plansByUser,
+          updatePlanStatus: updatePlanStatus,
+          deleteUserPlan:   deleteUserPlan
         }
 
       }
