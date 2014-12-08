@@ -8,6 +8,7 @@
 
   <p>Total Allocated Time Is: <span id="totalAllottedTime"></span></p>
   <!-- <p><button ng-click="totalAllottedTime(pois)">View</button></p> -->
+  <p>Total Time Remaining: <span id="totalTimeRemaining"></span></p>
 </div>
 
 <section id="timeline">
@@ -16,7 +17,7 @@
     <li ng-repeat="poi in pois">
       <p>{{ poi.name }}</p>
       <span>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></span>
-      <span><button ng-click="updateAllottedTime(poi, poi.allottedTime)">Set</button></span>
+      <span><button ng-click="updateAllottedTime(pois, poi, poi.allottedTime)">Set</button></span>
     </li>
   </ul>
 </section>

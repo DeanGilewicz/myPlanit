@@ -8,9 +8,9 @@
           SingleTimelineFactory.updateMaxPlanTime(singlePlan, updateMaxTime);
         }
 
-        $scope.updateAllottedTime = function (poi, updateTime) {
+        $scope.updateAllottedTime = function (pois, poi, updateTime) {
           // call function passing in poi, the value of the input form and the whole plan object
-          SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
+          SingleTimelineFactory.updateAllottedTime(pois, poi, updateTime, $scope.singlePlan);
         }
 
         // $scope.totalAllottedTime = function (pois) {

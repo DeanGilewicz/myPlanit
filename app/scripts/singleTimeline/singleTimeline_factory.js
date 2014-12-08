@@ -10,10 +10,11 @@
           });
         }// end of updateMaxPlanTime func
 
-        var updateAllottedTime = function (poi, updateTime, singlePlan) {
+        var updateAllottedTime = function (pois, poi, updateTime, singlePlan) {
           // update on Parse the specifiic poi object's allotted time
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
+            totalAllottedTime(pois);
           });
         }// end of updateAllottedTime func
 
@@ -23,7 +24,7 @@
             var allAllottedTimes = pois.allottedTime;
             sum = sum + allAllottedTimes;
           });
-          $('#totalAllottedTime').text(sum + ' Minutes');
+          $('#totalAllottedTime').html(sum + ' Minutes');
 
         }// end of updateAllottedTime func
 
