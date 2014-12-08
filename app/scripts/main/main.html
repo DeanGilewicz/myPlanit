@@ -1,1 +1,10 @@
-This is the home page that users first visit before they sign in or register
+<div>jumbo img or carosel will go here</div>
+
+<p> search bar will go here </p>
+<p> sort by will go here </p>
+
+<ul>
+  <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
+    <p>{{ plan.planName }}</p>
+  </li>
+</ul>

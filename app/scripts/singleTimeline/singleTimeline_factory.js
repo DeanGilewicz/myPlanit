@@ -22,8 +22,7 @@
           // set var to number
           var tAT = 0;
           // set var to total plan mins
-          var totalPlanTime = singlePlan.totalPlanMins;
-          console.log(totalPlanTime);
+          var tPT = singlePlan.totalPlanMins;
           // iterate through the pois array
           _.each(pois, function (pois) {
             // grab allottedTime for all pois
@@ -32,13 +31,11 @@
             tAT = tAT + allAllottedTimes;
           });
           // total time remaining equals total plan time minus total allocated time
-          var tTR = totalPlanTime - tAT;
-
+          var tTR = tPT - tAT;
           // display total allocated time total in specific place on timeline html
           $('#totalAllottedTime').html(tAT + ' Minutes');
           // display total remaining time total in specific place on timeline html
           $('#totalTimeRemaining').html(tTR + ' Minutes');
-
         }// end of totalAllottedTime func
 
 

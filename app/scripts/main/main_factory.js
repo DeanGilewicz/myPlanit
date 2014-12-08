@@ -3,12 +3,17 @@
     .factory('MainFactory', ['PARSE_URI', 'PARSE_HEADERS', '$http', '$rootScope',
       function (PARSE_URI, PARSE_HEADERS, $http, $rootScope) {
 
-        var getPlans = function () {
-          return $http.get(PARSE_URI + 'classes/myPlanit', PARSE_HEADERS);
-        };
+        // get all published plans from all users
+        var allPublishedPlans = function () {
+          // query Parse to retrieve all plans that have the status published
+          var params = '?where={"status": "published"}';
+          // return Plans for current user
+          return $http.get(PARSE_URI + 'classes/Plans/' + params, PARSE_HEADERS);
+          console.log('test from factory');
+        }
 
         return {
-          getPlans: getPlans
+          allPublishedPlans: allPublishedPlans
         }
 
       }
