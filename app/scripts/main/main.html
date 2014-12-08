@@ -8,7 +8,25 @@
   </select>
 </div>
 
-<ul>
+<table>
+  <tr>
+    <th>Destination</th>
+    <th>Plan Name</th>
+    <th>User</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+  <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
+    <td>{{ plan.destination }}</td>
+    <td>{{ plan.planName }}</td>
+    <td>{{ plan.author }}</td>
+    <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
+    <td>{{ plan.totalPlanMins }} minutes</td>
+  </tr>
+</table>
+
+
+<!-- <ul>
   <li ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
     <div class="destinations">
       <h5>Destination</h5>
@@ -31,4 +49,4 @@
       <p>{{ plan.totalPlanMins }} minutes</p>
     </div>
   </li>
-</ul>
+</ul> -->

@@ -14,10 +14,15 @@
 <section id="timeline">
   <h3>Timeline</h3>
   <ul>
+    <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
     <li ng-repeat="poi in pois">
       <p>{{ poi.name }}</p>
-      <span>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></span>
-      <span><button ng-click="updateAllottedTime(pois, poi, poi.allottedTime)">Update</button></span>
+      <form oninput="amount.value=rangeInput.value">
+        <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" value="0" step="1" min="0" max="100">
+        <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
+
+      </form>
+      <!-- <span>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></span> -->
     </li>
   </ul>
 </section>

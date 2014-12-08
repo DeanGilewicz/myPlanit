@@ -10,7 +10,7 @@
           });
         }// end of updateMaxPlanTime func
 
-        var updateAllottedTime = function (pois, poi, updateTime, singlePlan) {
+        var updateAllottedTime = function (pois, singlePlan) {
           // update on Parse the specifiic poi object's allotted time
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
@@ -23,12 +23,16 @@
           var tAT = 0;
           // set var to total plan mins
           var tPT = singlePlan.totalPlanMins;
+          console.log(tPT);
+
           // iterate through the pois array
           _.each(pois, function (pois) {
             // grab allottedTime for all pois
-            var allAllottedTimes = pois.allottedTime;
+            var allAllottedTimes = parseInt(pois.allottedTime, 10);
+            console.log(allAllottedTimes);
             // add allocated times for each poi together and store in tAT
             tAT = tAT + allAllottedTimes;
+            console.log(tAT);
           });
           // total time remaining equals total plan time minus total allocated time
           var tTR = tPT - tAT;

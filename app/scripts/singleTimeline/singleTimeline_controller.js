@@ -8,9 +8,9 @@
           SingleTimelineFactory.updateMaxPlanTime(singlePlan, updateMaxTime);
         }
 
-        $scope.updateAllottedTime = function (pois, poi, updateTime) {
+        $scope.updateAllottedTime = function (pois) {
           // call function passing in poi, the value of the input form and the whole plan object
-          SingleTimelineFactory.updateAllottedTime(pois, poi, updateTime, $scope.singlePlan);
+          SingleTimelineFactory.updateAllottedTime(pois, $scope.singlePlan);
         }
 
         // DO I NEED TO MAKE A CALL OR CAN I HAVE ACCESS TO THE SINGLE PLANIT FACTORY "singlePlan" scope by calling it in the dependency

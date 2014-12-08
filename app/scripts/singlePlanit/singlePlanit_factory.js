@@ -129,6 +129,7 @@
         var addPoi = function (result, singlePlan) {
           console.log(result);
           // push the object into the pois table in the current Plan object
+          // if result.veue ) {regular way}
           singlePlan.pois.push({ name: result.name, id: result.id, allottedTime: 0, lat: result.location.lat, lng: result.location.lng });
           // update the array with the new object singlePlan
           $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
