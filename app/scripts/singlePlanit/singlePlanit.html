@@ -6,12 +6,12 @@
   <input type="text" name="query" id="query" value="" placeholder="where to go?">
   <button ng-click="doSearch(singlePlan)">Search</button><br />
   <button ng-click="doTopPicks(singlePlan)">Top Picks</button>
-  <!-- <button ng-click="doFood(singlePlan)">Food</button> -->
-  <!-- <button ng-click="doDrinks(singlePlan)">Drinks</button>
+  <button ng-click="doTrending(singlePlan)">Trending</button>
+  <button ng-click="doSights(singlePlan)">Sights</button>
+  <button ng-click="doFood(singlePlan)">Food</button>
+  <button ng-click="doDrinks(singlePlan)">Drinks</button>
   <button ng-click="doShops(singlePlan)">Shops</button>
   <button ng-click="doArts(singlePlan)">Arts</button>
-  <button ng-click="doSights(singlePlan)">Sights</button>
-  <button ng-click="doTrending(singlePlan)">Trending</button> -->
 </form>
 
 <h3>Search Results</h3>
@@ -23,20 +23,14 @@
       <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
       <button ng-click="addPoi(result)">Add</button>
     </li>
-  </ul>
-</section>
-
-<h3>Explore Results</h3>
-<section id="placesOfInterest">
-  <ul>
     <li ng-repeat="result in exploreResults" id="{{ result.venue.id }}">
       <a href="" ng-click="poiExDetails(result.venue.id)">Details</a>
       <p>{{ result.venue.name }}</p>
       <p>{{ result.venue.location.address }} {{ result.venue.location.city }} {{ result.venue.location.postalCode }}</p>
       <button ng-click="addPoi(result)">Add</button>
     </li>
-  </ul>
 </section>
+
 
 <section id="details">
   <h3>Poi Details</h3>

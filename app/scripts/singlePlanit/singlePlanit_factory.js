@@ -7,11 +7,12 @@
         var getOnePlan = function (id) {
           return $http.get(PARSE_URI + 'classes/Plans/' + id, PARSE_HEADERS);
         }
-
+        // TO CONVERT USER LOCATION INTO ADDRESS TO DISPLAY ON VIEW
         // $http.get('https:maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCrNC4AETKT_7FVqnWvNuUy-fLn9zYTUHc').success(function (data) {
         //   console.log(data);
         // });
 
+        // function for search to tied to Search button that uses search term entered by user
         var doSearch = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
@@ -23,12 +24,35 @@
           }
         }
 
-
         // function for explore tied to Top Picks button
         var doTopPicks = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
             return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=topPicks').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
+
+        // function for explore tied to Trending button
+        var doTrending = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=trending').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
+
+        // function for explore tied to Sights button
+        var doSights = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=sights').success(function (data) {
               console.log(data);
             });
           } else {
@@ -48,6 +72,41 @@
           }
         }
 
+        // function for explore tied to Drinks button
+        var doDrinks = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=drinks').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
+
+        // function for explore tied to Shops button
+        var doShops = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=shops').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
+
+        // function for explore tied to Arts button
+        var doArts = function (singlePlan) {
+          var dest = singlePlan.destination;
+          if($('#query').val() == "") {
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=arts').success(function (data) {
+              console.log(data);
+            });
+          } else {
+            alert('please remove search term and try again');
+          }
+        }
 
         // function to get details for each poi returned from search results
         var poiDetails = function (objId) {

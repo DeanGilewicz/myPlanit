@@ -31,6 +31,24 @@
         }
 
         // call function and store payload returned in exploreResults
+        $scope.doTrending = function (singlePlan) {
+          SinglePlanitFactory.doTrending(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
+
+        // call function and store payload returned in exploreResults
+        $scope.doSights = function (singlePlan) {
+          SinglePlanitFactory.doSights(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
+
+        // call function and store payload returned in exploreResults
         $scope.doFood = function (singlePlan) {
           SinglePlanitFactory.doFood(singlePlan).success( function (data) {
             console.log(data);
@@ -39,9 +57,32 @@
           });
         }
 
+        // call function and store payload returned in exploreResults
+        $scope.doDrinks = function (singlePlan) {
+          SinglePlanitFactory.doDrinks(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
 
+        // call function and store payload returned in exploreResults
+        $scope.doShops = function (singlePlan) {
+          SinglePlanitFactory.doShops(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
 
-
+        // call function and store payload returned in exploreResults
+        $scope.doArts = function (singlePlan) {
+          SinglePlanitFactory.doArts(singlePlan).success( function (data) {
+            console.log(data);
+            $scope.exploreResults = data.response.groups[0].items;
+            console.log($scope.exploreResults);
+          });
+        }
 
 
         // objId is related to what is passed in poiDetails() that we can have access too
