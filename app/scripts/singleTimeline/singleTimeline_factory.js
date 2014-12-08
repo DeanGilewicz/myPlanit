@@ -14,7 +14,7 @@
           // update on Parse the specifiic poi object's allotted time
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
-            calcTimes(pois);
+            calcTimes(pois, singlePlan);
           });
         }// end of updateAllottedTime func
 
@@ -255,7 +255,6 @@
             }// end of conditional func
             // send the request to google api
             directionsService.route(request, function(response, status) {
-              console.log(response);
               // check to make sure reuest was successful
               if (status == google.maps.DirectionsStatus.OK) {
                 // clear the directions panel before adding new directions
@@ -273,10 +272,8 @@
                 for (var i = 0; i < legs.length; i++) {
                   // add up each distance value
                   totalDistance = totalDistance + legs[i].distance.value;
-                  console.log(totalDistance);
                   // add up each duration value
                   totalDuration = totalDuration + legs[i].duration.value;
-                  console.log(totalDuration);
                 }
                 // value to convert meters to miles
                 var meters_to_miles = 0.000621371192;

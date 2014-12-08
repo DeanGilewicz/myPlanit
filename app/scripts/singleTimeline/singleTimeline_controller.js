@@ -28,9 +28,9 @@
           SingleTimelineFactory.calcTimes($scope.pois, $scope.singlePlan);
 
           // set scope so function can be called in html with ng-click
-          // $scope.getDirections = function (pois) {
-          //   SingleTimelineFactory.getDirections(pois);
-          // }
+          $scope.getDirections = function (pois) {
+            SingleTimelineFactory.getDirections(pois);
+          }
 
         });
 
