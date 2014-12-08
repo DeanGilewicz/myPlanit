@@ -22,8 +22,8 @@
         }
 
         // call function and store payload returned in exploreResults
-        $scope.doExplore = function () {
-          SinglePlanitFactory.doExplore().success( function (data) {
+        $scope.doExplore = function (singlePlan) {
+          SinglePlanitFactory.doExplore(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
             console.log($scope.exploreResults);
