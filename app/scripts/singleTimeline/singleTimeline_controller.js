@@ -3,10 +3,14 @@
     .controller('SingleTimelineCtrl', ['SinglePlanitFactory', 'SingleTimelineFactory', '$routeParams', '$scope',
       function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope) {
 
+        $scope.updateMaxPlanTime = function (singlePlan, updateMaxTime) {
+          // call function passing in singlePlan
+          SingleTimelineFactory.updateMaxPlanTime(singlePlan, updateMaxTime);
+        }
+
         $scope.updateAllottedTime = function (poi, updateTime) {
           // call function passing in poi, the value of the input form and the whole plan object
           SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
-
         }
 
 

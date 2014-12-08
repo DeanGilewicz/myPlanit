@@ -3,13 +3,18 @@
     .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
       function (PARSE_URI, $http, PARSE_HEADERS) {
 
-        var updateAllottedTime = function (poi, updateTime, singlePlan) {
+        var updateMaxPlanTime = function (singlePlan, updateMaxTime) {
+          // update on Parse the specifiic plan's totalPlanMins
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
+            console.log(data);
+          });
+        }// end of updateMaxPlanTime func
 
+        var updateAllottedTime = function (poi, updateTime, singlePlan) {
           // update on Parse the specifiic poi object's allotted time
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
           });
-
         }// end of updateAllottedTime func
 
         // set variables to accessible
@@ -279,6 +284,7 @@
 
 
         return {
+          updateMaxPlanTime:  updateMaxPlanTime,
           updateAllottedTime: updateAllottedTime,
           mapPois:            mapPois,
           getDirections:      getDirections

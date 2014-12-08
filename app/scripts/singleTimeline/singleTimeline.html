@@ -1,12 +1,14 @@
 <h2>My Timeline</h2>
 <h4>Current Plan: {{ singlePlan.planName }}</h4>
+<p>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" /></p>
+<button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button>
 
 <section id="timeline">
   <h3>Timeline</h3>
   <ul>
     <li ng-repeat="poi in pois">
       <p>{{ poi.name }}</p>
-      <p>Allotted Time:<input type="text" ng-model="poi.allottedTime" /></p><br/><br/>
+      <p>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></p><br/><br/>
       <button ng-click="updateAllottedTime(poi, poi.allottedTime)">update</button>
     </li>
   </ul>
