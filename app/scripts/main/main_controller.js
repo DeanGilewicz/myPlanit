@@ -7,7 +7,7 @@
         MainFactory.allPublishedPlans().success( function (data) {
           console.log(data);
           // set scope so can be accessed
-          // $scope.userPlans = data.results;
+          $scope.allPublishedPlans = data.results;
         });
 
       }

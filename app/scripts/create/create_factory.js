@@ -5,6 +5,7 @@
 
         // create var to use in createPlan function in dbObject
         var currentUser = $cookieStore.get('currentUser');
+        console.log(currentUser);
         // create var to keep code cleaner when post
         var planUrl = PARSE_URI + 'classes/Plans';
 
@@ -22,6 +23,7 @@
               "iso": plan.date,
             },
             "status": "draft",
+            "author": currentUser.username,
             // create array column in db inside of Plans object for pois
             pois: poiArray,
             // create relationship between user and Plan Object
@@ -29,7 +31,7 @@
               "__type": "Pointer",
               "className": "_User",
               "objectId": currentUser.objectId
-            }
+            },
           }
           // save Plan object to Parse
           $http.post(planUrl, dbObject, PARSE_HEADERS).success( function (data) {
