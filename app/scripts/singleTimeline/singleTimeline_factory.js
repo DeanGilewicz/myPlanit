@@ -20,12 +20,10 @@
         var totalAllottedTime = function (pois) {
           var sum = 0;
           _.each(pois, function (pois) {
-            var aT = pois.allottedTime;
-            console.log(aT);
-            sum = sum + aT;
-            console.log(sum);
+            var allAllottedTimes = pois.allottedTime;
+            sum = sum + allAllottedTimes;
           });
-          $('#totalAllottedTime').text(sum + ' minutes');
+          $('#totalAllottedTime').text(sum + ' Minutes');
 
         }// end of updateAllottedTime func
 

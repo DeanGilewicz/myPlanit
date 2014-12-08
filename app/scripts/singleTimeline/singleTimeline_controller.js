@@ -13,10 +13,10 @@
           SingleTimelineFactory.updateAllottedTime(poi, updateTime, $scope.singlePlan);
         }
 
-        $scope.totalAllottedTime = function (pois) {
+        // $scope.totalAllottedTime = function (pois) {
           // call function passing in user set time for each location
-          SingleTimelineFactory.totalAllottedTime(pois);
-        }
+          // SingleTimelineFactory.totalAllottedTime($scope.pois);
+        // }
 
         // DO I NEED TO MAKE A CALL OR CAN I HAVE ACCESS TO THE SINGLE PLANIT FACTORY "singlePlan" scope by calling it in the dependency
 
@@ -29,6 +29,9 @@
           $scope.pois = data.pois;
           // call map function once the single plan object has been returned so can pass this to factory
           SingleTimelineFactory.mapPois(data.pois);
+
+          SingleTimelineFactory.totalAllottedTime($scope.pois);
+
 
           // set scope so function can be called in html with ng-click
           $scope.getDirections = function (pois) {
