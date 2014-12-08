@@ -1,7 +1,8 @@
 <h2>My Timeline</h2>
 <h4>Current Plan: {{ singlePlan.planName }}</h4>
 <p>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" /></p>
-<button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button>
+<span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button></span>
+<p>{{ singlePlan.totalPlanMins }} minutes</p>
 
 <section id="timeline">
   <h3>Timeline</h3>
