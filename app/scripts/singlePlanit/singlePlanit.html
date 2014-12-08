@@ -1,7 +1,10 @@
 <h2>Plan Name: {{ singlePlan.planName }}</h2>
 
 <form id="search">
-  <input type="text" name="near" id="near" value="" placeholder="Destination?">
+  <input type="text" name="near" id="near" value="{{ singlePlan.destination }}">
+
+
+  
   <input type="text" name="query" id="query" value="" placeholder="Search?">
   <button ng-click="doSearch()">Search</button>
   <button ng-click="doExplore()">Explore</button>
