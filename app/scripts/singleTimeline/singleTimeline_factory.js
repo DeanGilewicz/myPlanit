@@ -14,19 +14,33 @@
           // update on Parse the specifiic poi object's allotted time
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
-            totalAllottedTime(pois);
+            calcTimes(pois);
           });
         }// end of updateAllottedTime func
 
-        var totalAllottedTime = function (pois) {
-          var sum = 0;
+        var calcTimes = function (pois, singlePlan) {
+          // set var to number
+          var tAT = 0;
+          // set var to total plan mins
+          var totalPlanTime = singlePlan.totalPlanMins;
+          console.log(totalPlanTime);
+          // iterate through the pois array
           _.each(pois, function (pois) {
+            // grab allottedTime for all pois
             var allAllottedTimes = pois.allottedTime;
-            sum = sum + allAllottedTimes;
+            // add allocated times for each poi together and store in tAT
+            tAT = tAT + allAllottedTimes;
           });
-          $('#totalAllottedTime').html(sum + ' Minutes');
+          // total time remaining equals total plan time minus total allocated time
+          var tTR = totalPlanTime - tAT;
 
-        }// end of updateAllottedTime func
+          // display total allocated time total in specific place on timeline html
+          $('#totalAllottedTime').html(tAT + ' Minutes');
+          // display total remaining time total in specific place on timeline html
+          $('#totalTimeRemaining').html(tTR + ' Minutes');
+
+        }// end of totalAllottedTime func
+
 
         // set variables to accessible
         var poiLat;
@@ -297,7 +311,7 @@
         return {
           updateMaxPlanTime:   updateMaxPlanTime,
           updateAllottedTime:  updateAllottedTime,
-          totalAllottedTime:   totalAllottedTime,
+          calcTimes:           calcTimes,
           mapPois:             mapPois,
           getDirections:       getDirections
 
