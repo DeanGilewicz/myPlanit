@@ -5,6 +5,9 @@
 
 <ul>
   <li ng-repeat="plan in allPublishedPlans">
-    <p>{{ plan.planName }}</p>
+    <p>Plan Name: {{ plan.planName }}</p>
+    <p>myPlanit User: {{ plan.author }}</p>
+    <p>Planned For: {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
+    <p>Plan Time: {{ plan.totalPlanMins }} minutes</p>
   </li>
 </ul>
