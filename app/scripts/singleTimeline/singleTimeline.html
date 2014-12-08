@@ -2,10 +2,12 @@
 <h4>Current Plan: {{ singlePlan.planName }}</h4>
 <p>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></p>
 <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button></span>
-<p>{{ singlePlan.totalPlanMins }} minutes</p>
 
 <div>
-  total time remaining: <span id="timeRemaining"></span>
+  <p>Total Plan Time Set As {{ singlePlan.totalPlanMins }} Minutes</p>
+
+  <p>Total Allocated Time Is:<span id="totalAllottedTime"></span></p>
+  <p><button ng-click="totalAllottedTime(pois)">View</button></p>
 </div>
 
 <section id="timeline">
@@ -13,9 +15,8 @@
   <ul>
     <li ng-repeat="poi in pois">
       <p>{{ poi.name }}</p>
-      <p>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></p><br/><br/>
-      <button ng-click="updateAllottedTime(poi, poi.allottedTime)">update</button>
-      <button ng-click="updateTimeRemaining(pois)">Calc Time Rem</button>
+      <span>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></span>
+      <span><button ng-click="updateAllottedTime(poi, poi.allottedTime)">Set</button></span>
     </li>
   </ul>
 </section>

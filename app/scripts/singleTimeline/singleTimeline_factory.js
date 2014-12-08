@@ -17,7 +17,7 @@
           });
         }// end of updateAllottedTime func
 
-        var updateTimeRemaining = function (pois) {
+        var totalAllottedTime = function (pois) {
           var sum = 0;
           _.each(pois, function (pois) {
             var aT = pois.allottedTime;
@@ -25,7 +25,7 @@
             sum = sum + aT;
             console.log(sum);
           });
-          // update on Parse the specifiic poi object's allotted time
+          $('#totalAllottedTime').text(sum + ' minutes');
 
         }// end of updateAllottedTime func
 
@@ -298,7 +298,7 @@
         return {
           updateMaxPlanTime:   updateMaxPlanTime,
           updateAllottedTime:  updateAllottedTime,
-          updateTimeRemaining: updateTimeRemaining,
+          totalAllottedTime:   totalAllottedTime,
           mapPois:             mapPois,
           getDirections:       getDirections
 
