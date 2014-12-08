@@ -1,14 +1,17 @@
 <h2>Plan Name: {{ singlePlan.planName }}</h2>
+<h3>Destination: {{ singlePlan.destination }}</h3>
 
 <form id="search">
-  <input type="text" name="near" id="near" value="{{ singlePlan.destination }}">
-
-
-  
-  <input type="text" name="query" id="query" value="" placeholder="Search?">
+  <!-- <input type="text" name="near" id="near" value="{{ singlePlan.destination }}"> -->
+  <input type="text" name="query" id="query" value="" placeholder="where to go?">
   <button ng-click="doSearch()">Search</button>
-  <button ng-click="doExplore()">Explore</button>
+  <!-- <button ng-click="doExplore()">Explore</button> -->
 </form>
+
+
+
+
+
 
 
 <h3>Search Results</h3>

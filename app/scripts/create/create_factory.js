@@ -3,6 +3,19 @@
     .factory('CreateFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$location', '$cookieStore',
       function (PARSE_HEADERS, PARSE_URI, $http, $location, $cookieStore) {
 
+        // get current coords for user's location
+        navigator.geolocation.getCurrentPosition(getLocation);
+        // create var so can be used in functions in http requests
+        var lat;
+        var lng;
+        // function to get current lat and lng coordinates
+        function getLocation(location) {
+          lat = location.coords.latitude;
+          lng = location.coords.longitude;
+          console.log(lat);
+          console.log(lng);
+        }
+
         // create var to use in createPlan function in dbObject
         var currentUser = $cookieStore.get('currentUser');
         console.log(currentUser);

@@ -8,29 +8,12 @@
           return $http.get(PARSE_URI + 'classes/Plans/' + id, PARSE_HEADERS);
         }
 
-        // could add function and call it for specific http requests that need coords
-        // var myGeo = function () {
-        //   navigator.geolocation.getCurrentPosition(getLocation);
-        // }
-        // time delay needed since takes a few seconds to get accurate coords needed for http request
-        // var delay=1000;//1 seconds
-        // setTimeout(function(){
-        //   // code to be executed after 1 seconds
-        // },delay);
+
+        // $http.get('https:maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCrNC4AETKT_7FVqnWvNuUy-fLn9zYTUHc').success(function (data) {
+        //   console.log(data);
+        // });
 
 
-        // get current coords for user's location
-        navigator.geolocation.getCurrentPosition(getLocation);
-        // create var so can be used in functions in http requests
-        var lat;
-        var lng;
-        // function to get current lat and lng coordinates
-        function getLocation(location) {
-          lat = location.coords.latitude;
-          lng = location.coords.longitude;
-          console.log(lat);
-          console.log(lng);
-        }
 
         // function for search tied to search button
         var doSearch = function () {
