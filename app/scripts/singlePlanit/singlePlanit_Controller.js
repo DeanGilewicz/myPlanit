@@ -19,9 +19,13 @@
           // // remove category area from view
           // $('#categoryResultsArea').detach();
           SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
-            console.log(data);
-            $scope.searchResults = data.response.venues;
-            console.log($scope.searchResults);
+            var check = data.response.venues;
+            if(check == []) {
+              alert('sorry nothing found');
+            } else {
+              $scope.searchResults = data.response.venues;
+              console.log($scope.searchResults);
+            }
           });
         }
 

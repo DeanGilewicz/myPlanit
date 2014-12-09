@@ -16,7 +16,7 @@
         var doSearch = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            alert('please enter something to search for')
+            alert('please enter something to search for');
           } else {
             return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+dest+'&query='+$('#query').val()+'').success(function (data) {
             console.log(data);
