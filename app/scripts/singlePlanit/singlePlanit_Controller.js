@@ -85,8 +85,7 @@
         }
 
 
-        // objId is related to what is passed in poiDetails() that we can have access too
-        // result.id gives me access to the id
+        // objId is related to what is passed in poiDetails() that have access too
         $scope.poiDetails = function (objId) {
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
             console.log(data);
@@ -96,21 +95,18 @@
           });
         }
 
-        // objId is related to what is passed in poiDetails() that we can have access too
-        // result.venue.id gives me access to the id
-        $scope.poiExDetails = function (objId) {
-          SinglePlanitFactory.poiDetails(objId).success( function (data) {
-            console.log(data);
-            $scope.allDetails = data.response.venue;
-            console.log($scope.allDetails);
-            $scope.schedule = data.response.venue.popular.timeframes;
-            console.log($scope.schedule);
-          });
-        }
+        $scope.addPoi = function (result, categoryResult) {
+          // if user inputs a search term
+          if(result !== undefined) {
+            // poi object (result) is passed in to the func with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
+            SinglePlanitFactory.addPoi(result, $scope.singlePlan);
+          } else {
+            // if user uses a category to search then api returns a different payload so have to dig one level deeper
+            var formattedCategoryResult = categoryResult.venue;
+            // correcly formatted var is passed into addPoi func in factory
+            SinglePlanitFactory.addPoi(formattedCategoryResult, $scope.singlePlan);
+          }
 
-        $scope.addPoi = function (result) {
-          // poi object (result) is passed in to the func with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
-          SinglePlanitFactory.addPoi(result, $scope.singlePlan);
         }
 
         // passing in the plan object, index position, entire plan object

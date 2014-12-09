@@ -12,41 +12,15 @@
   <tr>
     <th>Destination</th>
     <th>Plan Name</th>
-    <th>User</th>
     <th>Date</th>
-    <th>Time</th>
+    <th>Time (mins)</th>
+    <th>myPlanit User</th>
   </tr>
   <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
     <td>{{ plan.destination }}</td>
     <td>{{ plan.planName }}</td>
-    <td>{{ plan.author }}</td>
     <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
-    <td>{{ plan.totalPlanMins }} minutes</td>
+    <td>{{ plan.totalPlanMins }}</td>
+    <td>{{ plan.author }}</td>
   </tr>
 </table>
-
-
-<!-- <ul>
-  <li ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
-    <div class="destinations">
-      <h5>Destination</h5>
-      <p>{{ plan.destination }}</p>
-    </div>
-    <div class="planName">
-      <h5>Plan Name</h5>
-      <p>{{ plan.planName }}</p>
-    </div>
-    <div class="author">
-      <h5>myPlanit User</h5>
-      <p>{{ plan.author }}</p>
-    </div>
-    <div class="planDate">
-      <h5>Plan Date</h5>
-      <p>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
-    </div>
-    <div class="planTime">
-      <h5>Plan Time</h5>
-      <p>{{ plan.totalPlanMins }} minutes</p>
-    </div>
-  </li>
-</ul> -->

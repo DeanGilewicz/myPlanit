@@ -19,17 +19,17 @@
 <h3>Search Results</h3>
 <section id="placesOfInterest">
   <ul>
-    <li ng-repeat="result in searchResults" id="{{ result.id }}">
-      <a href="" ng-click="poiDetails(result.id)">Details</a>
-      <p>{{ result.name }}</p>
-      <p>{{ result.location.address }} {{ result.location.city }} {{ result.location.postalCode }}</p>
-      <button ng-click="addPoi(result)">Add</button>
+    <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
+      <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
+      <p>{{ searchResult.name }}</p>
+      <p>{{ searchResult.location.address }} {{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
+      <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
     </li>
-    <li ng-repeat="result in exploreResults" id="{{ result.venue.id }}">
-      <a href="" ng-click="poiExDetails(result.venue.id)">Details</a>
-      <p>{{ result.venue.name }}</p>
-      <p>{{ result.venue.location.address }} {{ result.venue.location.city }} {{ result.venue.location.postalCode }}</p>
-      <button ng-click="addPoi(result)">Add</button>
+    <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
+      <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
+      <p>{{ categoryResult.venue.name }}</p>
+      <p>{{ categoryResult.venue.location.address }} {{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
+      <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
     </li>
 </section>
 
