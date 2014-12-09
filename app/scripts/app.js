@@ -56,15 +56,15 @@
         $rootScope.$on('$routeChangeStart', function () {
           AccountFactory.checkUser();
         });
-    }])
-    .directive('logOut', function (AccountFactory) {
-      return {
-        link: function ($scope, element, attrs) {
-          element.bind('click', function () {
-            AccountFactory.logout();
-          });
-        }
-      }
-    });
+    }]);
+    // .directive('logOut', function (AccountFactory) {
+    //   return {
+    //     link: function ($scope, element, attrs) {
+    //       element.bind('click', function () {
+    //         AccountFactory.logout();
+    //       });
+    //     }
+    //   }
+    // });
 
 }());

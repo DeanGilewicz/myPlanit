@@ -27,17 +27,15 @@
         var logout = function (user) {
           $cookieStore.remove('currentUser');
           $location.path('/');
-          return checkUser();
+          return checkUser(user);
         }
 
         var checkUser = function (user) {
           var user = $cookieStore.get('currentUser');
-          if(user !== undefined) {
+          if(user) {
             $('#user').html('Hello ' + user.username);
-            $('#logoutBtn').show();
           } else {
             $('#user').html('Log in or sign up');
-            $('#logoutBtn').hide();
           }
         }
 
