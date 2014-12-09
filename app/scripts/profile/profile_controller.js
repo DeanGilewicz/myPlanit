@@ -18,7 +18,7 @@
         // call func to update status of the plan so will either show or won't show on homepage
         $scope.updatePlanStatus = function (plan, userPlans) {
           console.log(userPlans);
-          // update status of plan
+          // update status for specific plan when button is clicked
             if(this.plan.status === 'private') {
               this.plan.status = 'published';
               $('#statusText').text('published');

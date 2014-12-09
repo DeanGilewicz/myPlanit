@@ -7,6 +7,8 @@
           // update on Parse the specifiic plan's totalPlanMins
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
+            var pois = singlePlan.pois;
+            calcTimes(pois, singlePlan);
           });
         }// end of updateMaxPlanTime func
 
@@ -21,10 +23,10 @@
         var calcTimes = function (pois, singlePlan) {
           // set var to number
           var tAT = 0;
+          var tTA = 0;
           // set var to total plan mins
           var tPT = singlePlan.totalPlanMins;
-          console.log(tPT);
-
+          console.log(singlePlan.totalPlanMins);
           // iterate through the pois array
           _.each(pois, function (pois) {
             // grab allottedTime for all pois
@@ -34,12 +36,17 @@
             tAT = tAT + allAllottedTimes;
             console.log(tAT);
           });
-          // total time remaining equals total plan time minus total allocated time
-          var tTR = tPT - tAT;
+          // total time remaining equals total plan time minus total allocated time - minus total travel time
+          tTA = tPT - tAT - totalDuration;
+          console.log(totalDuration);
+          console.log(tAT);
+          console.log(tPT);
+          // display total plan time
+          $('#totalPlanTime').html(tPT + ' Minutes');
           // display total allocated time total in specific place on timeline html
           $('#totalAllottedTime').html(tAT + ' Minutes');
           // display total remaining time total in specific place on timeline html
-          $('#totalTimeRemaining').html(tTR + ' Minutes');
+          $('#totalTimeAvailable').html(tTA + ' Minutes');
         }// end of totalAllottedTime func
 
 
@@ -49,7 +56,7 @@
         var poiLatLng;
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService(); // instantiate a directions service
-
+        var totalDuration = 0;
 
         var mapPois = function (pois) {
           // instantiate a directions renderer
@@ -266,7 +273,7 @@
                 directionsDisplay.setDirections(response);
                 // set initial value for vars
                 var totalDistance = 0;
-                var totalDuration = 0;
+                // totalDuration;
                 // set var to payload returned from google api
                 var legs = response.routes[0].legs;
                 // iterate through legs in payload

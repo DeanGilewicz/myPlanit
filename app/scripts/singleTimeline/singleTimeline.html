@@ -1,14 +1,14 @@
 <h2>My Timeline</h2>
 <h4>Current Plan: {{ singlePlan.planName }}</h4>
-<p>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></p>
+<span>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
 <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button></span>
 
 <div>
-  <p>Total Plan Time: {{ singlePlan.totalPlanMins }} Minutes</p>
-
+  <p>Total Plan Time: <span id="totalPlanTime"></span></p>
   <p>Total Allocated Time: <span id="totalAllottedTime"></span></p>
-  <!-- <p><button ng-click="totalAllottedTime(pois)">View</button></p> -->
-  <p>Total Time Remaining: <span id="totalTimeRemaining"></span></p>
+  <p>Total Travel Time: <span id="duration"></span></p>
+  <p>Total Time Available: <span id="totalTimeAvailable"></span></p>
+  <p>Total Travel Distance: <span id="distance"></span></p>
 </div>
 
 <section id="timeline">
@@ -18,11 +18,9 @@
     <li ng-repeat="poi in pois">
       <p>{{ poi.name }}</p>
       <form oninput="amount.value=rangeInput.value">
-        <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" value="0" step="1" min="0" max="100">
+        <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
         <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
-
       </form>
-      <!-- <span>Allotted Time:<input type="number" ng-model="poi.allottedTime" /></span> -->
     </li>
   </ul>
 </section>
@@ -54,9 +52,6 @@
         <br />
       <button ng-click="getDirections(pois)">GO</button>
     </div>
-
-    <p>Total Travel Distance: <span id="distance" style="margin:20px;background-color:#FFEE77;"></span></p>
-    <p>Total Travel Time: <span id="duration" style="margin:20px;background-color:#FFEE77;"></span></p>
 
     <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
 
