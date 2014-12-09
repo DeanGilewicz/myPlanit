@@ -27,7 +27,7 @@
 
         var logout = function () {
           $cookieStore.remove('currentUser');
-          $location.path('/');
+          checkUser();
         }
 
         var checkUser = function () {
@@ -36,6 +36,7 @@
           if(user !== undefined) {
             $('#user').html('Hello ' + user.username);
             $('#logoutBtn').show();
+            $location.path('/');
           } else {
             $('#user').html('Log in or sign up');
             $('#logoutBtn').hide();
