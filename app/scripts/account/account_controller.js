@@ -12,7 +12,6 @@
         };
 
         // directive is being run for logout button, which is linked to factory
-        // don't need this function but keeps it accessible should need to use later
         $scope.logout = function () {
           AccountFactory.logout();
         };

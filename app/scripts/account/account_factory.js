@@ -11,7 +11,6 @@
           return $http.post(usersUrl, user, PARSE_HEADERS).success( function (data) {
             console.log(data);
             return login(user); // run login function once signed up
-            // create a my plans object to store arrays of plans??
           });
         }
 
@@ -21,22 +20,21 @@
               $cookieStore.remove('currentUser');
               $cookieStore.put('currentUser', data);
               $location.path('/profile')
-              return checkUser();
+              // return checkUser();
             });
         }
 
-        var logout = function () {
+        var logout = function (user) {
           $cookieStore.remove('currentUser');
-          checkUser();
+          $location.path('/');
+          return checkUser();
         }
 
-        var checkUser = function () {
+        var checkUser = function (user) {
           var user = $cookieStore.get('currentUser');
-          console.log(user);
           if(user !== undefined) {
             $('#user').html('Hello ' + user.username);
             $('#logoutBtn').show();
-            $location.path('/');
           } else {
             $('#user').html('Log in or sign up');
             $('#logoutBtn').hide();
