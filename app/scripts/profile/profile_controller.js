@@ -18,6 +18,15 @@
         // call func to update status of the plan so will either show or won't show on homepage
         $scope.updatePlanStatus = function (plan, userPlans) {
           console.log(userPlans);
+          // update status of plan
+            if(this.plan.status === 'private') {
+              this.plan.status = 'published';
+              $('#statusText').text('published');
+            } else if (this.plan.status === 'published') {
+              this.plan.status = 'private';
+              $('#statusText').text('private');
+            }
+
           // call func
           ProfileFactory.updatePlanStatus(plan, userPlans);
         }

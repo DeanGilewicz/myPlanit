@@ -7,6 +7,6 @@
     <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</p>
     <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
     <button ng-click="deleteUserPlan(plan)">delete</button>
-    <button ng-click="updatePlanStatus(plan, userPlans)">Change Status</button> <span id="statusText">{{ plan.status }}</span>
+    <button ng-click="updatePlanStatus(plan, userPlans)" id="statusBtn">Change Status</button> <span id="statusText">{{ plan.status }}</span>
   </li>
 </ul>
