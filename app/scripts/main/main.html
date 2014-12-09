@@ -16,15 +16,17 @@
   <tr>
     <th>Destination</th>
     <th>Plan Name</th>
-    <th>Date</th>
+    <th>Plan Used</th>
     <th>Time (mins)</th>
     <th>myPlanit User</th>
+    <th>view</th>
   </tr>
-  <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp">
+  <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp" id="{{ plan.objectId }}">
     <td>{{ plan.destination }}</td>
     <td>{{ plan.planName }}</td>
     <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
     <td>{{ plan.totalPlanMins }}</td>
     <td>{{ plan.author }}</td>
+    <td><a href="#/singleTimeline/{{ plan.objectId }}"><button>go</button></a></td>
   </tr>
 </table>
