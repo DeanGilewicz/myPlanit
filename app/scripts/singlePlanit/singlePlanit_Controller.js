@@ -14,6 +14,10 @@
 
         // call function and store payload returned in searchResults
         $scope.doSearch = function (singlePlan) {
+          // remove search area from view
+          // $('#searchResultsArea').detach();
+          // // remove category area from view
+          // $('#categoryResultsArea').detach();
           SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
             console.log(data);
             $scope.searchResults = data.response.venues;
@@ -23,6 +27,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTopPicks = function (singlePlan) {
+          // remove search area from view
+          // $('#searchResultsArea').remove();
+          // // remove category area from view
+          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doTopPicks(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -32,6 +40,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTrending = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').remove();
+          // remove category area from view
+          $('#categoryResultsArea').remove();
           SinglePlanitFactory.doTrending(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -41,6 +53,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doSights = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').detach();
+          // remove category area from view
+          $('#categoryResultsArea').detach();
           SinglePlanitFactory.doSights(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -50,6 +66,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doFood = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').remove();
+          // remove category area from view
+          $('#categoryResultsArea').remove();
           SinglePlanitFactory.doFood(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -59,6 +79,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doDrinks = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').remove();
+          // remove category area from view
+          $('#categoryResultsArea').remove();
           SinglePlanitFactory.doDrinks(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -68,6 +92,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doShops = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').remove();
+          // remove category area from view
+          $('#categoryResultsArea').remove();
           SinglePlanitFactory.doShops(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -77,13 +105,16 @@
 
         // call function and store payload returned in exploreResults
         $scope.doArts = function (singlePlan) {
+          // remove search area from view
+          $('#searchResultsArea').remove();
+          // remove category area from view
+          $('#categoryResultsArea').remove();
           SinglePlanitFactory.doArts(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
             console.log($scope.exploreResults);
           });
         }
-
 
         // objId is related to what is passed in poiDetails() that have access too
         $scope.poiDetails = function (objId) {
