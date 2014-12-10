@@ -1,7 +1,8 @@
 (function () {
   angular.module('myPlanit')
-    .controller('SingleTimelineCtrl', ['SinglePlanitFactory', 'SingleTimelineFactory', '$routeParams', '$scope',
-      function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope) {
+    .controller('SingleTimelineCtrl', ['SinglePlanitFactory', 'SingleTimelineFactory', '$routeParams', '$scope', '$cookieStore',
+      function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope, $cookieStore) {
+
 
         $scope.updateMaxPlanTime = function (singlePlan, updateMaxTime) {
           // call function passing in singlePlan
@@ -15,7 +16,20 @@
 
         // call function that uses plan id for route and store the payload in singlePlan (current plan object)
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
+
+          if($cookieStore.get('currentUser').username === data.author) {
+            console.log($cookieStore.get('currentUser').username);
+            console.log(data.author);
+            $scope.isAuthor = true;
+          } else {
+            $scope.isAuthor = false;
+            console.log($cookieStore.get('currentUser').username);
+            console.log(data.author);
+          }
+
+
           console.log(data);
+
           // set scope so have access to Plan object in other functions in this scope
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object

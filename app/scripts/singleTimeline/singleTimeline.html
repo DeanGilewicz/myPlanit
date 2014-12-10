@@ -1,58 +1,63 @@
 <h2>My Timeline</h2>
 <h4>Current Plan: {{ singlePlan.planName }}</h4>
+
+<div ng-show="isAuthor">
+
 <span>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
 <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">update</button></span>
 
-<div>
-  <p>Total Plan Time: <span id="totalPlanTime"></span></p>
-  <p>Total Allocated Time: <span id="totalAllottedTime"></span></p>
-  <p>Total Travel Time: <span id="duration"></span></p>
-  <p>Total Time Available: <span id="totalTimeAvailable"></span></p>
-  <p>Total Travel Distance: <span id="distance"></span></p>
-</div>
+  <div>
+    <p>Total Plan Time: <span id="totalPlanTime"></span></p>
+    <p>Total Allocated Time: <span id="totalAllottedTime"></span></p>
+    <p>Total Travel Time: <span id="duration"></span></p>
+    <p>Total Time Available: <span id="totalTimeAvailable"></span></p>
+    <p>Total Travel Distance: <span id="distance"></span></p>
+  </div>
 
-<section id="timeline">
-  <h3>Timeline</h3>
-  <ul>
-    <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
-    <li ng-repeat="poi in pois">
-      <p>{{ poi.name }}</p>
-      <form oninput="amount.value=rangeInput.value">
-        <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
-        <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
-      </form>
-    </li>
-  </ul>
-</section>
+  <section id="timeline">
+    <h3>Timeline</h3>
+    <ul>
+      <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
+      <li ng-repeat="poi in pois">
+        <p>{{ poi.name }}</p>
+        <form oninput="amount.value=rangeInput.value">
+          <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
+          <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
+        </form>
+      </li>
+    </ul>
+  </section>
 
-<section id="map">
-  <h3>Map</h3>
-  <div id="map-pois"></div>
-  <button id="toggle_traffic">Traffic</button>
+  <section id="map">
+    <h3>Map</h3>
+    <div id="map-pois"></div>
+    <button id="toggle_traffic">Traffic</button>
 
-    <div>
-      <b>Start:</b>
-      <label>
-        From: <br />
-        <input type="text" id="routeStart" value="" />
-      </label>
-      <br />
-      <label>
-        To: <br />
-        <input type="text" id="routeEnd" value="" />
-      </label>
-      <br />
+      <div>
+        <b>Start:</b>
         <label>
-          How: <br />
+          From: <br />
+          <input type="text" id="routeStart" value="" />
         </label>
-        <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
-        <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</label>
-        <label><input type="radio" name="travelMode" value="TRANSIT" /> Public Transport</label>
-        <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
         <br />
-      <button ng-click="getDirections(pois)">GO</button>
-    </div>
+        <label>
+          To: <br />
+          <input type="text" id="routeEnd" value="" />
+        </label>
+        <br />
+          <label>
+            How: <br />
+          </label>
+          <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
+          <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</label>
+          <label><input type="radio" name="travelMode" value="TRANSIT" /> Public Transport</label>
+          <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
+          <br />
+        <button ng-click="getDirections(pois)">GO</button>
+      </div>
 
-    <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
+      <div id="directionsPanel" style="margin:20px;background-color:#FFEE77;"></div>
 
-</section>
+  </section>
+
+</div>
