@@ -53,15 +53,29 @@
   <li ng-repeat="hours in schedule">
     <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
     </li>
-  </section>
+</section>
 
 
-  <h2>Plan</h2>
-  <ul>
-    <li ng-repeat="poi in pois" id="{{ poi.id }}">
-      <p>{{ poi.name }}</p>
-      <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
-    </li>
-  </ul>
+<h2>Plan</h2>
+<ul>
+  <li ng-repeat="poi in pois" id="{{ poi.id }}">
+    <p>{{ poi.name }}</p>
+    <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
+  </li>
+</ul>
 
-  <a href="#/singleTimeline/{{ singlePlan.objectId }}"><button>Plan It</button></a>
+
+<h3>myPlanit Notes: (private)</h3>
+<form id="notes" ng-submit="notes(singlePlan)">
+  <textarea rows="4" cols="10" ng-model="singlePlan.notes" placeholder="add notes for Plan"></textarea>
+  <button>Update</button>
+</form>
+
+
+<h3>myPlanit Comments: (will show if publish Plan)</h3>
+<form id="comments" ng-submit="comments(singlePlan)">
+  <textarea rows="4" cols="10" ng-model="singlePlan.comments" placeholder="add comments for Plan"></textarea>
+  <button>Update</button>
+</form>
+
+<a href="#/singleTimeline/{{ singlePlan.objectId }}"><button>Plan It</button></a>
