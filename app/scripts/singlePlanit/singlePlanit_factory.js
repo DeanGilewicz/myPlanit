@@ -146,21 +146,37 @@
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS);
         }
 
+        var updateNotes = function (singlePlan) {
+          // update on Parse the specifiic plan's notes
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
+            console.log(data);
+          });
+        }
+
+        var updateComments = function (singlePlan) {
+          // update on Parse the specifiic plan's comments
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
+            console.log(data);
+          });
+        }
+
 
         return {
-          getOnePlan:   getOnePlan,
-          doSearch:     doSearch,
-          doTopPicks:   doTopPicks,
-          doTrending:   doTrending,
-          doSights:     doSights,
-          doFood:       doFood,
-          doDrinks:     doDrinks,
-          doShops:      doShops,
-          doArts:       doArts,
-          poiDetails:   poiDetails,
-          poiExDetails: poiExDetails,
-          addPoi:       addPoi,
-          deletePoi:    deletePoi
+          getOnePlan:     getOnePlan,
+          doSearch:       doSearch,
+          doTopPicks:     doTopPicks,
+          doTrending:     doTrending,
+          doSights:       doSights,
+          doFood:         doFood,
+          doDrinks:       doDrinks,
+          doShops:        doShops,
+          doArts:         doArts,
+          poiDetails:     poiDetails,
+          poiExDetails:   poiExDetails,
+          addPoi:         addPoi,
+          deletePoi:      deletePoi,
+          updateNotes:    updateNotes,
+          updateComments: updateComments
         }
 
       }

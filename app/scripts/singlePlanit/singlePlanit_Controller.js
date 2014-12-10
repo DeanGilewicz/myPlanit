@@ -14,14 +14,10 @@
 
         // call function and store payload returned in searchResults
         $scope.doSearch = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = true;
           $scope.isCategoryArea = false;
 
-          // remove search area from view
-          // $('#searchResultsArea').detach();
-          // // remove category area from view
-          // $('#categoryResultsArea').detach();
           SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
             var check = data.response.venues;
             if(check == []) {
@@ -35,14 +31,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTopPicks = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doTopPicks(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -52,14 +44,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTrending = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doTrending(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -69,14 +57,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doSights = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').detach();
-          // remove category area from view
-          // $('#categoryResultsArea').detach();
           SinglePlanitFactory.doSights(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -86,14 +70,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doFood = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doFood(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -103,14 +83,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doDrinks = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doDrinks(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -120,14 +96,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doShops = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doShops(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -137,14 +109,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doArts = function (singlePlan) {
-
+          // create scope to use to in ng-show in html to show/hide areas
           $scope.isSearchArea = false;
           $scope.isCategoryArea = true;
 
-          // remove search area from view
-          // $('#searchResultsArea').remove();
-          // remove category area from view
-          // $('#categoryResultsArea').remove();
           SinglePlanitFactory.doArts(singlePlan).success( function (data) {
             console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
@@ -154,7 +122,7 @@
 
         // objId is related to what is passed in poiDetails() that have access too
         $scope.poiDetails = function (objId) {
-
+          // create scope to use to in ng-show in html to show details
           $scope.showDetails = true;
 
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
@@ -166,7 +134,7 @@
         }
 
         $scope.addPoi = function (result, categoryResult) {
-
+          // create scope to use to in ng-show in html to hide areas when poi add button is clicked
           $scope.showDetails = false;
           $scope.isSearchArea = false;
           $scope.isCategoryArea = false;
@@ -190,6 +158,16 @@
           SinglePlanitFactory.deletePoi(result, index, singlePlan).success( function (data) {
             console.log(data);
           });
+        }
+
+        $scope.updateNotes = function (singlePlan) {
+          // call function passing in singlePlan
+          SinglePlanitFactory.updateNotes(singlePlan);
+        }
+
+        $scope.updateComments = function (singlePlan) {
+          // call function passing in singlePlan
+          SinglePlanitFactory.updateNotes(singlePlan);
         }
 
     }
