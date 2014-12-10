@@ -76,7 +76,8 @@
 
         }// end of mapPois func
 
-
+        // Maps API allows a max of 8 waypoints for personal. Business customers are allowed 23 waypoints, plus the origin, and destination.
+        
         var getDirections = function (pois) {
           return $q(function (resolve){
 
