@@ -3,7 +3,6 @@
     .factory('AccountFactory', ['PARSE_HEADERS', 'PARSE_URI', '$http', '$cookieStore', '$location',
       function (PARSE_HEADERS, PARSE_URI, $http, $cookieStore, $location) {
 
-        var userInfo;
         var usersUrl = PARSE_URI + 'users/';
         var loginUrl = PARSE_URI + 'login/?';
 

@@ -1,7 +1,7 @@
 (function () {
   angular.module('myPlanit')
-    .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
-      function (PARSE_URI, $http, PARSE_HEADERS) {
+    .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS', '$q',
+      function (PARSE_URI, $http, PARSE_HEADERS, $q) {
 
         // set variables to accessible
         var poiLat;
@@ -9,7 +9,8 @@
         var poiLatLng;
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService(); // instantiate a directions service
-
+        var tAT;
+        var totalDuration;
 
         var updateMaxPlanTime = function (singlePlan, updateMaxTime) {
           // update on Parse the specifiic plan's totalPlanMins
@@ -77,6 +78,8 @@
 
 
         var getDirections = function (pois) {
+          return $q(function (resolve){
+
             // get the first obj in pois array
             var firstPoi = _.first(pois);
             // set the lat for first obj
@@ -245,7 +248,7 @@
                 console.log(response);
                 // set initial value for vars
                 var totalDistance = 0;
-                var totalDuration = 0;
+                totalDuration = 0;
                 // set var to payload returned from google api
                 var legs = response.routes[0].legs;
                 // iterate through legs in payload
@@ -257,8 +260,7 @@
                   totalDuration += legs[i].duration.value;
                   console.log(totalDuration);
 
-                  console.log('1');
-
+                  resolve(totalDuration);
                 }
                 // value to convert meters to miles
                 var meters_to_miles = 0.000621371192;
@@ -286,14 +288,14 @@
                 }
               }
             });
+          });
+
 
         }// end of getDirections func
 
         var calcTimes = function (pois, singlePlan) {
           // set var to number
-          var tAT = 0;
-          // set var to total plan mins
-          var tPT = singlePlan.totalPlanMins;
+          tAT = 0;
           // iterate through the pois array
           _.each(pois, function (pois) {
             // grab allottedTime for all pois
@@ -304,15 +306,29 @@
             console.log(tAT);
           });
           // total time available equals total plan time minus total allocated time - minus total travel time
-          var tTA = tPT - tAT;
+
           console.log('2');
           // display total plan time
+          getTimes(singlePlan);
+        }// end of totalAllottedTime func
+
+
+        var getTimes = function (singlePlan){
+          // set var to total plan mins
+          var tPT = singlePlan.totalPlanMins;
+          totalDuration = Math.round( totalDuration / 60);
+          var tTA = tPT - (tAT + totalDuration);
+          console.log(tPT);
+          console.log(tAT);
+          console.log(totalDuration);
+          console.log(tTA);
+
           $('#totalPlanTime').html(tPT + ' Minutes');
           // display total allocated time total in specific place on timeline html
           $('#totalAllottedTime').html(tAT + ' Minutes');
           // display total remaining time total in specific place on timeline html
           $('#totalTimeAvailable').html(tTA + ' Minutes');
-        }// end of totalAllottedTime func
+        }
 
 
         return {
