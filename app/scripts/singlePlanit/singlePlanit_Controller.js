@@ -14,6 +14,10 @@
 
         // call function and store payload returned in searchResults
         $scope.doSearch = function (singlePlan) {
+
+          $scope.isSearchArea = true;
+          $scope.isCategoryArea = false;
+
           // remove search area from view
           // $('#searchResultsArea').detach();
           // // remove category area from view
@@ -31,6 +35,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTopPicks = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // // remove category area from view
@@ -44,6 +52,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doTrending = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // remove category area from view
@@ -57,6 +69,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doSights = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').detach();
           // remove category area from view
@@ -70,6 +86,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doFood = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // remove category area from view
@@ -83,6 +103,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doDrinks = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // remove category area from view
@@ -96,6 +120,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doShops = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // remove category area from view
@@ -109,6 +137,10 @@
 
         // call function and store payload returned in exploreResults
         $scope.doArts = function (singlePlan) {
+
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = true;
+
           // remove search area from view
           // $('#searchResultsArea').remove();
           // remove category area from view
@@ -136,7 +168,9 @@
         $scope.addPoi = function (result, categoryResult) {
 
           $scope.showDetails = false;
-          
+          $scope.isSearchArea = false;
+          $scope.isCategoryArea = false;
+
           // if user inputs a search term
           if(result !== undefined) {
             // poi object (result) is passed in to the func with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)

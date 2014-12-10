@@ -17,7 +17,7 @@
 </div>
 
 <h3>Search Results</h3>
-<div id="searchResultsArea">
+<div id="searchResultsArea" ng-show="isSearchArea">
   <ul>
     <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
       <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
@@ -28,7 +28,7 @@
   </ul>
 </div>
 
-<div id="categoryResultsArea">
+<div id="categoryResultsArea" ng-show="isCategoryArea">
   <ul>
     <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
       <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
