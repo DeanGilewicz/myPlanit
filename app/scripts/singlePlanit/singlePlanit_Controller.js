@@ -122,6 +122,9 @@
 
         // objId is related to what is passed in poiDetails() that have access too
         $scope.poiDetails = function (objId) {
+
+          $scope.showDetails = true;
+
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
             console.log(data);
             $scope.allDetails = data.response.venue;
@@ -131,6 +134,9 @@
         }
 
         $scope.addPoi = function (result, categoryResult) {
+
+          $scope.showDetails = false;
+          
           // if user inputs a search term
           if(result !== undefined) {
             // poi object (result) is passed in to the func with $scope.singlePlan (which is the current plan object accessible by getOnePlan on controller)
