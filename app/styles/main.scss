@@ -33,7 +33,7 @@
     }
   }
   // search and sort by
-  .filter {
+  .home-filter {
     overflow: auto;
     margin-bottom: 30px;
     span {
@@ -137,10 +137,31 @@
     clear: both;
     padding-top: 20px;
     h2 {
-      margin: 0px 0px 50px 0px;
+      margin: 0px 0px 60px 0px;
       text-align: center;
       font-size: 3.6em;
       font-weight: 600;
+    }
+    .profile-filter {
+      overflow: auto;
+      margin-bottom: 30px;
+      span {
+        float: left;
+        width: 50%;
+      }
+      .search {
+        font-size: 2em;
+        input {
+          height: 40px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .sorting {
+        select {
+          height: 40px;
+        }
+      }
     }
     .gridOuter {
       overflow: auto;
@@ -151,9 +172,13 @@
       &:nth-child(2n) {
         background-color: HSLA(0, 0%, 20%, 0.05);
       }
-      p:nth-child(1) {
+      p:first-child {
         margin: 15px 0px 15px 0px;
         font-size: 2em;
+      }
+      p:nth-child(2) {
+        font-size: 1.2em;
+        font-weight: 600;
       }
       button {
         width: 30%;

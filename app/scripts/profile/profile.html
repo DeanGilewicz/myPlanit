@@ -7,9 +7,20 @@
 
 <div class="lower-profile">
   <h2>myPlans</h2>
+  <div class="profile-filter">
+    <span class="search"><input ng-model="query" placeholder="Search" /></span>
+    <span class="sorting">
+      <select ng-model="orderProp">
+        <option value="">Sort By</option>
+        <option value="destination">Destination</option>
+        <option value="planDate">Planned For</option>
+      </select>
+    </span>
+  </div>
   <ul class="small-block-grid-3 gridOuter">
-    <li ng-repeat="plan in userPlans" class="grid" id="{{ plan.objectId }}">
+    <li ng-repeat="plan in userPlans | filter: query | orderBy: orderProp" class="grid" id="{{ plan.objectId }}">
       <p>{{ plan.planName }}</p>
+      <p>{{ plan.destination }}</p>
       <p>For {{ plan.planDate.iso | date: 'MMMM dd, yyyy' }}</p>
       <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>edit</button></a></span>
       <span><button ng-click="deleteUserPlan(plan)">delete</button></span>
