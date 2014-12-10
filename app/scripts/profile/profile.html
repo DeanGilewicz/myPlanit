@@ -1,18 +1,19 @@
 <div class="upper-profile-left">
-  <h2>{{ currentUsername }}'s Profile</h2>
+  <h1>{{ currentUsername }}'s Profile</h1>
 </div>
 <div class="upper-profile-right">
   <span><a href="#/create"><button>Create Plan</button></a></span>
 </div>
 
 <div class="lower-profile">
-  <h3>myPlans</h3>
-  <ul>
-    <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
-      <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }} {{ plan.status }}</p>
-      <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
-      <button ng-click="deleteUserPlan(plan)">delete</button>
-      <button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">Change Status</button>
+  <h2>myPlans</h2>
+  <ul class="small-block-grid-3 gridOuter">
+    <li ng-repeat="plan in userPlans" class="grid" id="{{ plan.objectId }}">
+      <p>{{ plan.planName }}</p>
+      <p>For {{ plan.planDate.iso | date: 'MMMM dd, yyyy' }}</p>
+      <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>edit</button></a></span>
+      <span><button ng-click="deleteUserPlan(plan)">delete</button></span>
+      <p><button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">{{ plan.status }}</button></p>
     </li>
   </ul>
 </div>
