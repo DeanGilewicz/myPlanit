@@ -1,10 +1,10 @@
 <div id="signUpSection">
   <form id="signUpForm" ng-submit="signUp(user)">
     <h2>Create New Account</h2>
-    <input type="text" ng-model="user.username" placeholder="username">
-    <input type="text" ng-model="user.email"  placeholder="email">
-    <input type="password" ng-model="user.password"  placeholder="password">
+    <input type="text" ng-model="user.username" placeholder="username" required />
+    <input type="text" ng-model="user.email"  placeholder="email" required />
+    <input type="password" ng-model="user.password"  placeholder="password" required />
     <button>Sign Up</button>
   </form>
-  <a href="#/login">Already have an account?</a><br>
+  <p><a href="#/login">Already have an account?</a></p>
 </div>

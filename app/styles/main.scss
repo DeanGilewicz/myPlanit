@@ -1,3 +1,8 @@
+// background image for index html - present in all views
+.bg-img {
+  // background-image: url('../images/bg.jpg');
+}
+// logo in top nav bar in
 .logo {
   width: 1.6em;
 }
@@ -70,6 +75,38 @@
       }
     }
   }
+  // sign up view
+  #signUpSection {
+    margin: 0 auto;
+    width: 40%;
+    h2 {
+      margin: 20px 0px 30px 0px;
+      text-align: center;
+    }
+    input {
+      height: 40px;
+      margin-bottom: 20px;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+    }
+    p {
+      text-align: center;
+      padding-bottom: 50px;
+    }
+  }
+  // login view
+
+
+
+
+
+
+
+
+
+
 }
 
 
