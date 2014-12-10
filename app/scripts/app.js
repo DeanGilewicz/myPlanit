@@ -57,14 +57,6 @@
           AccountFactory.checkUser();
         });
     }]);
-    // .directive('logOut', function (AccountFactory) {
-    //   return {
-    //     link: function ($scope, element, attrs) {
-    //       element.bind('click', function () {
-    //         AccountFactory.logout();
-    //       });
-    //     }
-    //   }
-    // });
+
 
 }());

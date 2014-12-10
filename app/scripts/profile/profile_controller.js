@@ -17,20 +17,17 @@
 
         // call func to update status of the plan so will either show or won't show on homepage
         $scope.updatePlanStatus = function (plan, userPlans) {
-          console.log(userPlans);
+          console.log(plan);
           // update status for specific plan when button is clicked
-            if(this.plan.status === 'private') {
-              this.plan.status = 'published';
-              $('#statusText').text('published');
-            } else if (this.plan.status === 'published') {
-              this.plan.status = 'private';
-              $('#statusText').text('private');
+            if(plan.status === 'private') {
+              plan.status = 'published';
+            } else {
+              plan.status = 'private';
             }
 
           // call func
           ProfileFactory.updatePlanStatus(plan, userPlans);
         }
-
 
         // call func to delete user plan - only on success visually update view to remove plan
         $scope.deleteUserPlan = function (plan) {

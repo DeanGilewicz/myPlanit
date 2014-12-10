@@ -20,17 +20,15 @@
               $cookieStore.remove('currentUser');
               $cookieStore.put('currentUser', data);
               $location.path('/profile')
-              // return checkUser();
             });
         }
 
-        var logout = function (user) {
-          $cookieStore.remove('currentUser');
+        var logout = function () {
+          var user = $cookieStore.remove('currentUser');
           $location.path('/');
-          return checkUser(user);
         }
 
-        var checkUser = function (user) {
+        var checkUser = function () {
           var user = $cookieStore.get('currentUser');
           if(user) {
             $('#user').html('Hello ' + user.username);

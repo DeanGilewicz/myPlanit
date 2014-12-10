@@ -9,7 +9,6 @@
         var poiLatLng;
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService(); // instantiate a directions service
-        var totalDuration;
 
 
         var updateMaxPlanTime = function (singlePlan, updateMaxTime) {
@@ -28,31 +27,6 @@
             calcTimes(pois, singlePlan);
           });
         }// end of updateAllottedTime func
-
-        var calcTimes = function (pois, singlePlan) {
-          // set var to number
-          var tAT = 0;
-          // set var to total plan mins
-          var tPT = singlePlan.totalPlanMins;
-          // iterate through the pois array
-          _.each(pois, function (pois) {
-            // grab allottedTime for all pois
-            var allAllottedTimes = parseInt(pois.allottedTime, 10);
-            console.log(allAllottedTimes);
-            // add allocated times for each poi together and store in tAT
-            tAT = tAT + allAllottedTimes;
-            console.log(tAT);
-          });
-          // total time available equals total plan time minus total allocated time - minus total travel time
-          var tTA = tPT - tAT - totalDuration;
-          console.log(totalDuration);
-          // display total plan time
-          $('#totalPlanTime').html(tPT + ' Minutes');
-          // display total allocated time total in specific place on timeline html
-          $('#totalAllottedTime').html(tAT + ' Minutes');
-          // display total remaining time total in specific place on timeline html
-          $('#totalTimeAvailable').html(tTA + ' Minutes');
-        }// end of totalAllottedTime func
 
 
         var mapPois = function (pois) {
@@ -271,7 +245,7 @@
                 console.log(response);
                 // set initial value for vars
                 var totalDistance = 0;
-                totalDuration = 0;
+                var totalDuration = 0;
                 // set var to payload returned from google api
                 var legs = response.routes[0].legs;
                 // iterate through legs in payload
@@ -283,8 +257,7 @@
                   totalDuration += legs[i].duration.value;
                   console.log(totalDuration);
 
-                  var totalTimeAvailable = totalDuration;
-                  console.log(totalTimeAvailable);
+                  console.log('1');
 
                 }
                 // value to convert meters to miles
@@ -315,6 +288,31 @@
             });
 
         }// end of getDirections func
+
+        var calcTimes = function (pois, singlePlan) {
+          // set var to number
+          var tAT = 0;
+          // set var to total plan mins
+          var tPT = singlePlan.totalPlanMins;
+          // iterate through the pois array
+          _.each(pois, function (pois) {
+            // grab allottedTime for all pois
+            var allAllottedTimes = parseInt(pois.allottedTime, 10);
+            console.log(allAllottedTimes);
+            // add allocated times for each poi together and store in tAT
+            tAT = tAT + allAllottedTimes;
+            console.log(tAT);
+          });
+          // total time available equals total plan time minus total allocated time - minus total travel time
+          var tTA = tPT - tAT;
+          console.log('2');
+          // display total plan time
+          $('#totalPlanTime').html(tPT + ' Minutes');
+          // display total allocated time total in specific place on timeline html
+          $('#totalAllottedTime').html(tAT + ' Minutes');
+          // display total remaining time total in specific place on timeline html
+          $('#totalTimeAvailable').html(tTA + ' Minutes');
+        }// end of totalAllottedTime func
 
 
         return {

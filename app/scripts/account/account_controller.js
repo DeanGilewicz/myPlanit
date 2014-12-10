@@ -12,13 +12,13 @@
         };
 
         // directive is being run for logout button, which is linked to factory
-        $scope.logout = function (user) {
-          AccountFactory.logout(user);
+        $scope.logout = function () {
+          AccountFactory.logout();
         };
 
         // set current username so can be accessed
         var currentUser = $cookieStore.get('currentUser');
-          if(currentUser) {
+          if(currentUser !== undefined) {
             $scope.currentUsername = currentUser.username;
           }
       }

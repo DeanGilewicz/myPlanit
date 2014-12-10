@@ -4,9 +4,9 @@
 <h2>My Plans</h2>
 <ul>
   <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
-    <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }} <span id="statusText">{{ plan.status }}</span></p>
+    <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }} {{ plan.status }}</p>
     <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
     <button ng-click="deleteUserPlan(plan)">delete</button>
-    <button ng-click="updatePlanStatus(plan, userPlans)" id="statusBtn">Change Status</button>
+    <button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">Change Status</button>
   </li>
 </ul>
