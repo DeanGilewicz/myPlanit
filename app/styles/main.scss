@@ -117,6 +117,31 @@
       padding-bottom: 50px;
     }
   }
+  // profile view
+  .upper-profile-left {
+    overflow: auto;
+    float: left;
+    width: 50%;
+  }
+  .upper-profile-right {
+    overflow: auto;
+    float: right;
+    width: 50%;
+    span {
+      float: right;
+    }
+  }
+  .lower-profile {
+    clear: both;
+    padding-top: 20px;
+    h3 {
+      margin: 0px 0px 30px 0px;
+      text-align: center;
+      font-size: 3em;
+    }
+  }
+
+
 
 
 

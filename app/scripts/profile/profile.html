@@ -1,12 +1,18 @@
-<h2>{{ currentUsername }}'s Profile </h2>
-<a href="#/create"><button>Create Plan</button></a>
+<div class="upper-profile-left">
+  <h2>{{ currentUsername }}'s Profile</h2>
+</div>
+<div class="upper-profile-right">
+  <span><a href="#/create"><button>Create Plan</button></a></span>
+</div>
 
-<h2>My Plans</h2>
-<ul>
-  <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
-    <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }} {{ plan.status }}</p>
-    <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
-    <button ng-click="deleteUserPlan(plan)">delete</button>
-    <button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">Change Status</button>
-  </li>
-</ul>
+<div class="lower-profile">
+  <h3>myPlans</h3>
+  <ul>
+    <li ng-repeat="plan in userPlans" id="{{ plan.objectId }}">
+      <p>{{ plan.planName }} - {{ plan.planDate.iso | date: 'MMM-dd-yyyy' }} {{ plan.status }}</p>
+      <a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a>
+      <button ng-click="deleteUserPlan(plan)">delete</button>
+      <button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">Change Status</button>
+    </li>
+  </ul>
+</div>
