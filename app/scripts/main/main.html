@@ -17,7 +17,7 @@
   </span>
 </div>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Destination</th>
@@ -25,7 +25,7 @@
       <th>Plan Used</th>
       <th>Time (mins)</th>
       <th>myPlanit User</th>
-      <th>view</th>
+      <th>View</th>
     </tr>
   </thead>
   <tbody>
@@ -35,7 +35,7 @@
       <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
       <td>{{ plan.totalPlanMins }}</td>
       <td>{{ plan.author }}</td>
-      <td><a href="#/singleTimeline/{{ plan.objectId }}"><button>go</button></a></td>
+      <td><a href="#/singleTimeline/{{ plan.objectId }}"><button>Go</button></a></td>
     </tr>
   </tbody>
 </table>
