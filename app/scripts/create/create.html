@@ -1,11 +1,11 @@
-<form ng-submit="createPlan(plan)"><br/>
-
-  <p>Plan Name: <input type="text" ng-model="plan.name" placeholder="what's my plan's name?" /></p>
-  <p>Destination (city): <input type="text" ng-model="plan.destination" placeholder="where am I going?" /></p>
-  <p>Planned For: <input type="date" ng-model="plan.date" placeholder="for what day?" /></p>
-  <!-- <input type="time" ng-model="plan.time" placeholder="from what time?" /><br/><br/> -->
-  <!-- <input type="time" ng-model="plan.time" placeholder="to what time?" /><br/><br/> -->
-
-  <button>Add Plan</button>
-
-</form>
+<div id="createSection">
+  <form ng-submit="createPlan(plan)">
+    <h2>Create Plan</h2>
+    <input type="text" ng-model="plan.name" placeholder="plan name" required />
+    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"ng-model="plan.date" placeholder="for what day" required />
+    <input type="text" ng-model="plan.destination" placeholder="location" required />
+    <!-- <input type="time" ng-model="plan.time" placeholder="from what time?" /><br/><br/> -->
+    <!-- <input type="time" ng-model="plan.time" placeholder="to what time?" /><br/><br/> -->
+    <button>Add Plan</button>
+  </form>
+</div>
