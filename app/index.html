@@ -24,37 +24,33 @@
   </head>
   <body ng-app="myPlanit">
 
-    <div class="hero-unit">
-      <div class="header">
-        <nav class="top-bar" data-topbar role="navigation">
-          <ul class="title-area">
-            <li class="name">
-              <h1><a href="#/">myPlanit</a></h1>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-          </ul>
-          <!-- Right Nav Section -->
-          <ul class="right" ng-controller="AccountCtrl">
-            <li id="user"></li>
-            <li ng-hide="currentUsername"><a href="#/signUp" class="signUpBtn">SignUp</a></li>
-            <li ng-hide="currentUsername"><a href="#/login" class="loginBtn">Login</a></li>
-            <li ng-show="currentUsername"><a href="#/profile" class="myProBtn">my profile</a></li>
-            <li ng-show="currentUsername"><a href="#" ng-click="logout()" class="logOutBtn">Logout</a></li>
-          </ul>
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <a href="#/" class="main">Main</a> <!-- company name/logo. User sign-in, register in header. Carosel? List of top "plans" -->
-            <a href="#/signUp" class="signUp">SignUp</a> <!-- modal to allow users to sign up -->
-            <a href="#/login" class="login">Login</a> <!-- modal to allow users to login -->
-            <a href="#/profile" class="profile">Profile</a> <!-- view all "plans". Edit, delete, share buttons on each plan. Edit - goes to existingPlanIt View with plan info.  Add New Plan button - goes to Add Plan view. -->
-            <a href="#/create" class="create">Create New Plan</a> <!-- model that allows user to create a new "plan" - name of plan, destination, day, time (start and end time) Create button goes to plan template -->
-          </ul>
-        </nav>
-      </div>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#/">myPlanit</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-      <div ng-view></div>
+      <section class="top-bar-section" ng-controller="AccountCtrl">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a href="#/" class="main">Home</a><li> <!-- company name/logo. User sign-in, register in header. Carosel? List of top "plans" -->
+          <li ng-show="!currentUsername"><a href="#/signUp" class="signUpBtn">SignUp</a></li>
+          <li ng-show="!currentUsername"><a href="#/login" class="loginBtn">Login</a></li>
+          <li ng-show="currentUsername"><a href="#/profile" class="myProBtn">my profile</a></li>
+          <li ng-show="currentUsername"><a href="#" ng-click="logout()" class="logOutBtn">Logout</a></li>
+        </ul>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><a href="" id="user"></a></li>
+        </ul>
+      </section>
+    </nav>
 
-    </div>
+    <div ng-view></div>
+
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->

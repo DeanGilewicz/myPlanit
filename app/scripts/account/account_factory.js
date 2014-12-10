@@ -31,11 +31,8 @@
           var user = $cookieStore.get('currentUser');
           if(user) {
             $('#user').html('Hello ' + user.username);
-          } else {
-            $('#user').html('Log in or sign up');
           }
         }
-
 
         return {
           signUp:    signUp,

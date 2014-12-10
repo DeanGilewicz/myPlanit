@@ -19,7 +19,7 @@
         // set current username so can be accessed
         var currentUser = $cookieStore.get('currentUser');
           if(currentUser !== undefined) {
-            $scope.currentUsername = currentUser.username;
+            $scope.currentUsername = true;
           }
       }
     ]);
