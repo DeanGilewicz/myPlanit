@@ -240,9 +240,7 @@
     .search {
       margin-top: 30px;
       text-align: center;
-      border: 1px solid red;
       .userSearch {
-        border: 1px solid red;
         input {
           display: inline;
           width: 40%;
@@ -262,8 +260,17 @@
           }
         }
       }
-
     }
+    .results {
+      margin-top: 25px;
+      text-align: center;
+      #searchResultsArea,
+      #categoryResultsArea {
+        margin-top: 20px;
+      }
+    }
+
+
 
 
 

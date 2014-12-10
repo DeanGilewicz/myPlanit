@@ -9,7 +9,7 @@
 
     <div class="small-12 large-12 columns search">
       <div class="userSearch">
-        <input type="text" name="query" id="query" value="" placeholder="where to go?">
+        <input type="text" name="query" id="query" value="" placeholder="where to go">
         <button ng-click="doSearch(singlePlan)">Search</button>
       </div>
       <div class="catSearch">
@@ -26,26 +26,27 @@
 
     <div class="small-12 large-12 columns">
       <div class="results">
-      <h3>Search Results</h3>
-      <div id="searchResultsArea" ng-show="isSearchArea">
-        <ul class="small-block-grid-5">
-          <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
-            <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
-            <p>{{ searchResult.name }}</p>
-            <p>{{ searchResult.location.address }} {{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
-            <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
-          </li>
-        </ul>
-      </div>
-      <div id="categoryResultsArea" ng-show="isCategoryArea">
-        <ul class="small-block-grid-5">
-          <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
-            <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
-            <p>{{ categoryResult.venue.name }}</p>
-            <p>{{ categoryResult.venue.location.address }} {{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
-            <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
-          </li>
-        </ul>
+        <h3>Search Results</h3>
+        <div id="searchResultsArea" ng-show="isSearchArea">
+          <ul class="small-block-grid-5">
+            <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
+              <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
+              <p>{{ searchResult.name }}</p>
+              <p>{{ searchResult.location.address }} {{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
+              <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
+            </li>
+          </ul>
+        </div>
+        <div id="categoryResultsArea" ng-show="isCategoryArea">
+          <ul class="small-block-grid-5">
+            <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
+              <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
+              <p>{{ categoryResult.venue.name }}</p>
+              <p>{{ categoryResult.venue.location.address }} {{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
+              <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
