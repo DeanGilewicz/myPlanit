@@ -1,30 +1,34 @@
-<div class="upper-profile-left">
-  <h1>{{ currentUsername }}'s Profile</h1>
-</div>
-<div class="upper-profile-right">
-  <span><a href="#/create"><button>Create Plan</button></a></span>
-</div>
+<div class="profile-container">
 
-<div class="lower-profile">
-  <h2>myPlans</h2>
-  <div class="profile-filter">
-    <span class="search"><input ng-model="query" placeholder="Search" /></span>
-    <span class="sorting">
-      <select ng-model="orderProp">
-        <option value="">Sort By</option>
-        <option value="destination">Destination</option>
-        <option value="planDate">Planned For</option>
-      </select>
-    </span>
+  <div class="upper-profile-left">
+    <h1>{{ currentUsername }}'s Profile</h1>
   </div>
-  <ul class="small-block-grid-3 gridOuter">
-    <li ng-repeat="plan in userPlans | filter: query | orderBy: orderProp" class="grid" id="{{ plan.objectId }}">
-      <p>{{ plan.planName }}</p>
-      <p>{{ plan.destination }}</p>
-      <p>For {{ plan.planDate.iso | date: 'MMMM dd, yyyy' }}</p>
-      <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>edit</button></a></span>
-      <span><button ng-click="deleteUserPlan(plan)">delete</button></span>
-      <p><button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">{{ plan.status }}</button></p>
-    </li>
-  </ul>
+  <div class="upper-profile-right">
+    <span><a href="#/create"><button>Create Plan</button></a></span>
+  </div>
+
+  <div class="lower-profile">
+    <h2>myPlans</h2>
+    <div class="profile-filter">
+      <span class="search"><input ng-model="query" placeholder="Search" /></span>
+      <span class="sorting">
+        <select ng-model="orderProp">
+          <option value="">Sort By</option>
+          <option value="destination">Destination</option>
+          <option value="planDate">Planned For</option>
+        </select>
+      </span>
+    </div>
+    <ul class="small-block-grid-3 gridOuter">
+      <li ng-repeat="plan in userPlans | filter: query | orderBy: orderProp" class="grid" id="{{ plan.objectId }}">
+        <p>{{ plan.planName }}</p>
+        <p>{{ plan.destination }}</p>
+        <p>For {{ plan.planDate.iso | date: 'MMMM dd, yyyy' }}</p>
+        <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>edit</button></a></span>
+        <span><button ng-click="deleteUserPlan(plan)">delete</button></span>
+        <p><button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">{{ plan.status }}</button></p>
+      </li>
+    </ul>
+  </div>
+
 </div>

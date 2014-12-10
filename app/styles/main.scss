@@ -19,130 +19,22 @@
   // MAIN VIEW
 
   // tag line and title
-  .tag-line {
-    text-align: center;
-    width: 100%;
-    span {
-      font-size: 2em;
-    }
-    img {
-      width: 8em;
-    }
-    h1 {
-      margin-bottom: 60px;
-    }
-  }
-  // search and sort by
-  .home-filter {
-    overflow: auto;
-    margin-bottom: 30px;
-    span {
-      float: left;
-      width: 50%;
-    }
-    .search {
-      font-size: 2em;
-      input {
-        height: 40px;
-        width: 100%;
-        text-align: center;
-      }
-    }
-    .sorting {
-      select {
-        height: 40px;
-      }
-    }
-  }
-  // table
-  .table {
-    clear: both;
-    margin: 0px auto 50px auto;
-    width: 100%;
-    thead tr th {
-      font-size: 1.5em;
+  .home-container{
+    .tag-line {
       text-align: center;
-    }
-    tbody tr td {
-      text-align: center;
-      button {
-        width: 80%;
-        padding: 7px 20px 7px 20px;
-        margin: 0px;
-        a {
-          vertical-align: middle;
-        }
-      }
-    }
-  }
-  // sign up view
-  #signUpSection {
-    margin: 0 auto;
-    width: 40%;
-    h2 {
-      margin: 20px 0px 30px 0px;
-      text-align: center;
-    }
-    input {
-      height: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      margin-top: 10px;
       width: 100%;
+      span {
+        font-size: 2em;
+      }
+      img {
+        width: 8em;
+      }
+      h1 {
+        margin-bottom: 60px;
+      }
     }
-    p {
-      text-align: center;
-      padding-bottom: 50px;
-    }
-  }
-  // login view
-  #loginSection {
-    margin: 0 auto;
-    width: 40%;
-    h2 {
-      margin: 20px 0px 30px 0px;
-      text-align: center;
-    }
-    input {
-      height: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      margin-top: 10px;
-      width: 100%;
-    }
-    p {
-      text-align: center;
-      padding-bottom: 50px;
-    }
-  }
-  // profile view
-  .upper-profile-left {
-    overflow: auto;
-    float: left;
-    width: 50%;
-  }
-  .upper-profile-right {
-    overflow: auto;
-    float: right;
-    width: 50%;
-    span {
-      float: right;
-    }
-  }
-  .lower-profile {
-    clear: both;
-    padding-top: 20px;
-    h2 {
-      margin: 0px 0px 60px 0px;
-      text-align: center;
-      font-size: 3.6em;
-      font-weight: 600;
-    }
-    .profile-filter {
+    // search and sort by
+    .home-filter {
       overflow: auto;
       margin-bottom: 30px;
       span {
@@ -163,36 +55,33 @@
         }
       }
     }
-    .gridOuter {
-      overflow: auto;
-      margin-bottom: 50px;
-    }
-    .grid {
-      text-align: center;
-      &:nth-child(2n) {
-        background-color: HSLA(0, 0%, 20%, 0.05);
+    // table
+    .table {
+      clear: both;
+      margin: 0px auto 50px auto;
+      width: 100%;
+      thead tr th {
+        font-size: 1.5em;
+        text-align: center;
       }
-      p:first-child {
-        margin: 15px 0px 15px 0px;
-        font-size: 2em;
-      }
-      p:nth-child(2) {
-        font-size: 1.2em;
-        font-weight: 600;
-      }
-      button {
-        width: 30%;
-        padding: 10px 20px 10px 20px;
-        font-size: 0.8em;
-      }
-      #statusBtn {
-        width: 62%;
-        margin-bottom: 0px;
+      tbody tr td {
+        text-align: center;
+        button {
+          width: 80%;
+          padding: 7px 20px 7px 20px;
+          margin: 0px;
+          a {
+            vertical-align: middle;
+          }
+        }
       }
     }
   }
-  // create view
-  #createSection {
+
+  // SIGN UP VIEW
+
+  // form
+  #signUp-container {
     margin: 0 auto;
     width: 40%;
     h2 {
@@ -208,9 +97,177 @@
       margin-top: 10px;
       width: 100%;
     }
-
+    p {
+      text-align: center;
+      padding-bottom: 50px;
+    }
   }
 
+  // LOGIN VIEW
+
+  // form
+  #login-container {
+    margin: 0 auto;
+    width: 40%;
+    h2 {
+      margin: 20px 0px 30px 0px;
+      text-align: center;
+    }
+    input {
+      height: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+    }
+    p {
+      text-align: center;
+      padding-bottom: 50px;
+    }
+  }
+
+  // PROFILE VIEW
+
+  .profile-container {
+    // name of user
+    .upper-profile-left {
+      overflow: auto;
+      float: left;
+      width: 50%;
+    }
+    // create plan button
+    .upper-profile-right {
+      overflow: auto;
+      float: right;
+      width: 50%;
+      span {
+        float: right;
+      }
+    }
+    // lower section
+    .lower-profile {
+      clear: both;
+      padding-top: 20px;
+      h2 {
+        margin: 0px 0px 60px 0px;
+        text-align: center;
+        font-size: 3.6em;
+        font-weight: 600;
+      }
+      .profile-filter {
+        overflow: auto;
+        margin-bottom: 30px;
+        span {
+          float: left;
+          width: 50%;
+        }
+        .search {
+          font-size: 2em;
+          input {
+            height: 40px;
+            width: 100%;
+            text-align: center;
+          }
+        }
+        .sorting {
+          select {
+            height: 40px;
+          }
+        }
+      }
+      .gridOuter {
+        overflow: auto;
+        margin-bottom: 50px;
+      }
+      .grid {
+        text-align: center;
+        &:nth-child(2n) {
+          background-color: HSLA(0, 0%, 20%, 0.05);
+        }
+        p:first-child {
+          margin: 15px 0px 15px 0px;
+          font-size: 2em;
+        }
+        p:nth-child(2) {
+          font-size: 1.2em;
+          font-weight: 600;
+        }
+        button {
+          width: 30%;
+          padding: 10px 20px 10px 20px;
+          font-size: 0.8em;
+        }
+        #statusBtn {
+          width: 62%;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  // CREATE VIEW
+
+  // form
+  #create-container {
+    margin: 0 auto;
+    width: 40%;
+    h2 {
+      margin: 20px 0px 30px 0px;
+      text-align: center;
+    }
+    input {
+      height: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+
+  // SINGLEPLANIT VIEW
+  .singlePlanit-container {
+    .top {
+      text-align: center;
+      width: 100%;
+      h1 {
+        margin-bottom: 20px;
+      }
+    }
+    .search {
+      margin-top: 30px;
+      text-align: center;
+      border: 1px solid red;
+      .userSearch {
+        border: 1px solid red;
+        input {
+          display: inline;
+          width: 40%;
+          text-align: center;
+        }
+        button {
+          padding: 10px 15px 10px 15px;
+        }
+      }
+      .catSearch {
+        clear: both;
+        button {
+          padding: 8px 12px 8px 12px;
+          margin-right: 10px;
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+
+    }
+
+
+
+  }
 
 
 

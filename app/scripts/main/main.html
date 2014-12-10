@@ -1,41 +1,44 @@
-<div class="tag-line">
-  <span>my time</span>
-  <img src="../../images/logo.png"/>
-  <span>my way</span>
-  <h1>myPlanit</h1>
-</div>
+<div class="home-container">
+  
+  <div class="tag-line">
+    <span>my time</span>
+    <img src="../../images/logo.png"/>
+    <span>my way</span>
+    <h1>myPlanit</h1>
+  </div>
 
-<div class="home-filter">
-  <span class="search"><input ng-model="query" placeholder="Search" /></span>
-  <span class="sorting">
-    <select ng-model="orderProp">
-      <option value="">Sort By</option>
-      <option value="destination">Destination</option>
-      <option value="planDate">Planned For</option>
-      <option value="totalPlanMins">Plan Time</option>
-    </select>
-  </span>
-</div>
+  <div class="home-filter">
+    <span class="search"><input ng-model="query" placeholder="Search" /></span>
+    <span class="sorting">
+      <select ng-model="orderProp">
+        <option value="">Sort By</option>
+        <option value="destination">Destination</option>
+        <option value="planDate">Planned For</option>
+        <option value="totalPlanMins">Plan Time</option>
+      </select>
+    </span>
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Destination</th>
-      <th>Plan Name</th>
-      <th>Plan Used</th>
-      <th>Time (mins)</th>
-      <th>myPlanit User</th>
-      <th>View</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp" id="{{ plan.objectId }}">
-      <td>{{ plan.destination }}</td>
-      <td>{{ plan.planName }}</td>
-      <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
-      <td>{{ plan.totalPlanMins }}</td>
-      <td>{{ plan.author }}</td>
-      <td><a href="#/singleTimeline/{{ plan.objectId }}"><button>Go</button></a></td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Destination</th>
+        <th>Plan Name</th>
+        <th>Plan Used</th>
+        <th>Time (mins)</th>
+        <th>myPlanit User</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="plan in allPublishedPlans | filter: query | orderBy: orderProp" id="{{ plan.objectId }}">
+        <td>{{ plan.destination }}</td>
+        <td>{{ plan.planName }}</td>
+        <td>{{ plan.planDate.iso | date: 'MMM-dd-yyyy' }}</td>
+        <td>{{ plan.totalPlanMins }}</td>
+        <td>{{ plan.author }}</td>
+        <td><a href="#/singleTimeline/{{ plan.objectId }}"><button>Go</button></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
