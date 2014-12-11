@@ -17,10 +17,13 @@
         };
 
         // set current username so can be accessed
-        var currentUser = $cookieStore.get('currentUser');
+        var checkUser = function () {
+          var currentUser = $cookieStore.get('currentUser');
           if(currentUser !== undefined) {
             $scope.currentUsername = true;
           }
+        }
+        checkUser();
       }
     ]);
 
