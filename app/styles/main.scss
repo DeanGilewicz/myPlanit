@@ -1,6 +1,46 @@
+
+$fFamH: 'Libre Baskerville', serif;
+$fFamB: 'Sanchez', serif;
+$fFamT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+h1, h2, h3, h4, h5 {
+  font-family: $fFamH;
+}
+span, p, input, th, tr, td {
+  font-family: $fFamB;
+}
+th, tr, td {
+  font-family: $fFamT;
+}
+
 // background image for index html - present in all views
 .bg-img {
-  // background-image: url('../images/bg.jpg');
+  background-image: url('../images/bg20.png');
+}
+
+button {
+  background-color: HSLA(105, 92%, 38%, 1);
+  border-radius: 5px;
+  &:hover {
+    background-color: HSLA(105, 92%, 30%, 1);
+  }
+}
+// top nav bar
+.top-bar {
+  background-color: HSLA(218, 100%, 74%, 1);
+  #app-name,
+  #user,
+  #main,
+  #signUpBtn,
+  #loginBtn,
+  #myProBtn,
+  #logOutBtn {
+    background-color: HSLA(218, 100%, 74%, 1);
+    font-size: 1.3em;
+    &:hover {
+      background-color: HSLA(218, 100%, 67%, 1);
+    }
+  }
 }
 // logo in top nav bar in
 .logo {
@@ -9,8 +49,6 @@
 
 // in all views set base styles
 .all-views {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 10px auto 0 auto;
   width: 80%;
   padding: 50px 0px 0px 0px;
@@ -23,6 +61,10 @@
     .tag-line {
       text-align: center;
       width: 100%;
+      p {
+        font-size: 5em;
+        margin-bottom: 50px;
+      }
       span {
         font-size: 2em;
       }
@@ -60,6 +102,9 @@
       clear: both;
       margin: 0px auto 50px auto;
       width: 100%;
+      thead {
+        background-color: HSLA(218, 100%, 90%, 1);
+      }
       thead tr th {
         font-size: 1.5em;
         text-align: center;
@@ -68,11 +113,8 @@
         text-align: center;
         button {
           width: 80%;
-          padding: 7px 20px 7px 20px;
+          padding: 7px 15px 7px 9px;
           margin: 0px;
-          a {
-            vertical-align: middle;
-          }
         }
       }
     }
@@ -315,7 +357,13 @@
         margin-bottom: 20px;
       }
       h3 {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 5px 10px 5px 10px;
+        width: 15%;
+        font-size: 0.8em;
+        margin-bottom: 30px;
       }
     }
     .plan-time {

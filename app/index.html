@@ -14,7 +14,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- link fonts here -->
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Sanchez' rel='stylesheet' type='text/css'>
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -29,7 +29,7 @@
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><a href="#/"><img class="logo" src="../../images/logo.png"/>myPlanit</a></h1>
+            <h1><a href="#/" id="app-name"><img class="logo" src="../../images/logo.png"/>myPlanit</a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -38,15 +38,11 @@
         <section class="top-bar-section" ng-controller="AccountCtrl">
           <!-- Right Nav Section -->
           <ul class="right">
-            <li><a href="#/" class="main">Home</a><li>
-            <li class="divider"></li>
-            <li ng-show="!currentUsername"><a href="#/signUp" class="signUpBtn">SignUp</a></li>
-            <li class="divider"></li>
-            <li ng-show="!currentUsername"><a href="#/login" class="loginBtn">Login</a></li>
-            <li class="divider"></li>
-            <li ng-show="currentUsername"><a href="#/profile" class="myProBtn">myProfile</a></li>
-            <li class="divider"></li>
-            <li ng-show="currentUsername"><a href="#" ng-click="logout()" class="logOutBtn">Logout</a></li>
+            <li><a href="#/" id="main">Home</a><li>
+            <li ng-show="!currentUsername"><a href="#/signUp" id="signUpBtn">SignUp</a></li>
+            <li ng-show="!currentUsername"><a href="#/login" id="loginBtn">Login</a></li>
+            <li ng-show="currentUsername"><a href="#/profile" id="myProBtn">myProfile</a></li>
+            <li ng-show="currentUsername"><a href="#" ng-click="logout()" id="logOutBtn">Logout</a></li>
           </ul>
           <!-- Left Nav Section -->
           <ul class="left">

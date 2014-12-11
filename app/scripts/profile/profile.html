@@ -22,8 +22,8 @@
         <p>{{ plan.planName }}</p>
         <p>{{ plan.destination }}</p>
         <p>For {{ plan.planDate.iso | date: 'MMMM dd, yyyy' }}</p>
-        <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>edit</button></a></span>
-        <span><button ng-click="deleteUserPlan(plan)">delete</button></span>
+        <span><a href="#/singlePlanit/{{ plan.objectId }}"><button>Edit</button></a></span>
+        <span><button ng-click="deleteUserPlan(plan)">Delete</button></span>
         <p><button ng-click="updatePlanStatus(plan, $index, userPlans)" id="statusBtn">{{ plan.status }}</button></p>
       </li>
     </ul>
