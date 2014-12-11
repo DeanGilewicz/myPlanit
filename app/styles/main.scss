@@ -314,6 +314,20 @@
     }
   }
 
+  // SIMGLETIMELINE VIEW
+
+  .singleTimeline-container {
+    text-align: center;
+    .top {
+      width: 100%;
+      h1 {
+        margin-bottom: 20px;
+      }
+    }
+
+  }
+
+
 
 
 
@@ -334,14 +348,14 @@
 }
 
 #panel {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  margin-left: -180px;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
+  // position: absolute;
+  // top: 5px;
+  // left: 50%;
+  // // margin-left: -180px;
+  // z-index: 5;
+  // background-color: #fff;
+  // padding: 5px;
+  // border: 1px solid #999;
 }
 
 #user {

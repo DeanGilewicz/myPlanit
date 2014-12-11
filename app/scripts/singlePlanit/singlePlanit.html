@@ -6,7 +6,6 @@
   </div>
 
   <div class="row">
-
     <div class="small-12 large-12 columns search">
       <form class="userSearch">
         <input type="text" name="query" id="query" value="" placeholder="where to go">
@@ -23,7 +22,9 @@
         <button ng-click="doArts(singlePlan)">Arts</button>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="small-12 large-12 columns">
       <div class="results">
         <h3>Search Results</h3>
@@ -51,51 +52,49 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="myModal" class="reveal-modal" data-reveal>
-      <section ng-show="showDetails">
-        <h3>{{ allDetails.name }}</h3>
-        <h5>Description</h5>
-        <p>{{ allDetails.description }}</p>
-        <h5>Rating</h5>
-        <p>{{ allDetails.rating }}</p>
-        <h5>Website</h5>
-        <p>{{ allDetails.url }}</p>
-        <h5>Telephone</h5>
-        <p>{{ allDetails.contact.formattedPhone }}</p>
-        <h5>Hours</h5>
-        <li ng-repeat="hours in schedule">
-          <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
-          </li>
-        </section>
+  <div id="myModal" class="reveal-modal" data-reveal>
+    <section ng-show="showDetails">
+      <h3>{{ allDetails.name }}</h3>
+      <h5>Description</h5>
+      <p>{{ allDetails.description }}</p>
+      <h5>Rating</h5>
+      <p>{{ allDetails.rating }}</p>
+      <h5>Website</h5>
+      <p>{{ allDetails.url }}</p>
+      <h5>Telephone</h5>
+      <p>{{ allDetails.contact.formattedPhone }}</p>
+      <h5>Hours</h5>
+      <li ng-repeat="hours in schedule">
+        <p>{{ hours.days }} {{ hours.open[0].renderedTime }}</p>
+      </li>
+    </section>
+  </div>
+
+  <div class="row">
+    <div class="small-7 large-7 columns plan ">
+      <h2>Plan</h2>
+      <ul class="small-block-grid-2">
+        <li ng-repeat="poi in pois" id="{{ poi.id }}">
+          <p>{{ poi.name }}</p>
+          <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
+        </li>
+      </ul>
     </div>
-
-    <div class="small-12 large-12 columns planIt">
-
-      <div class="small-7 large-7 columns plan ">
-        <h2>Plan</h2>
-        <ul class="small-block-grid-2">
-          <li ng-repeat="poi in pois" id="{{ poi.id }}">
-            <p>{{ poi.name }}</p>
-            <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="small-5 large-5 columns notes">
-        <h3>myPlanit</h3>
-        <form id="notes" ng-submit="updateNotes(singlePlan)">
-          <button>Update</button>
-          <textarea rows="10" cols="10" ng-model="singlePlan.notes" placeholder="add notes for Plan"></textarea>
-        </form>
-      </div>
-
+    <div class="small-5 large-5 columns notes">
+      <h3>myPlanit</h3>
+      <form id="notes" ng-submit="updateNotes(singlePlan)">
+        <button>Update</button>
+        <textarea rows="10" cols="10" ng-model="singlePlan.notes" placeholder="add notes for Plan"></textarea>
+      </form>
     </div>
+  </div>
 
+  <div class="row">
     <div class="small-12 large-12 columns">
       <a href="#/singleTimeline/{{ singlePlan.objectId }}"><button>Plan It</button></a>
     </div>
-
   </div>
 
 </div>
