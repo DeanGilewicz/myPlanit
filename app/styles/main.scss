@@ -287,29 +287,26 @@
     //     text-align: center;
     //   }
     // }
-    .planIt {
-      margin: 40px 0px 40px 0px;
-      .plan {
-        h2 {
-          margin-bottom: 10px;
-        }
-        p {
-          float: left;
-        }
-        button {
-          float: left;
-          margin-left: 8px;
-          padding: 5px;
-        }
+    .plan {
+      h2 {
+        margin-bottom: 10px;
       }
-      .notes {
-        h3 {
-          float: left;
-        }
-        button {
-          float: right;
-          padding: 8px;
-        }
+      p {
+        float: left;
+      }
+      button {
+        float: left;
+        margin-left: 8px;
+        padding: 5px;
+      }
+    }
+    .notes {
+      h3 {
+        float: left;
+      }
+      button {
+        float: right;
+        padding: 8px;
       }
     }
   }
@@ -324,6 +321,50 @@
         margin-bottom: 20px;
       }
     }
+    .plan-time {
+      input {
+        display: inline;
+        width: 50%;
+      }
+      button {
+        padding: 10px;
+      }
+    }
+    #map-pois{
+      margin-top: 20px;
+      height: 400px;
+      width: 400px;
+    }
+    .before-after {
+      h3 {
+        margin-bottom: 20px;
+      }
+      input {
+        width: 50%;
+        display: inline;
+      }
+      button {
+        width: 50%;
+        padding: 7px 15px 7px 15px;
+      }
+    }
+    .how {
+      h3 {
+        margin: 70px 0px 20px 0px;
+      }
+      span {
+        margin: 0px 10px 0px 10px;
+        font-size: 1.5em;
+      }
+      button {
+        margin: 10px 10px 0px 10px;
+        padding: 7px 15px 7px 15px;
+      }
+    }
+
+
+
+
 
   }
 
@@ -337,27 +378,4 @@
 
 
 
-}
-
-
-
-
-#map-pois{
-  height: 500px;
-  width: 500px;
-}
-
-#panel {
-  // position: absolute;
-  // top: 5px;
-  // left: 50%;
-  // // margin-left: -180px;
-  // z-index: 5;
-  // background-color: #fff;
-  // padding: 5px;
-  // border: 1px solid #999;
-}
-
-#user {
-  color: white;
 }

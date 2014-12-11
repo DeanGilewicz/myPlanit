@@ -11,10 +11,11 @@
       <div class="small-6 large-6 columns">
         <section id="timeline">
           <h3>Timeline</h3>
-          <span>Max Time:<input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
-          <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
+          <div class="plan-time">
+            <span><input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
+            <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
+          </div>
           <ul class="small-block-grid-2">
-            <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
             <li ng-repeat="poi in pois">
               <p>{{ poi.name }}</p>
               <form oninput="amount.value=rangeInput.value">
@@ -23,14 +24,16 @@
               </form>
             </li>
           </ul>
+          <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
         </section>
       </div>
       <div class="small-6 large-6 columns">
-        <p>Total Plan Time: <span id="totalPlanTime"></span></p>
-        <p>Total Allocated Time: <span id="totalAllottedTime"></span></p>
-        <p>Total Travel Time: <span id="duration"></span></p>
-        <p>Total Time Available: <span id="totalTimeAvailable"></span></p>
-        <p>Total Travel Distance: <span id="distance"></span></p>
+        <h3>Totals</h3>
+        <p>Plan Time: <span id="totalPlanTime"></span></p>
+        <p>Allocated Time: <span id="totalAllottedTime"></span></p>
+        <p>Travel Time: <span id="duration"></span></p>
+        <p>Time Available: <span id="totalTimeAvailable"></span></p>
+        <p>Travel Distance: <span id="distance"></span></p>
       </div>
     </div>
 
@@ -42,15 +45,20 @@
         </section>
       </div>
       <div class="small-6 large-6 columns">
-        <div class="mot">
-            <input type="text" id="routeStart" value="" placeholder="From" />
-            <input type="text" id="routeEnd" value="" placeholder="To" />
-            <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
-            <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</label>
-            <label><input type="radio" name="travelMode" value="TRANSIT" /> Public Transport</label>
-            <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
-            <button id="toggle_traffic">Traffic</button>
-            <button ng-click="getDirections(pois)">Update</button>
+        <div class="before-after">
+          <h3>Before | After</h3>
+          <input type="text" id="routeStart" value="" placeholder="Before" />
+          <input type="text" id="routeEnd" value="" placeholder="After" />
+          <p><button ng-click="getDirections(pois)">Update</button></p>
+        </div>
+        <div class="how">
+          <h3>How</h3>
+          <span><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</span>
+          <span><input type="radio" name="travelMode" value="WALKING" /> Walking</span><br />
+          <span><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</span>
+          <span><input type="radio" name="travelMode" value="TRANSIT" /> Public Transport</span><br />
+          <button id="toggle_traffic">Traffic</button>
+          <button ng-click="getDirections(pois)">Update</button>
         </div>
       </div>
     </div>
