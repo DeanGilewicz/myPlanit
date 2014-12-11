@@ -17,7 +17,8 @@
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
             console.log(data);
             var pois = singlePlan.pois;
-            calcTimes(pois, singlePlan);
+            getDirections(pois);
+            calcTimes(pois);
           });
         }// end of updateMaxPlanTime func
 
@@ -296,7 +297,7 @@
               }
             });
           });
-
+          calcTimes();
 
         }// end of getDirections func
 

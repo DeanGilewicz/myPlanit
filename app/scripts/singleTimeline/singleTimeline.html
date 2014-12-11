@@ -14,7 +14,7 @@
         <span><button ng-show="isAuthor" ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
         <span><button ng-show="isAuthor" ng-click="updateAllottedTime(pois)">Update</button></span>
       </div>
-      <ul class="small-block-grid-12 medium-block-grid-4 large-block-grid-3">
+      <ul class="small-block-grid-12 medium-block-grid-4 large-block-grid-2">
         <li ng-repeat="poi in pois">
           <p>{{ poi.name }}</p>
           <form oninput="amount.value=rangeInput.value">

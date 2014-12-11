@@ -65,8 +65,9 @@ button, button a, button:focus, button:disabled {
   // tag line and title
   .home-container{
     .tag-line {
+      margin: 0 auto;
       text-align: center;
-      width: 100%;
+      width: 300px;
       p {
         font-size: 5em;
         margin-bottom: 50px;
@@ -75,7 +76,7 @@ button, button a, button:focus, button:disabled {
         font-size: 2em;
       }
       img {
-        width: 8em;
+        width: 34%;
       }
       h1 {
         margin-bottom: 60px;
