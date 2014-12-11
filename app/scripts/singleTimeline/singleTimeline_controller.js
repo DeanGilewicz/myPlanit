@@ -46,7 +46,7 @@
 
         $scope.updateComments = function (singlePlan) {
           // call function passing in singlePlan
-          SingleTimelineFactory.updateNotes(singlePlan);
+          SingleTimelineFactory.updateComments(singlePlan);
         }
 
       }

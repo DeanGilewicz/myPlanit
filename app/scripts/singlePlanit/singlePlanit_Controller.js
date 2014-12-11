@@ -10,6 +10,8 @@
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
           $scope.pois = data.pois;
+          // make sure foundation is ready so modal can be viewed
+          $(document).foundation();
         });
 
         // call function and store payload returned in searchResults

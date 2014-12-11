@@ -5,81 +5,79 @@
     <h3>{{ singlePlan.planName }}</h3>
   </div>
 
-  <div ng-show="isAuthor">
-
-    <div class="row">
-      <div class="small-6 large-6 columns">
-        <section id="timeline">
-          <div class="plan-time">
-            <h3>Timeline</h3>
-            <span><input type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
-            <span><button ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
-          </div>
-          <ul class="small-block-grid-2">
-            <li ng-repeat="poi in pois">
-              <p>{{ poi.name }}</p>
-              <form oninput="amount.value=rangeInput.value">
-                <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
-                <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
-              </form>
-            </li>
-          </ul>
-          <div class="slider">
-            <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
-          </div>
-        </section>
-      </div>
-      <div class="small-6 large-6 columns totals">
-        <h3>Totals</h3>
-        <p>Plan Time: <span id="totalPlanTime"></span></p>
-        <p>Allocated Time: <span id="totalAllottedTime"></span></p>
-        <p>Travel Time: <span id="duration"></span></p>
-        <p>Time Available: <span id="totalTimeAvailable"></span></p>
-        <p>Travel Distance: <span id="distance"></span></p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="small-6 large-6 columns">
-        <section id="map">
-          <h3>Map</h3>
-          <div id="map-pois"></div>
-        </section>
-      </div>
-      <div class="small-6 large-6 columns">
-        <div class="before-after">
-          <h3>Before | After</h3>
-          <input type="text" id="routeStart" value="" placeholder="Before" />
-          <input type="text" id="routeEnd" value="" placeholder="After" />
-          <p><button ng-click="getDirections(pois)">Update</button></p>
+  <div class="row">
+    <div class="small-6 large-6 columns">
+      <section id="timeline">
+        <div class="plan-time">
+          <h3>Timeline</h3>
+          <span><input ng-show="isAuthor" type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
+          <span><button ng-show="isAuthor" ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
         </div>
-        <div class="how">
-          <h3>How</h3>
-          <span><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</span>
-          <span><input type="radio" name="travelMode" value="WALKING" /> Walking</span><br />
-          <span><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</span>
-          <span><input type="radio" name="travelMode" value="TRANSIT" /> Public Transport</span><br />
-          <button id="toggle_traffic">Traffic</button>
-          <button ng-click="directions = !directions">Directions</button>
-          <button ng-click="getDirections(pois)">Update</button>
+        <ul class="small-block-grid-2">
+          <li ng-repeat="poi in pois">
+            <p>{{ poi.name }}</p>
+            <form oninput="amount.value=rangeInput.value" ng-disabled="!isAuthor">
+              <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
+              <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
+            </form>
+          </li>
+        </ul>
+        <div class="slider" ng-show="isAuthor">
+          <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
         </div>
-      </div>
+      </section>
     </div>
+    <div class="small-6 large-6 columns totals">
+      <h3>Totals</h3>
+      <p>Plan Time: <span id="totalPlanTime"></span></p>
+      <p>Allocated Time: <span id="totalAllottedTime"></span></p>
+      <p>Travel Time: <span id="duration"></span></p>
+      <p>Time Available: <span id="totalTimeAvailable"></span></p>
+      <p>Travel Distance: <span id="distance"></span></p>
+    </div>
+  </div>
 
-    <div class="row" ng-show="directions">
-      <div class="small-12 large-12 columns">
-        <div id="directionsPanel"></div>
+  <div class="row">
+    <div class="small-6 large-6 columns">
+      <section id="map">
+        <h3>Map</h3>
+        <div id="map-pois"></div>
+      </section>
+    </div>
+    <div class="small-6 large-6 columns">
+      <div class="before-after">
+        <h3>Before | After</h3>
+        <input ng-disabled="!isAuthor" type="text" id="routeStart" value="" placeholder="Before" />
+        <input ng-disabled="!isAuthor" type="text" id="routeEnd" value="" placeholder="After" />
+        <p ng-show="isAuthor"><button ng-click="getDirections(pois)">Update</button></p>
+      </div>
+      <div class="how">
+        <h3>How</h3>
+        <span><input ng-disabled="!isAuthor" type="radio" name="travelMode" value="DRIVING" checked /> Driving</span>
+        <span><input ng-disabled="!isAuthor" type="radio" name="travelMode" value="WALKING" /> Walking</span><br />
+        <span><input ng-disabled="!isAuthor" type="radio" name="travelMode" value="BICYCLING" /> Bicycling</span>
+        <span><input ng-disabled="!isAuthor" type="radio" name="travelMode" value="TRANSIT" /> Public Transport</span><br />
+        <button id="toggle_traffic">Traffic</button>
+        <button ng-click="directions = !directions">Directions</button>
+        <button ng-disabled="!isAuthor" ng-click="getDirections(pois)">Update</button>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="small-12 large-12 columns comments">
-        <h3>myPlanit Comments</h3>
-        <form id="comments" ng-submit="updateComments(singlePlan)">
-          <textarea rows="4" cols="10" ng-model="singlePlan.comments" placeholder="add comments for Plan"></textarea>
-          <button>Update</button>
-        </form>
-      </div>
+  <div class="row" ng-show="directions">
+    <div class="small-12 large-12 columns">
+      <div id="directionsPanel"></div>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 large-12 columns comments">
+      <h3>myPlanit Comments</h3>
+      <form id="comments" ng-submit="updateComments(singlePlan)">
+        <textarea rows="4" cols="10" ng-disabled="!isAuthor" ng-model="singlePlan.comments" placeholder="add comments for Plan"></textarea>
+        <button ng-show="isAuthor">Update</button>
+      </form>
+    </div>
+  </div>
 
 </div>
