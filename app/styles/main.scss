@@ -18,7 +18,7 @@ th, tr, td {
   background-image: url('../images/bg20.png');
 }
 
-button {
+button, button a {
   background-color: HSLA(105, 92%, 38%, 1);
   border-radius: 5px;
   &:hover {
@@ -186,9 +186,10 @@ button {
     // main section
     .main-profile {
       clear: both;
-      padding-top: 20px;
+      padding-top: 5px;
       button {
         padding: 7px 15px 7px 15px;
+        margin-bottom: 35px;
       }
       .profile-filter {
         overflow: auto;
@@ -216,7 +217,10 @@ button {
         margin-bottom: 50px;
       }
       .grid {
+        margin: 0px;
         text-align: center;
+        background-color: HSLA(0, 0%, 100%, 1);
+        border: 1px solid HSLA(0, 0%, 90%, 1);
         &:nth-child(2n) {
           background-color: HSLA(0, 0%, 20%, 0.05);
         }
