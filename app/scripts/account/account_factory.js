@@ -8,7 +8,6 @@
 
         var signUp = function (user) {
           return $http.post(usersUrl, user, PARSE_HEADERS).success( function (data) {
-            console.log(data);
             return login(user); // run login function once signed up
           });
         }

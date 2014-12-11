@@ -1,7 +1,7 @@
 (function () {
   angular.module('myPlanit')
-    .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS', '$q',
-      function (PARSE_URI, $http, PARSE_HEADERS, $q) {
+    .factory('SingleTimelineFactory', ['PARSE_URI', '$http', 'PARSE_HEADERS',
+      function (PARSE_URI, $http, PARSE_HEADERS) {
 
         // set variables to accessible
         var poiLat;
@@ -13,9 +13,6 @@
         var updateTimes = function (pois, singlePlan, tPM) {
           // update on Parse the specifiic plan's totalPlanMins
           return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
-            console.log(data);
-
-
                 // instantiate a directions renderer
                 directionsDisplay = new google.maps.DirectionsRenderer();
                 // create a new google maps latlng object with first poi's lat and lng
@@ -235,10 +232,8 @@
                     for (var i = 0; i < legs.length; i++) {
                       // add up each distance value
                       totalDistance += legs[i].distance.value;
-                      console.log(totalDistance);
                       // add up each duration value
                       totalDuration += legs[i].duration.value;
-                      console.log(totalDuration);
                     }
                     // value to convert meters to miles
                     var meters_to_miles = 0.000621371192;
@@ -253,10 +248,8 @@
                     _.each(pois, function (pois) {
                       // grab allottedTime for all pois
                       var allAllottedTimes = parseInt(pois.allottedTime, 10);
-                      console.log(allAllottedTimes);
                       // add allocated times for each poi together and store in tAT
                       tAT = tAT + allAllottedTimes;
-                      console.log(tAT);
                     });
 
                     // set var to total plan mins
@@ -297,9 +290,7 @@
 
         var updateComments = function (singlePlan) {
           // update on Parse the specifiic plan's comments
-          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
-            console.log(data);
-          });
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS);
         }
 
         return {

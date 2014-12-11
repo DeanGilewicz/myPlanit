@@ -18,9 +18,7 @@
           if($('#query').val() == "") {
             alert('please enter something to search for');
           } else {
-            return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+dest+'&query='+$('#query').val()+'').success(function (data) {
-            console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/search?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&near='+dest+'&query='+$('#query').val()+'');
           }
         }
 
@@ -28,9 +26,7 @@
         var doTopPicks = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=topPicks').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=topPicks');
           } else {
             alert('please remove search term and try again');
           }
@@ -40,9 +36,7 @@
         var doTrending = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=trending').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=trending');
           } else {
             alert('please remove search term and try again');
           }
@@ -52,9 +46,7 @@
         var doSights = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=sights').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=sights');
           } else {
             alert('please remove search term and try again');
           }
@@ -64,9 +56,7 @@
         var doFood = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=food').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=food');
           } else {
             alert('please remove search term and try again');
           }
@@ -76,9 +66,7 @@
         var doDrinks = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=drinks').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=drinks');
           } else {
             alert('please remove search term and try again');
           }
@@ -88,9 +76,7 @@
         var doShops = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=shops').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=shops');
           } else {
             alert('please remove search term and try again');
           }
@@ -100,9 +86,7 @@
         var doArts = function (singlePlan) {
           var dest = singlePlan.destination;
           if($('#query').val() == "") {
-            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=arts').success(function (data) {
-              console.log(data);
-            });
+            return $http.get('https://api.foursquare.com/v2/venues/explore?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806&limit=10&time=any&day=any&near='+dest+'&section=arts');
           } else {
             alert('please remove search term and try again');
           }
@@ -110,32 +94,19 @@
 
         // function to get details for each poi returned from search results
         var poiDetails = function (objId) {
-          return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806').success(function (data) {
-            console.log(data);
-          }).error(function(data) {
-            console.log('error');
-          });
+          return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806');
         }
         // function to get details for each poi returned from explore results
         var poiExDetails = function (objId) {
-          return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806').success(function (data) {
-            console.log(data);
-          }).error(function(data) {
-            console.log('error');
-          });
+          return $http.get('https://api.foursquare.com/v2/venues/' + objId + '?client_id=EWYWBGQ5MJ0J2HMJGPYAKMUFZGMCO1DNOFQ4AETJEC4EWPJY&client_secret=5VAOVVTHM0TAXBPOWDESBODD2HLHH4JULBWWA0ZPGA1WN3YG&v=20140806');
         }
 
         // add a poi to "plan" list - result is the poi object, singlePlan is the current Plan object
         var addPoi = function (result, singlePlan) {
-          console.log(result);
           // push the object into the pois table in the current Plan object
-          // if result.veue ) {regular way}
           singlePlan.pois.push({ name: result.name, id: result.id, allottedTime: 0, lat: result.location.lat, lng: result.location.lng });
           // update the array with the new object singlePlan
-          $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function (data) {
-                console.log(data);
-            });
-
+          $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS);
         }
 
         // delete single poi
@@ -148,9 +119,7 @@
 
         var updateNotes = function (singlePlan) {
           // update on Parse the specifiic plan's notes
-          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
-            console.log(data);
-          });
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS);
         }
 
         return {

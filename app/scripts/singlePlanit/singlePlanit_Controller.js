@@ -5,7 +5,6 @@
 
         // call function that uses plan id for route and store the payload in singlePlan (current plan object)
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
-          console.log(data);
           // set scope so have access to Plan object in other functions in this scope
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
@@ -26,7 +25,6 @@
               alert('sorry nothing found');
             } else {
               $scope.searchResults = data.response.venues;
-              console.log($scope.searchResults);
             }
             $('.userSearch')[0].reset();
           });
@@ -39,9 +37,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doTopPicks(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -52,9 +48,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doTrending(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -65,9 +59,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doSights(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -78,9 +70,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doFood(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -91,9 +81,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doDrinks(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -104,9 +92,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doShops(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -117,9 +103,7 @@
           $scope.isCategoryArea = true;
 
           SinglePlanitFactory.doArts(singlePlan).success( function (data) {
-            console.log(data);
             $scope.exploreResults = data.response.groups[0].items;
-            console.log($scope.exploreResults);
           });
         }
 
@@ -129,10 +113,8 @@
           $scope.showDetails = true;
 
           SinglePlanitFactory.poiDetails(objId).success( function (data) {
-            console.log(data);
             $scope.allDetails = data.response.venue;
             $scope.schedule = data.response.venue.popular.timeframes;
-            console.log($scope.schedule);
           });
         }
 
@@ -158,9 +140,7 @@
         // passing in the plan object, index position, entire plan object
         $scope.deletePoi = function (result, index, singlePlan) {
           // call function to delete poi
-          SinglePlanitFactory.deletePoi(result, index, singlePlan).success( function (data) {
-            console.log(data);
-          });
+          SinglePlanitFactory.deletePoi(result, index, singlePlan);
         }
 
         $scope.updateNotes = function (singlePlan) {

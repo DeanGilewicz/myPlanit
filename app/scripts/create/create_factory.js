@@ -12,13 +12,10 @@
         function getLocation(location) {
           lat = location.coords.latitude;
           lng = location.coords.longitude;
-          console.log(lat);
-          console.log(lng);
         }
 
         // create var to use in createPlan function in dbObject
         var currentUser = $cookieStore.get('currentUser');
-        console.log(currentUser);
         // create var to keep code cleaner when post
         var planUrl = PARSE_URI + 'classes/Plans';
 
@@ -51,7 +48,6 @@
           }
           // save Plan object to Parse
           $http.post(planUrl, dbObject, PARSE_HEADERS).success( function (data) {
-            console.log(data);
             // take user to the plan view
             $location.path('/profile');
           });

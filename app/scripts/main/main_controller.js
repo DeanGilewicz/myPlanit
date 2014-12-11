@@ -5,7 +5,6 @@
 
         // call fucntion to get plans by current user
         MainFactory.allPublishedPlans().success( function (data) {
-          console.log(data);
           // set scope so can be accessed
           $scope.allPublishedPlans = data.results;
         });
