@@ -55,6 +55,8 @@
       function ($rootScope, $location, AccountFactory) {
         $rootScope.$on('$routeChangeStart', function () {
           AccountFactory.checkUser();
+          // Set Up Our Foundation
+          $(document).foundation();
         });
     }]);
 

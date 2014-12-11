@@ -275,10 +275,20 @@
           font-weight: 600;
           font-size: 1em;
         }
+        button {
+          margin: 10px 8px 0px 8px;
+          padding: 5px 15px 5px 15px;
+          width: 25%;
+        }
       }
     }
+    // #myModal {
+    //   h3 {
+    //     text-align: center;
+    //   }
+    // }
     .planIt {
-      margin-bottom: 40px;
+      margin: 40px 0px 40px 0px;
       .plan {
         h2 {
           margin-bottom: 10px;

@@ -8,10 +8,10 @@
   <div class="row">
 
     <div class="small-12 large-12 columns search">
-      <div class="userSearch">
+      <form class="userSearch">
         <input type="text" name="query" id="query" value="" placeholder="where to go">
         <button ng-click="doSearch(singlePlan)">Search</button>
-      </div>
+      </form>
       <div class="catSearch">
       <p>Not sure where to go - check out these suggestions...</p>
         <button ng-click="doTopPicks(singlePlan)">Top Picks</button>
@@ -33,8 +33,8 @@
               <p>{{ searchResult.name }}</p>
               <p>{{ searchResult.location.address }}</p>
               <p>{{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
-              <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
-              <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
+              <button data-reveal-id="myModal" ng-click="poiDetails(searchResult.id)">i</button>
+              <button ng-click="addPoi(searchResult, categoryResult)">+</button>
             </li>
           </ul>
         </div>
@@ -44,29 +44,31 @@
               <p>{{ categoryResult.venue.name }}</p>
               <p>{{ categoryResult.venue.location.address }}</p>
               <p>{{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
-              <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
-              <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
+              <button data-reveal-id="myModal" ng-click="poiDetails(categoryResult.venue.id)">i</button>
+              <button ng-click="addPoi(searchResult, categoryResult)">+</button>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <section ng-show="showDetails" id="details">
-      <h3>Poi Details</h3>
-      <h5>Description</h5>
-      <p>{{ allDetails.description }}</p>
-      <h5>Rating</h5>
-      <p>{{ allDetails.rating }}</p>
-      <h5>Website</h5>
-      <p>{{ allDetails.url }}</p>
-      <h5>Telephone</h5>
-      <p>{{ allDetails.contact.formattedPhone }}</p>
-      <h5>Hours</h5>
-      <li ng-repeat="hours in schedule">
-        <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
-        </li>
-    </section>
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <section ng-show="showDetails">
+        <h3>{{ allDetails.name }}</h3>
+        <h5>Description</h5>
+        <p>{{ allDetails.description }}</p>
+        <h5>Rating</h5>
+        <p>{{ allDetails.rating }}</p>
+        <h5>Website</h5>
+        <p>{{ allDetails.url }}</p>
+        <h5>Telephone</h5>
+        <p>{{ allDetails.contact.formattedPhone }}</p>
+        <h5>Hours</h5>
+        <li ng-repeat="hours in schedule">
+          <p>{{ hours.days }} {{ hours.open[0].renderedTime }}<p>
+          </li>
+        </section>
+    </div>
 
     <div class="small-12 large-12 columns planIt">
 

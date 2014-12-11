@@ -26,6 +26,7 @@
               $scope.searchResults = data.response.venues;
               console.log($scope.searchResults);
             }
+            $('.userSearch')[0].reset();
           });
         }
 
