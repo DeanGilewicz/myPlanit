@@ -13,15 +13,13 @@
           <h3>Times</h3>
           <span><input ng-show="isAuthor" type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
           <span><button ng-show="isAuthor" ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
-        </div>
-        <div class="slider" ng-show="isAuthor">
-          <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
+          <span><button ng-show="isAuthor" ng-click="updateAllottedTime(pois)">Update</button></span>
         </div>
         <ul class="small-block-grid-2">
           <li ng-repeat="poi in pois">
             <p>{{ poi.name }}</p>
-            <form oninput="amount.value=rangeInput.value" ng-disabled="!isAuthor">
-              <input type="range" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
+            <form oninput="amount.value=rangeInput.value">
+              <input type="range" ng-disabled="!isAuthor" ng-model="poi.allottedTime" id="rangeInput" name="rangeInput" step="1" min="0" max="{{ singlePlan.totalPlanMins }}">
               <output name="amount" for="rangeInput">{{ poi.allottedTime }}</output>
             </form>
           </li>

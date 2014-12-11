@@ -23,7 +23,7 @@ th, tr, td {
   background-repeat: repeat;
 }
 
-button, button a, button:focus {
+button, button a, button:focus, button:disabled {
   background-color: HSLA(105, 92%, 38%, 1);
   border-radius: 5px;
   font-family: $fFamBtn;
@@ -398,15 +398,12 @@ button, button a, button:focus {
       }
       input {
         display: inline;
-        width: 50%;
+        width: 30%;
+        text-align: center;
       }
       button {
         padding: 10px;
       }
-    }
-    .slider button {
-      padding: 7px 15px 7px 15px;
-      width: 30%;
     }
     .totals {
       h3 {
@@ -431,6 +428,7 @@ button, button a, button:focus {
       input {
         width: 50%;
         display: inline;
+        text-align: center;
       }
       button {
         width: 50%;
@@ -458,7 +456,12 @@ button, button a, button:focus {
     }
     .comments {
       margin-top: 50px;
+      textarea {
+        margin-top: 10px;
+        text-align: center;
+      }
       button {
+        margin-top: 10px;
         padding: 7px 15px 7px 15px;
         width: 30%;
       }
