@@ -21,6 +21,9 @@ th, tr, td {
   background-image: url('../images/bg20.png');
   background-size: auto;
   background-repeat: repeat;
+  max-width: 80%;
+  min-height: 100%;
+  margin: 0 auto;
 }
 
 button, button a, button:focus, button:disabled {
@@ -55,7 +58,7 @@ button, button a, button:focus, button:disabled {
 
 // in all views set base styles
 .all-views {
-  margin: 10px auto 0 auto;
+  margin: 0px auto 0px auto;
   width: 80%;
   padding: 50px 0px 0px 0px;
   font-size: 62.5%;

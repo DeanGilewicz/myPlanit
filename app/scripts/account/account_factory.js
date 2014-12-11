@@ -17,7 +17,8 @@
           return $http.get(loginUrl + params, PARSE_HEADERS).success( function (data) {
               $cookieStore.remove('currentUser');
               $cookieStore.put('currentUser', data);
-              $location.path('/profile')
+              $location.path('/profile');
+              location.reload();
             });
         }
 
