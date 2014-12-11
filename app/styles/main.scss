@@ -6,11 +6,13 @@ $fFamT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 h1, h2, h3, h4, h5 {
   font-family: $fFamH;
 }
-span, p, input, th, tr, td {
+
+span, p, input {
   font-family: $fFamB;
 }
+
 th, tr, td {
-  font-family: $fFamT;
+  font-family: $fFamB;
 }
 
 // background image for index html - present in all views
@@ -18,7 +20,7 @@ th, tr, td {
   background-image: url('../images/bg20.png');
 }
 
-button, button a {
+button, button a, button:focus {
   background-color: HSLA(105, 92%, 38%, 1);
   border-radius: 5px;
   &:hover {
@@ -113,7 +115,7 @@ button, button a {
         text-align: center;
         button {
           width: 80%;
-          padding: 7px 15px 7px 9px;
+          padding: 7px 10px 7px 10px;
           margin: 0px;
         }
       }
@@ -231,6 +233,12 @@ button, button a {
         p:nth-child(2) {
           font-size: 1.2em;
           font-weight: 600;
+        }
+        span a button {
+          margin-bottom: 10px;
+        }
+        span button{
+          margin: 0px;
         }
         button {
           width: 30%;
