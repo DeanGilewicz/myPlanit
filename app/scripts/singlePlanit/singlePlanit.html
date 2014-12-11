@@ -30,9 +30,10 @@
         <div id="searchResultsArea" ng-show="isSearchArea">
           <ul class="small-block-grid-5">
             <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
-              <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
               <p>{{ searchResult.name }}</p>
-              <p>{{ searchResult.location.address }} {{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
+              <p>{{ searchResult.location.address }}</p>
+              <p>{{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
+              <a href="" ng-click="poiDetails(searchResult.id)">Details</a>
               <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
             </li>
           </ul>
@@ -40,9 +41,10 @@
         <div id="categoryResultsArea" ng-show="isCategoryArea">
           <ul class="small-block-grid-5">
             <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
-              <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
               <p>{{ categoryResult.venue.name }}</p>
-              <p>{{ categoryResult.venue.location.address }} {{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
+              <p>{{ categoryResult.venue.location.address }}</p>
+              <p>{{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
+              <a href="" ng-click="poiDetails(categoryResult.venue.id)">Details</a>
               <button ng-click="addPoi(searchResult, categoryResult)">Add</button>
             </li>
           </ul>
@@ -66,11 +68,11 @@
         </li>
     </section>
 
-    <div class="small-12 large-12 columns">
+    <div class="small-12 large-12 columns planIt">
 
-      <div class="small-6 large-6 columns">
+      <div class="small-7 large-7 columns plan ">
         <h2>Plan</h2>
-        <ul>
+        <ul class="small-block-grid-2">
           <li ng-repeat="poi in pois" id="{{ poi.id }}">
             <p>{{ poi.name }}</p>
             <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
@@ -78,22 +80,14 @@
         </ul>
       </div>
 
-      <div class="small-6 large-6 columns">
-        <h3>myPlanit Notes: (private)</h3>
+      <div class="small-5 large-5 columns notes">
+        <h3>myPlanit</h3>
         <form id="notes" ng-submit="updateNotes(singlePlan)">
-          <textarea rows="4" cols="10" ng-model="singlePlan.notes" placeholder="add notes for Plan"></textarea>
           <button>Update</button>
+          <textarea rows="10" cols="10" ng-model="singlePlan.notes" placeholder="add notes for Plan"></textarea>
         </form>
       </div>
 
-    </div>
-
-    <div class="small-12 large-12 columns">
-      <h3>myPlanit Comments: (will show if publish Plan)</h3>
-      <form id="comments" ng-submit="updateComments(singlePlan)">
-        <textarea rows="4" cols="10" ng-model="singlePlan.comments" placeholder="add comments for Plan"></textarea>
-        <button>Update</button>
-      </form>
     </div>
 
     <div class="small-12 large-12 columns">

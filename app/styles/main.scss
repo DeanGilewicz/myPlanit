@@ -230,8 +230,8 @@
 
   // SINGLEPLANIT VIEW
   .singlePlanit-container {
+    text-align: center;
     .top {
-      text-align: center;
       width: 100%;
       h1 {
         margin-bottom: 20px;
@@ -239,7 +239,6 @@
     }
     .search {
       margin-top: 30px;
-      text-align: center;
       .userSearch {
         input {
           display: inline;
@@ -264,16 +263,45 @@
     .results {
       margin-top: 25px;
       text-align: center;
+      min-height: 200px;
       #searchResultsArea,
       #categoryResultsArea {
         margin-top: 20px;
+        p {
+          margin: 0px;
+          font-size: 0.8em;
+        }
+        p:first-child {
+          font-weight: 600;
+          font-size: 1em;
+        }
       }
     }
-
-
-
-
-
+    .planIt {
+      margin-bottom: 40px;
+      .plan {
+        h2 {
+          margin-bottom: 10px;
+        }
+        p {
+          float: left;
+        }
+        button {
+          float: left;
+          margin-left: 8px;
+          padding: 5px;
+        }
+      }
+      .notes {
+        h3 {
+          float: left;
+        }
+        button {
+          float: right;
+          padding: 8px;
+        }
+      }
+    }
   }
 
 

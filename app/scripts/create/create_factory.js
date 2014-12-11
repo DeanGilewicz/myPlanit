@@ -37,8 +37,8 @@
               "iso": plan.date,
             },
             "status": "private",
-            "notes": " ",
-            "comments": " ",
+            "notes": "",
+            "comments": "",
             "author": currentUser.username,
             // create array column in db inside of Plans object for pois
             pois: poiArray,

@@ -18,17 +18,10 @@
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
 
           if($cookieStore.get('currentUser').username === data.author) {
-            console.log($cookieStore.get('currentUser').username);
-            console.log(data.author);
             $scope.isAuthor = true;
           } else {
             $scope.isAuthor = false;
-            console.log($cookieStore.get('currentUser').username);
-            console.log(data.author);
           }
-
-
-          console.log(data);
 
           // set scope so have access to Plan object in other functions in this scope
           $scope.singlePlan = data;
@@ -42,14 +35,17 @@
             SingleTimelineFactory.calcTimes($scope.pois, $scope.singlePlan);
           });
 
-          // call total allotted func
-
           // set scope so function can be called in html with ng-click
           $scope.getDirections = function (pois) {
             SingleTimelineFactory.getDirections(pois);
           }
 
         });
+
+        $scope.updateComments = function (singlePlan) {
+          // call function passing in singlePlan
+          SingleTimelineFactory.updateNotes(singlePlan);
+        }
 
       }
 

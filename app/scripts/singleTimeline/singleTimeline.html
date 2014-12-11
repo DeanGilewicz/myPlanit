@@ -28,6 +28,12 @@
     </ul>
   </section>
 
+  <h3>myPlanit Comments</h3>
+  <form id="comments" ng-submit="updateComments(singlePlan)">
+    <button>Update</button>
+    <textarea rows="4" cols="10" ng-model="singlePlan.comments" placeholder="add comments for Plan"></textarea>
+  </form>
+
   <section id="map">
     <h3>Map</h3>
     <div id="map-pois"></div>

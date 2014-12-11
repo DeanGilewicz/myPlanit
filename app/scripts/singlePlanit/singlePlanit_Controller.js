@@ -165,11 +165,6 @@
           SinglePlanitFactory.updateNotes(singlePlan);
         }
 
-        $scope.updateComments = function (singlePlan) {
-          // call function passing in singlePlan
-          SinglePlanitFactory.updateNotes(singlePlan);
-        }
-
     }
 
   ]);

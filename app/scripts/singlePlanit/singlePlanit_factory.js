@@ -153,14 +153,6 @@
           });
         }
 
-        var updateComments = function (singlePlan) {
-          // update on Parse the specifiic plan's comments
-          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
-            console.log(data);
-          });
-        }
-
-
         return {
           getOnePlan:     getOnePlan,
           doSearch:       doSearch,
@@ -175,8 +167,7 @@
           poiExDetails:   poiExDetails,
           addPoi:         addPoi,
           deletePoi:      deletePoi,
-          updateNotes:    updateNotes,
-          updateComments: updateComments
+          updateNotes:    updateNotes
         }
 
       }

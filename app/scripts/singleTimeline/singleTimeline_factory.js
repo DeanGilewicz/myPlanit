@@ -29,6 +29,12 @@
           });
         }// end of updateAllottedTime func
 
+        var updateComments = function (singlePlan) {
+          // update on Parse the specifiic plan's comments
+          return $http.put(PARSE_URI + 'classes/Plans/' + singlePlan.objectId, singlePlan, PARSE_HEADERS).success( function(data) {
+            console.log(data);
+          });
+        }
 
         var mapPois = function (pois) {
           // instantiate a directions renderer
@@ -77,7 +83,7 @@
         }// end of mapPois func
 
         // Maps API allows a max of 8 waypoints for personal. Business customers are allowed 23 waypoints, plus the origin, and destination.
-        
+
         var getDirections = function (pois) {
           return $q(function (resolve){
 
@@ -337,8 +343,8 @@
           updateAllottedTime:  updateAllottedTime,
           calcTimes:           calcTimes,
           mapPois:             mapPois,
-          getDirections:       getDirections
-
+          getDirections:       getDirections,
+          updateComments:      updateComments
         }
 
       }// end of factory func
