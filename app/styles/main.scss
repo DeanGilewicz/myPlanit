@@ -2,6 +2,7 @@
 $fFamH: 'Libre Baskerville', serif;
 $fFamB: 'Sanchez', serif;
 $fFamT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fFamBtn: 'Quattrocento', serif;
 
 h1, h2, h3, h4, h5 {
   font-family: $fFamH;
@@ -18,11 +19,14 @@ th, tr, td {
 // background image for index html - present in all views
 .bg-img {
   background-image: url('../images/bg20.png');
+  background-size: auto;
+  background-repeat: repeat;
 }
 
 button, button a, button:focus {
   background-color: HSLA(105, 92%, 38%, 1);
   border-radius: 5px;
+  font-family: $fFamBtn;
   &:hover {
     background-color: HSLA(105, 92%, 30%, 1);
   }
@@ -312,7 +316,13 @@ button, button a, button:focus {
       min-height: 200px;
       #searchResultsArea,
       #categoryResultsArea {
-        margin-top: 20px;
+        margin: 20px 0px 40px 0px;
+        .bgC{
+          background-color: HSLA(0, 0%, 20%, 0.05);
+          &:nth-child(2n) {
+            background-color: HSLA(0, 0%, 100%, 0.4);
+          }
+        }
         p {
           margin: 0px;
           font-size: 0.8em;
@@ -332,21 +342,27 @@ button, button a, button:focus {
       h2 {
         margin-bottom: 10px;
       }
+      .bgC{
+        background-color: HSLA(0, 0%, 20%, 0.05);
+        &:nth-child(2n) {
+          background-color: HSLA(0, 0%, 100%, 0.4);
+        }
+      }
       p {
-        float: left;
+        margin-bottom: 3px;
       }
       button {
-        float: left;
-        margin-left: 8px;
-        padding: 5px;
+        padding: 4px;
       }
     }
     .notes {
       h3 {
         float: left;
+        margin-top: 8px;
       }
       button {
         float: right;
+        margin-top: 8px;
         padding: 8px;
       }
     }
@@ -369,14 +385,12 @@ button, button a, button:focus {
         margin-bottom: 20px;
       }
       h3 {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
       }
-      button {
-        padding: 5px 10px 5px 10px;
-        width: 15%;
-        font-size: 0.8em;
-        margin-bottom: 30px;
-      }
+    }
+    button {
+      padding: 7px 15px 7px 15px;
+      margin-bottom: 35px;
     }
     .plan-time {
       h3 {
@@ -425,7 +439,7 @@ button, button a, button:focus {
     }
     .how {
       h3 {
-        margin: 50px 0px 20px 0px;
+        margin: 50px 0px 10px 0px;
       }
       span {
         margin: 0px 10px 0px 10px;

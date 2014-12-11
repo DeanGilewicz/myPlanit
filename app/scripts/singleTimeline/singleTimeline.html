@@ -1,8 +1,8 @@
 <div class="singleTimeline-container">
 
   <div class="top">
-    <h1>myTimeline</h1>
-    <h3>{{ singlePlan.planName }}</h3>
+    <h1>{{ singlePlan.planName }}</h1>
+    <h3>{{ singlePlan.destination }}</h3>
     <a href="#/singlePlanit/{{ singlePlan.objectId }}"><button ng-show="isAuthor">Edit Plan</button></a>
   </div>
 
@@ -10,9 +10,12 @@
     <div class="small-6 large-6 columns">
       <section id="timeline">
         <div class="plan-time">
-          <h3>Timeline</h3>
+          <h3>Times</h3>
           <span><input ng-show="isAuthor" type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
           <span><button ng-show="isAuthor" ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
+        </div>
+        <div class="slider" ng-show="isAuthor">
+          <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
         </div>
         <ul class="small-block-grid-2">
           <li ng-repeat="poi in pois">
@@ -23,9 +26,6 @@
             </form>
           </li>
         </ul>
-        <div class="slider" ng-show="isAuthor">
-          <span><button ng-click="updateAllottedTime(pois)">Update</button></span>
-        </div>
       </section>
     </div>
     <div class="small-6 large-6 columns totals">

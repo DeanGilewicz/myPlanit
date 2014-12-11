@@ -30,7 +30,7 @@
         <h3>Search Results</h3>
         <div id="searchResultsArea" ng-show="isSearchArea">
           <ul class="small-block-grid-5">
-            <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}">
+            <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}" class="bgC">
               <p>{{ searchResult.name }}</p>
               <p>{{ searchResult.location.address }}</p>
               <p>{{ searchResult.location.city }} {{ searchResult.location.postalCode }}</p>
@@ -41,7 +41,7 @@
         </div>
         <div id="categoryResultsArea" ng-show="isCategoryArea">
           <ul class="small-block-grid-5">
-            <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}">
+            <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}" class="bgC">
               <p>{{ categoryResult.venue.name }}</p>
               <p>{{ categoryResult.venue.location.address }}</p>
               <p>{{ categoryResult.venue.location.city }} {{ categoryResult.venue.location.postalCode }}</p>
@@ -76,7 +76,7 @@
     <div class="small-7 large-7 columns plan ">
       <h2>Plan</h2>
       <ul class="small-block-grid-2">
-        <li ng-repeat="poi in pois" id="{{ poi.id }}">
+        <li ng-repeat="poi in pois" id="{{ poi.id }}" class="bgC">
           <p>{{ poi.name }}</p>
           <button ng-click="deletePoi(poi, $index, singlePlan)">X</button>
         </li>
