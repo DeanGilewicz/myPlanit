@@ -7,14 +7,14 @@
   </div>
 
   <div class="row">
-    <div class="small-2 medium-12 large-6 columns">
+    <div class="small-12 medium-6 large-6 columns">
       <div class="plan-time">
         <h3>Times</h3>
         <span><input ng-show="isAuthor" type="number" ng-model="singlePlan.totalPlanMins" min="0" max="1440" /></span>
-        <span><button ng-show="isAuthor" ng-click="updateMaxPlanTime(singlePlan, singlePlan.totalPlanMins)">Set</button></span>
-        <span><button ng-show="isAuthor" ng-click="updateAllottedTime(pois)">Update</button></span>
+        <!-- <span><button ng-show="isAuthor" ng-click="updateTimes(pois, singlePlan, tPM)">Set</button></span> -->
+        <span><button ng-show="isAuthor" ng-click="updateTimes(pois, singlePlan, tPM)">Update</button></span>
       </div>
-      <ul class="small-block-grid-12 medium-block-grid-4 large-block-grid-2">
+      <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
         <li ng-repeat="poi in pois">
           <p>{{ poi.name }}</p>
           <form oninput="amount.value=rangeInput.value">
@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <div class="small-12 medium-12 large-6 columns totals">
+    <div class="small-12 medium-6 large-6 columns totals">
       <h3>Totals</h3>
       <p>Plan Time: <span id="totalPlanTime"></span></p>
       <p>Allocated Time: <span id="totalAllottedTime"></span></p>
@@ -35,18 +35,18 @@
   </div>
 
   <div class="row">
-    <div class="small-12 large-6 columns">
+    <div class="small-12 medium-6 large-6 columns">
       <section id="map">
         <h3>Map</h3>
         <div id="map-pois"></div>
       </section>
     </div>
-    <div class="small-12 large-6 columns">
+    <div class="small-12 medium-6 large-6 columns">
       <div class="before-after">
         <h3>Before | After</h3>
         <input ng-disabled="!isAuthor" type="text" id="routeStart" value="" placeholder="Before" />
         <input ng-disabled="!isAuthor" type="text" id="routeEnd" value="" placeholder="After" />
-        <p ng-show="isAuthor"><button ng-click="getDirections(pois)">Update</button></p>
+        <p ng-show="isAuthor"><button ng-click="updateTimes(pois, singlePlan, tPM)">Update</button></p>
       </div>
       <div class="how">
         <h3>How</h3>
@@ -56,13 +56,13 @@
         <span><input ng-disabled="!isAuthor" type="radio" name="travelMode" value="TRANSIT" /> Public Transport</span><br />
         <button id="toggle_traffic">Traffic</button>
         <button ng-click="directions = !directions">Directions</button>
-        <button ng-disabled="!isAuthor" ng-click="getDirections(pois)">Update</button>
+        <button ng-disabled="!isAuthor" ng-click="updateTimes(pois, singlePlan, tPM)">Update</button>
       </div>
     </div>
   </div>
 
   <div class="row" ng-show="directions">
-    <div class="small-12 large-12 columns">
+    <div class="small-12 medium-6 large-12 columns">
       <div id="directionsPanel"></div>
     </div>
   </div>

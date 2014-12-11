@@ -4,16 +4,6 @@
       function (SinglePlanitFactory, SingleTimelineFactory, $routeParams, $scope, $cookieStore) {
 
 
-        $scope.updateMaxPlanTime = function (singlePlan, updateMaxTime) {
-          // call function passing in singlePlan
-          SingleTimelineFactory.updateMaxPlanTime(singlePlan, updateMaxTime);
-        }
-
-        $scope.updateAllottedTime = function (pois) {
-          // call function passing in poi, the value of the input form and the whole plan object
-          SingleTimelineFactory.updateAllottedTime(pois, $scope.singlePlan);
-        }
-
         // call function that uses plan id for route and store the payload in singlePlan (current plan object)
         SinglePlanitFactory.getOnePlan($routeParams.id).success( function (data) {
 
@@ -29,22 +19,24 @@
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
           $scope.pois = data.pois;
+
+          $scope.tPM = data.totalPlanMins
+
+
+// THIS IS THE FUNCTION THAT WILL RUN ON INITIAL LOAD
+
           // call map function once the single plan object has been returned so can pass this to factory
-          SingleTimelineFactory.mapPois(data.pois);
-
-          SingleTimelineFactory.getDirections(data.pois).then(  function () {
-
-            SingleTimelineFactory.calcTimes($scope.pois, $scope.singlePlan);
-          });
-
-          // set scope so function can be called in html with ng-click
-          $scope.getDirections = function (pois) {
-            SingleTimelineFactory.getDirections(pois).then(  function () {
-              SingleTimelineFactory.calcTimes($scope.pois, $scope.singlePlan);
-            });
-          }
+          SingleTimelineFactory.updateTimes($scope.pois, $scope.singlePlan, $scope.tPM);
 
         });
+
+        // SAME FUNCTION LINKED TO 3 UPDATE BUTTONS THAT IS SAME FUNCTION THAT RUNS ON INITLAL PAGE LOAD
+
+        // set scope so function can be called in html with ng-click
+        $scope.updateTimes = function (pois, singlePlan, tPM) {
+          SingleTimelineFactory.updateTimes($scope.pois, $scope.singlePlan, $scope.tPM);
+        }
+
 
         $scope.updateComments = function (singlePlan) {
           // call function passing in singlePlan
