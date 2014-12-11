@@ -23,6 +23,8 @@
             $scope.isAuthor = false;
           }
 
+          $scope.directions = false;
+
           // set scope so have access to Plan object in other functions in this scope
           $scope.singlePlan = data;
           // set scope for pois contained in Plan object
