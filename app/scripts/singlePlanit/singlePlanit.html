@@ -29,7 +29,7 @@
       <div class="results">
         <h3>Search Results</h3>
         <div id="searchResultsArea" ng-show="isSearchArea">
-          <ul class="small-block-grid-2 medium-block-grid-5 large-block-grid-10">
+          <ul class="small-block-grid-2 medium-block-grid-5 large-block-grid-5">
             <li ng-repeat="searchResult in searchResults" id="{{ searchResult.id }}" class="bgC">
               <p>{{ searchResult.name }}</p>
               <p>{{ searchResult.location.address }}</p>
@@ -40,7 +40,7 @@
           </ul>
         </div>
         <div id="categoryResultsArea" ng-show="isCategoryArea">
-          <ul class="small-block-grid-2 medium-block-grid-5 large-block-grid-10">
+          <ul class="small-block-grid-2 medium-block-grid-5 large-block-grid-5">
             <li ng-repeat="categoryResult in exploreResults" id="{{ categoryResult.venue.id }}" class="bgC">
               <p>{{ categoryResult.venue.name }}</p>
               <p>{{ categoryResult.venue.location.address }}</p>
