@@ -4,6 +4,28 @@ $fFamB: 'Sanchez', serif;
 $fFamT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $fFamBtn: 'Quattrocento', serif;
 
+@mixin form() {
+  margin: 0 auto;
+  width: 40%;
+  h2 {
+    margin: 20px 0px 30px 0px;
+    text-align: center;
+  }
+  input {
+    height: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  button {
+    margin-top: 10px;
+    width: 100%;
+  }
+  p {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+}
+
 h1, h2, h3, h4, h5 {
   font-family: $fFamH;
 }
@@ -129,55 +151,15 @@ button, button a, button:focus, button:disabled {
     }
   }
 
-  // SIGN UP VIEW
+  // SIGN UP, LOGIN, CREATE VIEWS
 
-  // form
-  #signUp-container {
-    margin: 0 auto;
-    width: 40%;
-    h2 {
-      margin: 20px 0px 30px 0px;
-      text-align: center;
-    }
-    input {
-      height: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      margin-top: 10px;
-      width: 100%;
-    }
-    p {
-      text-align: center;
-      padding-bottom: 50px;
-    }
+  // forms
+  #signUp-container,
+  #login-container,
+  #create-container {
+    @include form;
   }
 
-  // LOGIN VIEW
-
-  // form
-  #login-container {
-    margin: 0 auto;
-    width: 40%;
-    h2 {
-      margin: 20px 0px 30px 0px;
-      text-align: center;
-    }
-    input {
-      height: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      margin-top: 10px;
-      width: 100%;
-    }
-    p {
-      text-align: center;
-      padding-bottom: 50px;
-    }
-  }
 
   // PROFILE VIEW
 
@@ -257,27 +239,6 @@ button, button a, button:focus, button:disabled {
           margin-bottom: 0px;
         }
       }
-    }
-  }
-
-  // CREATE VIEW
-
-  // form
-  #create-container {
-    margin: 0 auto;
-    width: 40%;
-    h2 {
-      margin: 20px 0px 30px 0px;
-      text-align: center;
-    }
-    input {
-      height: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    button {
-      margin-top: 10px;
-      width: 100%;
     }
   }
 
