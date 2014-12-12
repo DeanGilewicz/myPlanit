@@ -471,21 +471,37 @@ button, button a, button:focus, button:disabled {
         width: 30%;
       }
     }
-
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
+}
+#myModal {
+  background-image: url('../../images/logo10.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  a {
+    color: HSLA(105, 92%, 28%, 1);
+    margin-right: 10px;
+  }
+  h3 {
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: HSLA(105, 92%, 28%, 1);
+    font-weight: 600;
+  }
+  h5 {
+    font-size: 1.4em;
+    color: HSLA(105, 92%, 38%, 1);
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  li {
+    list-style-type: none;
+  }
+  p:last-child {
+    margin: 0px;
+  }
 }
