@@ -31,6 +31,7 @@
             // remove the poi based on it's obj id (list in view)
             $('li#' + plan.objectId).remove();
           });
+
         }
     }
 

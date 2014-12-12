@@ -35,7 +35,9 @@
 
         $scope.updateComments = function (singlePlan) {
           // call function passing in singlePlan
-          SingleTimelineFactory.updateComments(singlePlan);
+          SingleTimelineFactory.updateComments(singlePlan).success( function() {
+            swal("done", "comments have been updated", "success");
+          });
         }
 
       }
