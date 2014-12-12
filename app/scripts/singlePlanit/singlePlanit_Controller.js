@@ -22,7 +22,7 @@
           SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
             var check = data.response.venues;
             if(check == []) {
-              alert('sorry nothing found');
+              swal('sorry nothing found');
             } else {
               $scope.searchResults = data.response.venues;
             }
@@ -146,7 +146,7 @@
         $scope.updateNotes = function (singlePlan) {
           // call function passing in singlePlan
           SinglePlanitFactory.updateNotes(singlePlan).success( function () {
-            alert('notes have been updated');
+            swal("done", "notes have been updated", "success");
           });
         }
 
