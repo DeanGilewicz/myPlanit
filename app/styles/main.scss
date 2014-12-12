@@ -329,6 +329,9 @@ button, button a, button:focus, button:disabled {
         margin-top: 8px;
         padding: 8px;
       }
+      textarea {
+        text-align: center;
+      }
     }
     .plan-it {
       margin-top: 40px;
@@ -436,7 +439,7 @@ button, button a, button:focus, button:disabled {
 }
 #myModal {
   background-image: url('../../images/logo10.png');
-  background-size: 90%;
+  background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
