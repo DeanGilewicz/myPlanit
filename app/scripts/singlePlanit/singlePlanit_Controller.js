@@ -145,7 +145,9 @@
 
         $scope.updateNotes = function (singlePlan) {
           // call function passing in singlePlan
-          SinglePlanitFactory.updateNotes(singlePlan);
+          SinglePlanitFactory.updateNotes(singlePlan).success( function () {
+            alert('notes have been updated');
+          });
         }
 
     }
