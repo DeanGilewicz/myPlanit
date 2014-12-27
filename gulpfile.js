@@ -29,6 +29,11 @@ gulp.task('html', ['styles'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('ng-templates', function () {
+  return gulp.src('app/scripts/**/*.html')
+  .pipe(gulp.dest('dist/scripts'));
+});
+
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
@@ -41,11 +46,6 @@ gulp.task('images', function () {
 gulp.task('fonts', function () {
   return gulp.src('app/fonts/**/*')
     .pipe(gulp.dest('dist/fonts'));
-});
-
-gulp.task('templates', function () {
-  return gulp.src('app/templates/**/*')
-  .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('extras', function () {
@@ -113,7 +113,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'templates', 'extras'], function () {
+gulp.task('build', ['html', 'images', 'fonts', 'extras', 'ng-templates'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
