@@ -216,6 +216,7 @@
             // remove the poi based on it's obj id (list in view)
             $('li#' + plan.objectId).remove();
           });
+
         }
     }
 
@@ -369,7 +370,7 @@
           SinglePlanitFactory.doSearch(singlePlan).success( function (data) {
             var check = data.response.venues;
             if(check == []) {
-              alert('sorry nothing found');
+              swal('sorry nothing found');
             } else {
               $scope.searchResults = data.response.venues;
             }
@@ -492,7 +493,9 @@
 
         $scope.updateNotes = function (singlePlan) {
           // call function passing in singlePlan
-          SinglePlanitFactory.updateNotes(singlePlan);
+          SinglePlanitFactory.updateNotes(singlePlan).success( function () {
+            swal("done", "notes have been updated", "success");
+          });
         }
 
     }
@@ -685,7 +688,9 @@
 
         $scope.updateComments = function (singlePlan) {
           // call function passing in singlePlan
-          SingleTimelineFactory.updateComments(singlePlan);
+          SingleTimelineFactory.updateComments(singlePlan).success( function() {
+            swal("done", "comments have been updated", "success");
+          });
         }
 
       }
